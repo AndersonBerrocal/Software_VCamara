@@ -1,0 +1,128 @@
+﻿.FondoBanerPrincipal
+{
+}
+
+.FondoPrincipal
+{
+	width: 970px;
+}
+
+.FondoPrincipalBorde
+{
+	border: 1px solid #C0C0C0;
+	width: 970px;
+}
+
+
+div.BanerPrincipal
+{
+	width: 987px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	vertical-align:middle;
+    height: 100px;
+}
+
+table.tbPrincipal
+{
+	width: 970px;
+	position: absolute;
+	left: 15px;
+	top: 19px;
+	font-family: Calibri;
+	vertical-align: middle;
+    right: 99px;
+}
+
+table.tbPrincipal2
+{
+	font-family: Calibri;
+	vertical-align: middle;
+    width: 970px;
+}
+
+div.Logo
+{
+	width: 90px;
+
+	height: 80px;
+}
+
+div.LogoTexto
+{
+	width: 210px;
+	height: 45px;
+}
+
+div.EmpresaTexto
+{
+	width: 205px;
+	height: 45px;
+	color: #D7D7D7;
+	font-size: 14px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	text-align: justify;
+}
+
+strong.SistemaNombre
+{
+	color: #000066;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	text-align: right;
+}
+
+strong.UsuarioNombre
+{
+	color: #000066;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	text-align: right;
+}
+
+strong.UsuarioCargo
+{
+	color: #000066;
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	text-align: right;
+}
+
+strong.UsuarioOficina
+{
+	color: #000066;
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	text-align: right;
+}
+
+div.FechaSistema
+{
+	width: 380px;
+	height: 22px;
+	color: #FF6600;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	text-align: right;
+}
+
+
+.PanelPrincipal
+{ 
+	border: 1px solid #C0C0C0;
+	width: 970px;
+ }
+

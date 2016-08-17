@@ -1,0 +1,2520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DISModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="DISEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="pa_audit_InsertaBitacora">
+      <Parameter Name="Param_IdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="Param_Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Param_Comando" Mode="In" Type="String" />
+      <Parameter Name="Param_Idarchivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_devuelveresultado" ReturnType="Collection(DISModelo.pa_devuelveresultado_Result)">
+      <Parameter Name="idarchivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_envioCorreo_Procesos">
+      <Parameter Name="Para" Mode="In" Type="String" />
+      <Parameter Name="CC" Mode="In" Type="String" />
+      <Parameter Name="CCO" Mode="In" Type="String" />
+      <Parameter Name="Asunto" Mode="In" Type="String" />
+      <Parameter Name="Cuerpo" Mode="In" Type="String" />
+      <Parameter Name="FormatoCuerpo" Mode="In" Type="String" />
+      <Parameter Name="Archivos" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_AgregaReferenciaTablaArchivo">
+      <Parameter Name="NombreArchivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_ArchivoValido">
+      <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_CierreCarga">
+      <Parameter Name="IdCarga" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_ConsultaEstadoArchivo" ReturnType="Collection(Int32)">
+      <Parameter Name="NombreArchivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_Imputa_Nomina">
+      <Parameter Name="idarchivo" Mode="In" Type="Int32" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_InsertaHistorialCarga">
+      <Parameter Name="Aux_IdArchivo" Mode="In" Type="Int32" />
+      <Parameter Name="Aux_IdReglaArchivo" Mode="In" Type="Int32" />
+      <Parameter Name="Aux_TipoLinea" Mode="In" Type="String" />
+      <Parameter Name="Aux_NumeroLinea" Mode="In" Type="Int32" />
+      <Parameter Name="Aux_CampoInicial" Mode="In" Type="Int32" />
+      <Parameter Name="Aux_LargoCampo" Mode="In" Type="Int32" />
+      <Parameter Name="Aux_ValorCampo" Mode="In" Type="String" />
+      <Parameter Name="Aux_CumpleValidacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_InsertaReferenciaArchivo" ReturnType="Collection(Int32)">
+      <Parameter Name="NombreArchivo" Mode="In" Type="String" />
+      <Parameter Name="usuarioModificacion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_ObtieneErrorArchivo" ReturnType="Collection(DISModelo.pa_file_ObtieneErrorArchivo_Result)">
+      <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_ObtienePrimerCaracterLineaPorTipoArchivo" ReturnType="Collection(String)">
+      <Parameter Name="Param_TipoArchivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_ObtieneReglavalidacionArchivo" ReturnType="Collection(String)">
+      <Parameter Name="Archivo" Mode="In" Type="String" />
+      <Parameter Name="Tipo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_ObtieneTipoArchivos" ReturnType="Collection(String)" />
+    <FunctionImport Name="pa_impactanegocio" ReturnType="Collection(DISModelo.pa_impactanegocio_Result)">
+      <Parameter Name="idarchivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_impactanomina" ReturnType="Collection(Int32)">
+      <Parameter Name="idnomina" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_imputa_aad">
+      <Parameter Name="idnomina" Mode="In" Type="Int32" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_imputa_ppp">
+      <Parameter Name="idnomina" Mode="In" Type="Int32" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_imputa_ppr">
+      <Parameter Name="idnomina" Mode="In" Type="Int32" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_imputa_prp">
+      <Parameter Name="idnomina" Mode="In" Type="Int32" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_imputa_rgs">
+      <Parameter Name="idnomina" Mode="In" Type="Int32" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_ReporteArchivo_CUSPP" ReturnType="Collection(DISModelo.pa_ReporteArchivo_CUSPP_Result)">
+      <Parameter Name="CUSPP" Mode="In" Type="String" />
+      <Parameter Name="ArchivoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_rpt_archivocarga_fecha" ReturnType="Collection(DISModelo.pa_rpt_archivocarga_fecha_Result)">
+      <Parameter Name="tipo" Mode="In" Type="Int32" />
+      <Parameter Name="fechainicio" Mode="In" Type="DateTime" />
+      <Parameter Name="fechatermino" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="pa_rptNominas" ReturnType="Collection(DISModelo.pa_rptNominas_Result)" />
+    <FunctionImport Name="pa_rptPrimas">
+      <Parameter Name="periodo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_CodigoTransferenciaNomina" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+      <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+      <Parameter Name="LargoCampo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_CUSPP" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_EjecutaProcedimientoAlmacenado" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_EjecutaQuery" ReturnType="Collection(String)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_Fecha" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+      <Parameter Name="Inicio" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_MontoAlto" ReturnType="Collection(Int32)">
+      <Parameter Name="idarchivo" Mode="In" Type="Int32" />
+      <Parameter Name="idusuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_NoEspacios" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_Numero12x2" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_Numero2x2" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_Numero4x7" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_Numero7x2" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_Numero8x2" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_ObtieneValor" ReturnType="Collection(Int32)">
+      <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroLinea" Mode="In" Type="Int32" />
+      <Parameter Name="CampoInicial" Mode="In" Type="Int32" />
+      <Parameter Name="LargoCampo" Mode="In" Type="Int32" />
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_Periodo" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_Periodo_PrimaPag" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_persona" ReturnType="Collection(Int32)">
+      <Parameter Name="PrimerNombre" Mode="In" Type="String" />
+      <Parameter Name="SegundoNombre" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="CUSPP" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_RetornaTrue" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="pa_valida_SoloNumeros" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_SumaDetalleEnTotal" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+      <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroLinea" Mode="In" Type="Int32" />
+      <Parameter Name="CampoInicial" Mode="In" Type="Int32" />
+      <Parameter Name="LargoCampo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_valida_TotalNominaEnLiquidacion" ReturnType="Collection(Int32)">
+      <Parameter Name="valor" Mode="In" Type="String" />
+      <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroLinea" Mode="In" Type="Int32" />
+      <Parameter Name="CampoInicial" Mode="In" Type="Int32" />
+      <Parameter Name="LargoCampo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Valida_RangoFechaXContrato" ReturnType="Collection(Int32)">
+      <Parameter Name="date1" Mode="In" Type="DateTime" />
+      <Parameter Name="date2" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="pa_upd_ApruebaLinCabNomina">
+      <Parameter Name="IdContrato" Mode="In" Type="Int32" />
+      <Parameter Name="IdHistoriaLinCab" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_upd_cambiaEstadoNomina">
+      <Parameter Name="IdArchivoNomina" Mode="In" Type="Int32" />
+      <Parameter Name="IdContrato" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_upd_InactivaLinCabNomina">
+      <Parameter Name="IdContrato" Mode="In" Type="Int32" />
+      <Parameter Name="IdHistoriaLinCab" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_Valida_RangoFechaXContratoV2" ReturnType="Collection(Int32)">
+      <Parameter Name="date1" Mode="In" Type="DateTime" />
+      <Parameter Name="date2" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_pagoNominaApruebaDetalle" ReturnType="Collection(DISModelo.pa_sel_pagoNominaApruebaDetalle_Result)">
+      <Parameter Name="IdHistoriaLinCab" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_ObtieneReglasArchivoPorLinea" ReturnType="Collection(DISModelo.pa_file_ObtieneReglasArchivoPorLinea_Result)">
+      <Parameter Name="Param_TipoArchivo" Mode="In" Type="String" />
+      <Parameter Name="Param_TipoLinea" Mode="In" Type="String" />
+      <Parameter Name="Num_Contrato" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_file_CantidadRegistroArchivo" ReturnType="Collection(DISModelo.pa_file_CantidadRegistroArchivo_Result)">
+      <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_historiaLinDetXArchivo" ReturnType="Collection(DISModelo.pa_sel_historiaLinDetXArchivo_Result)">
+      <Parameter Name="NombreArchivo" Mode="In" Type="String" />
+      <Parameter Name="IdeContrato" Mode="In" Type="Int32" />
+      <Parameter Name="CumpleValidacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_NominaForTelebankinByArchivoId" ReturnType="Collection(DISModelo.pa_sel_NominaForTelebankinByArchivoId_Result)">
+      <Parameter Name="ArchivoId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_nominaXArchivo" ReturnType="Collection(DISModelo.pa_sel_nominaXArchivo_Result)">
+      <Parameter Name="IdeContrato" Mode="In" Type="Int32" />
+      <Parameter Name="NombreArchivo" Mode="In" Type="String" />
+      <Parameter Name="CumpleValidacion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="pa_copia_reglaArchivo" ReturnType="Collection(Int32)">
+      <Parameter Name="NroContrato" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_create_cuenta_26_export_sis">
+      <Parameter Name="ArchivoNominaId" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroAsiento" Mode="In" Type="Int32" />
+      <Parameter Name="TipoArchivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_NominaForTelebanking" ReturnType="Collection(DISModelo.pa_sel_NominaForTelebanking_Result)">
+      <Parameter Name="IdeContrato" Mode="In" Type="Int32" />
+      <Parameter Name="FechaCarga" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_confirmaPagoNomina">
+      <Parameter Name="ArchivoId" Mode="In" Type="Int32" />
+      <Parameter Name="Column" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_LogOperacion" ReturnType="Collection(DISModelo.pa_sel_LogOperacion_Result)">
+      <Parameter Name="IdeContrato" Mode="In" Type="Int32" />
+      <Parameter Name="TipoEvento" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_pagoNominaAprueba" ReturnType="Collection(DISModelo.pa_sel_pagoNominaAprueba_Result)">
+      <Parameter Name="IdeContrato" Mode="In" Type="Int32" />
+      <Parameter Name="NombreTipoArchivo" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="pa_create_cuenta_42_26_sis" ReturnType="Collection(String)">
+      <Parameter Name="ExactusCabeceraId" Mode="In" Type="Int32" />
+      <Parameter Name="Asiento" Mode="In" Type="String" />
+      <Parameter Name="ArchivoNominaId" Mode="In" Type="Int32" />
+      <Parameter Name="NumeroAsiento" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_historiaCargaArchivoLinDet" ReturnType="Collection(DISModelo.pa_sel_historiaCargaArchivoLinDet_Result)">
+      <Parameter Name="NombreTipoArchivo" Mode="In" Type="String" />
+      <Parameter Name="IDE_CONTRATO" Mode="In" Type="Int32" />
+      <Parameter Name="COD_AFP" Mode="In" Type="String" />
+      <Parameter Name="COD_CUSP" Mode="In" Type="String" />
+      <Parameter Name="PRI_NOMB_PEN" Mode="In" Type="String" />
+      <Parameter Name="APE_MATE_PEN" Mode="In" Type="String" />
+      <Parameter Name="NUM_DOCU_PEN" Mode="In" Type="String" />
+      <Parameter Name="NUM_SOLI_PEN" Mode="In" Type="String" />
+      <Parameter Name="TIP_MONE" Mode="In" Type="String" />
+      <Parameter Name="FEC_PAGO_INI" Mode="In" Type="DateTime" />
+      <Parameter Name="FEC_PAGO_FIN" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaAprobacionInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaAprobacionHasta" Mode="In" Type="DateTime" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_nominaConsulta" ReturnType="Collection(DISModelo.pa_sel_nominaConsulta_Result)">
+      <Parameter Name="NombreTipoArchivo" Mode="In" Type="String" />
+      <Parameter Name="ContratoId" Mode="In" Type="Int32" />
+      <Parameter Name="NombreBene" Mode="In" Type="String" />
+      <Parameter Name="MonedaId" Mode="In" Type="Int16" />
+      <Parameter Name="Estado" Mode="In" Type="String" />
+      <Parameter Name="FechaCreacionInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaCreacionFin" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaAprobacionInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaAprobacionFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="pa_sel_SegDescarga" ReturnType="Collection(DISModelo.pa_sel_SegDescarga_Result)">
+      <Parameter Name="IdeContrato" Mode="In" Type="Int32" />
+      <Parameter Name="NombreTipoArchivo" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaInicioAprobacion" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinAprobacion" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="CIERRE_PROCESO" EntityType="DISModelo.CIERRE_PROCESO" />
+    <EntitySet Name="CONCEPTOes" EntityType="DISModelo.CONCEPTO" />
+    <EntitySet Name="CONTRATOes" EntityType="DISModelo.CONTRATO" />
+    <EntitySet Name="CONTRATO_SIS_DET" EntityType="DISModelo.CONTRATO_SIS_DET" />
+    <EntitySet Name="CONTRATO_SYS" EntityType="DISModelo.CONTRATO_SYS" />
+    <EntitySet Name="DATO_M" EntityType="DISModelo.DATO_M" />
+    <EntitySet Name="Eventoes" EntityType="DISModelo.Evento" />
+    <EntitySet Name="Exactus" EntityType="DISModelo.Exactu" />
+    <EntitySet Name="EXACTUS_CABECERA_SIS" EntityType="DISModelo.EXACTUS_CABECERA_SIS" />
+    <EntitySet Name="EXACTUS_DETALLE" EntityType="DISModelo.EXACTUS_DETALLE" />
+    <EntitySet Name="EXACTUS_DETALLE_SIS" EntityType="DISModelo.EXACTUS_DETALLE_SIS" />
+    <EntitySet Name="GENERALs" EntityType="DISModelo.GENERAL" />
+    <EntitySet Name="LogOperacions" EntityType="DISModelo.LogOperacion" />
+    <EntitySet Name="NOMINAs" EntityType="DISModelo.NOMINA" />
+    <EntitySet Name="OPERACIONs" EntityType="DISModelo.OPERACION" />
+    <EntitySet Name="sysdiagrams" EntityType="DISModelo.sysdiagram" />
+    <EntitySet Name="HistorialCargaArchivoes" EntityType="DISModelo.HistorialCargaArchivo" />
+    <EntitySet Name="HistorialCargaArchivo_LinCab" EntityType="DISModelo.HistorialCargaArchivo_LinCab" />
+    <EntitySet Name="HistorialCargaArchivo_LinDet" EntityType="DISModelo.HistorialCargaArchivo_LinDet" />
+    <EntitySet Name="ReglaArchivoes" EntityType="DISModelo.ReglaArchivo" />
+    <EntitySet Name="AFPs" EntityType="DISModelo.AFP" />
+    <EntitySet Name="Archivoes" EntityType="DISModelo.Archivo" />
+    <EntitySet Name="Bitacoras" EntityType="DISModelo.Bitacora" />
+    <EntitySet Name="Checkeados" EntityType="DISModelo.Checkeado" />
+    <EntitySet Name="ContratoCSVs" EntityType="DISModelo.ContratoCSV" />
+    <EntitySet Name="Contratos" EntityType="DISModelo.Contrato1" />
+    <EntitySet Name="Correlativos" EntityType="DISModelo.Correlativo" />
+    <EntitySet Name="CSVs" EntityType="DISModelo.CSV" />
+    <EntitySet Name="Documentos" EntityType="DISModelo.Documento" />
+    <EntitySet Name="DocumentoSolicitados" EntityType="DISModelo.DocumentoSolicitado" />
+    <EntitySet Name="EstadoArchivoes" EntityType="DISModelo.EstadoArchivo" />
+    <EntitySet Name="EstadoPagoes" EntityType="DISModelo.EstadoPago" />
+    <EntitySet Name="Imputacions" EntityType="DISModelo.Imputacion" />
+    <EntitySet Name="Monedas" EntityType="DISModelo.Moneda" />
+    <EntitySet Name="MontoAltoes" EntityType="DISModelo.MontoAlto" />
+    <EntitySet Name="Pagos" EntityType="DISModelo.Pago" />
+    <EntitySet Name="Parametros" EntityType="DISModelo.Parametro" />
+    <EntitySet Name="Parentescoes" EntityType="DISModelo.Parentesco" />
+    <EntitySet Name="Personas" EntityType="DISModelo.Persona" />
+    <EntitySet Name="RegistroMontoAltoes" EntityType="DISModelo.RegistroMontoAlto" />
+    <EntitySet Name="Roles" EntityType="DISModelo.Role" />
+    <EntitySet Name="Siniestros" EntityType="DISModelo.Siniestro" />
+    <EntitySet Name="TipoArchivoes" EntityType="DISModelo.TipoArchivo" />
+    <EntitySet Name="TipoCambios" EntityType="DISModelo.TipoCambio" />
+    <EntitySet Name="TipoDocumentoIdentificacions" EntityType="DISModelo.TipoDocumentoIdentificacion" />
+    <EntitySet Name="TipoInformes" EntityType="DISModelo.TipoInforme" />
+    <EntitySet Name="TipoMonedas" EntityType="DISModelo.TipoMoneda" />
+    <EntitySet Name="TipoMovimientos" EntityType="DISModelo.TipoMovimiento" />
+    <EntitySet Name="TipoPensions" EntityType="DISModelo.TipoPension" />
+    <EntitySet Name="TipoRegistroes" EntityType="DISModelo.TipoRegistro" />
+    <EntitySet Name="TipoSolicitudes" EntityType="DISModelo.TipoSolicitude" />
+    <EntitySet Name="COMPROBANTEs" EntityType="DISModelo.COMPROBANTE" />
+    <EntitySet Name="Consultas" EntityType="DISModelo.Consulta" />
+    <EntitySet Name="CONTRATO_DETALLE" EntityType="DISModelo.CONTRATO_DETALLE" />
+    <EntitySet Name="DATO_A" EntityType="DISModelo.DATO_A" />
+    <EntitySet Name="EXACTUS_CABECERA" EntityType="DISModelo.EXACTUS_CABECERA" />
+    <EntitySet Name="EXACTUS_DETALLE_EXPORT_SIS" EntityType="DISModelo.EXACTUS_DETALLE_EXPORT_SIS" />
+    <EntitySet Name="USUARIOs" EntityType="DISModelo.USUARIO" />
+    <EntitySet Name="CheckLists" EntityType="DISModelo.CheckList" />
+    <AssociationSet Name="FK_CONTRATO_SIS_DET_CONTRATO_SYS" Association="DISModelo.FK_CONTRATO_SIS_DET_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="CONTRATO_SIS_DET" EntitySet="CONTRATO_SIS_DET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS" Association="DISModelo.FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="EXACTUS_CABECERA_SIS" EntitySet="EXACTUS_CABECERA_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS" Association="DISModelo.FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="EXACTUS_DETALLE_EXPORT_SIS" EntitySet="EXACTUS_DETALLE_EXPORT_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS" Association="DISModelo.FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="HistorialCargaArchivo_LinCab" EntitySet="HistorialCargaArchivo_LinCab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LogOperacion_CONTRATO_SYS" Association="DISModelo.FK_LogOperacion_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="LogOperacion" EntitySet="LogOperacions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOMINA_CONTRATO_SYS" Association="DISModelo.FK_NOMINA_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="NOMINA" EntitySet="NOMINAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_CABECERA_SIS_Archivo" Association="DISModelo.FK_EXACTUS_CABECERA_SIS_Archivo">
+      <End Role="Archivo" EntitySet="Archivoes" />
+      <End Role="EXACTUS_CABECERA_SIS" EntitySet="EXACTUS_CABECERA_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS" Association="DISModelo.FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS">
+      <End Role="EXACTUS_CABECERA_SIS" EntitySet="EXACTUS_CABECERA_SIS" />
+      <End Role="EXACTUS_DETALLE_SIS" EntitySet="EXACTUS_DETALLE_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOMINA_Archivo" Association="DISModelo.FK_NOMINA_Archivo">
+      <End Role="Archivo" EntitySet="Archivoes" />
+      <End Role="NOMINA" EntitySet="NOMINAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_Archivo" Association="DISModelo.FK_HistorialCargaArchivo_Archivo">
+      <End Role="Archivo" EntitySet="Archivoes" />
+      <End Role="HistorialCargaArchivo" EntitySet="HistorialCargaArchivoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_ReglaArchivo" Association="DISModelo.FK_HistorialCargaArchivo_ReglaArchivo">
+      <End Role="ReglaArchivo" EntitySet="ReglaArchivoes" />
+      <End Role="HistorialCargaArchivo" EntitySet="HistorialCargaArchivoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_LinCab_Archivo" Association="DISModelo.FK_HistorialCargaArchivo_LinCab_Archivo">
+      <End Role="Archivo" EntitySet="Archivoes" />
+      <End Role="HistorialCargaArchivo_LinCab" EntitySet="HistorialCargaArchivo_LinCab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab" Association="DISModelo.FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab">
+      <End Role="HistorialCargaArchivo_LinCab" EntitySet="HistorialCargaArchivo_LinCab" />
+      <End Role="HistorialCargaArchivo_LinDet" EntitySet="HistorialCargaArchivo_LinDet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AFPSiniestro" Association="DISModelo.FK_AFPSiniestro">
+      <End Role="AFP" EntitySet="AFPs" />
+      <End Role="Siniestro" EntitySet="Siniestros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EstadoArchivoArchivo" Association="DISModelo.FK_EstadoArchivoArchivo">
+      <End Role="EstadoArchivo" EntitySet="EstadoArchivoes" />
+      <End Role="Archivo" EntitySet="Archivoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo" Association="DISModelo.FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo">
+      <End Role="Archivo" EntitySet="Archivoes" />
+      <End Role="EXACTUS_DETALLE_EXPORT_SIS" EntitySet="EXACTUS_DETALLE_EXPORT_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoArchivoArchivo" Association="DISModelo.FK_TipoArchivoArchivo">
+      <End Role="TipoArchivo" EntitySet="TipoArchivoes" />
+      <End Role="Archivo" EntitySet="Archivoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentoCheckeado" Association="DISModelo.FK_DocumentoCheckeado">
+      <End Role="Documento" EntitySet="Documentos" />
+      <End Role="Checkeado" EntitySet="Checkeados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiniestroContrato" Association="DISModelo.FK_SiniestroContrato">
+      <End Role="Contrato1" EntitySet="Contratos" />
+      <End Role="Siniestro" EntitySet="Siniestros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentoDocumentoSolicitado" Association="DISModelo.FK_DocumentoDocumentoSolicitado">
+      <End Role="Documento" EntitySet="Documentos" />
+      <End Role="DocumentoSolicitado" EntitySet="DocumentoSolicitados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoMovimientoDocumentoSolicitado" Association="DISModelo.FK_TipoMovimientoDocumentoSolicitado">
+      <End Role="TipoMovimiento" EntitySet="TipoMovimientos" />
+      <End Role="DocumentoSolicitado" EntitySet="DocumentoSolicitados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonedaTipoMoneda" Association="DISModelo.FK_MonedaTipoMoneda">
+      <End Role="Moneda" EntitySet="Monedas" />
+      <End Role="TipoMoneda" EntitySet="TipoMonedas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pagos_Moneda" Association="DISModelo.FK_Pagos_Moneda">
+      <End Role="Moneda" EntitySet="Monedas" />
+      <End Role="Pago" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiniestroPago" Association="DISModelo.FK_SiniestroPago">
+      <End Role="Siniestro" EntitySet="Siniestros" />
+      <End Role="Pago" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoMovimientoSiniestro" Association="DISModelo.FK_TipoMovimientoSiniestro">
+      <End Role="TipoMovimiento" EntitySet="TipoMovimientos" />
+      <End Role="Siniestro" EntitySet="Siniestros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoSolicitudSiniestro" Association="DISModelo.FK_TipoSolicitudSiniestro">
+      <End Role="TipoSolicitude" EntitySet="TipoSolicitudes" />
+      <End Role="Siniestro" EntitySet="Siniestros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoArchivo_TipoInforme" Association="DISModelo.FK_TipoArchivo_TipoInforme">
+      <End Role="TipoInforme" EntitySet="TipoInformes" />
+      <End Role="TipoArchivo" EntitySet="TipoArchivoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="pa_devuelveresultado_Result">
+    <Property Type="Int32" Name="IdRegistroMontoAlto" Nullable="false" />
+    <Property Type="String" Name="Resultado" Nullable="true" MaxLength="1" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="IdUsuario" Nullable="true" />
+    <Property Type="Int32" Name="IdArchivo" Nullable="true" />
+    <Property Type="String" Name="Cuspp" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="Valor" Nullable="true" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="pa_file_ObtieneErrorArchivo_Result">
+    <Property Type="String" Name="NombreArchivo" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="TipoLinea" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="NumeroLinea" Nullable="true" />
+    <Property Type="Int32" Name="CampoInicial" Nullable="true" />
+    <Property Type="Int32" Name="LargoCampo" Nullable="true" />
+    <Property Type="String" Name="ValorCampo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="InformacionCampo" Nullable="true" MaxLength="3000" />
+    <Property Type="String" Name="FormatoContenido" Nullable="true" MaxLength="3000" />
+  </ComplexType>
+  <ComplexType Name="pa_impactanegocio_Result">
+    <Property Type="Int32" Name="Linea" Nullable="true" />
+    <Property Type="DateTime" Name="FechaEnvio" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="ContratoId" Nullable="true" />
+    <Property Type="Int32" Name="TipoMovimientoId" Nullable="true" />
+    <Property Type="Int32" Name="AfpId" Nullable="true" />
+    <Property Type="String" Name="Cuspp" Nullable="true" MaxLength="12" />
+    <Property Type="Int32" Name="SolicitudId" Nullable="true" />
+    <Property Type="Int32" Name="Monedaid" Nullable="true" />
+    <Property Type="Decimal" Name="Monto" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="Pago" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="usuariomodificacion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CodTransferencia" Nullable="true" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="pa_ReporteArchivo_CUSPP_Result">
+    <Property Type="String" Name="informacioncampo" Nullable="true" MaxLength="3007" />
+    <Property Type="Int32" Name="NumeroLinea" Nullable="true" />
+    <Property Type="String" Name="ValorCampo" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CaracterInicial" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="pa_rpt_archivocarga_fecha_Result">
+    <Property Type="String" Name="Código" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ArchivoId" Nullable="false" />
+    <Property Type="String" Name="Archivo" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="pa_rptNominas_Result">
+    <Property Type="String" Name="Código" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="AFP" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Moneda" Nullable="false" />
+    <Property Type="String" Name="Código_Transferencia" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Monto" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_pagoAprueba_Result">
+    <Property Type="String" Name="NombreArchivo" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="FechaCarga" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="7" />
+    <Property Type="Int32" Name="TotalRegistros" Nullable="true" />
+    <Property Type="Decimal" Name="ImporteTotal" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="PagoVC" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="DateTime" Name="FechaInfo" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UsuReg" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Aprobar" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Eliminar" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_pagoNominaApruebaDetalle_Result">
+    <Property Type="String" Name="NombreArchivo" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="COD_AFP" Nullable="true" MaxLength="4" />
+    <Property Type="Decimal" Name="ImporteTotal" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="PagoVC" Nullable="true" Precision="13" Scale="10" />
+  </ComplexType>
+  <ComplexType Name="pa_file_ObtieneReglasArchivoPorLinea_Result">
+    <Property Type="Int32" Name="IdReglaArchivo" Nullable="false" />
+    <Property Type="String" Name="InformacionCampo" Nullable="true" MaxLength="3000" />
+    <Property Type="Int32" Name="CaracterInicial" Nullable="true" />
+    <Property Type="Int32" Name="LargoCampo" Nullable="true" />
+    <Property Type="String" Name="TipoCampo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="TipoValidacion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ReglaValidacion" Nullable="true" MaxLength="3000" />
+    <Property Type="String" Name="TablaDestino" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="NombreCampo" Nullable="true" MaxLength="50" />
+    <Property Type="Int16" Name="FormaValidacion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="pa_file_CantidadRegistroArchivo_Result">
+    <Property Type="String" Name="Moneda" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="cantidad" Nullable="true" />
+    <Property Type="Decimal" Name="Importe" Nullable="true" Precision="18" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_historiaLinDetXArchivo_Result">
+    <Property Type="DateTime" Name="FechaInsert" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="IdHistorialCargaArchivoLinDet" Nullable="false" />
+    <Property Type="Int64" Name="IdHistorialCargaArchivoLinCab" Nullable="true" />
+    <Property Type="String" Name="TipoLinea" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="NumeroLinea" Nullable="true" />
+    <Property Type="DateTime" Name="FEC_DEVE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FEC_FALL" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FEC_OCUR" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FEC_PAGO_APO_ADI" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FEC_INV_DEF" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CAP_GAST_SEP" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PARE" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="SAL_CIC_SOL" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="TIP_REGI" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="TIP_SOLI" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="NUM_BENE" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="NUM_MESE_DEV" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="POR_BENE" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TIP_IDEN_SOL" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TIP_PENS" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TIP_DOCU_IDE_PEN" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TIP_MOVI" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="COD_CSV_01" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_02" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_03" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_04" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_05" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_06" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_07" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_08" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_AFP" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_IDE_CSV" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="FRA_MESE_DEV" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="IND_PENS_PRE" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="MTO_PPRE_ORI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TIP_CAMB_VTA" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="EXC_PENS_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="EXC_PENS_NM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MES_DEVE" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="CAP_REQU_PEN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CRU_FAMI" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="FEC_NACI" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_NACI_PEN" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_PAGO" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_PAGO_TEX" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_SECI" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_SINI_OCU" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_DEVE_ACT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_DEVE_INI" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_FIN_SUB" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="RAM_PROM_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TAS_INTE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VACIO_10" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DES_PENS_MONE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_APOR_ADI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_APOR_ADI_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_APOR_COM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PENS_PAG" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PPRE_MN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_APOR_OBL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PAGO_REE_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NRO_CSV" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="NUM_DOCU_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_SINI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_SOLI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_SOLI_PEN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_DOCU_PEN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PEN_PAGA_MON" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PEN_BASE_MON" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="REM_PROM_ACT" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_APOR_ACT" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SAL_CIC_MN" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="TIP_CAMB_COM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="TIP_MONE" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TOT_CAPI_REQ_MN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TOT_CAPI_REQ_ORI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="COD_CUSP" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="COD_BENE_MN" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="APE_MATE_PEN" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="APE_MATE_SOLI" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="APE_PATE_PEN" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="APE_PATE_SOL" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PRI_NOMB_PEN" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PRI_NOMB_SOL" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SEG_NOMB_PEN" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SEG_NOMB_SOL" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SUC_INTE" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="CumpleValidacion" Nullable="true" />
+    <Property Type="String" Name="ReglaObservada" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_NominaForTelebankinByArchivoId_Result">
+    <Property Type="String" Name="RUC_BENE" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="NOM_BENE" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="TIP_CTA" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="CTA_BENE" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="IMPORTE" Nullable="true" Precision="24" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_nominaXArchivo_Result">
+    <Property Type="Int32" Name="Id_Nomina" Nullable="false" />
+    <Property Type="Int32" Name="Id_Empresa" Nullable="true" />
+    <Property Type="Int32" Name="ArchivoId" Nullable="true" />
+    <Property Type="Int32" Name="IDE_CONTRATO" Nullable="false" />
+    <Property Type="String" Name="RUC_ORDE" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="CTA_ORDE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="COD_TRAN" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="TIP_MONE" Nullable="true" />
+    <Property Type="Decimal" Name="MON_TRAN" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="FEC_TRAN" Nullable="true" Precision="23" />
+    <Property Type="String" Name="RUC_BENE" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="NOM_BENE" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TIP_CTA" Nullable="true" />
+    <Property Type="String" Name="CTA_BENE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DET_TRAN" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="ReglaObservada" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_NominaForTelebanking_Result">
+    <Property Type="Int32" Name="ArchivoId" Nullable="false" />
+    <Property Type="String" Name="NombreArchivo" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="FechaOperacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="EstadoPago" Nullable="true" MaxLength="1" />
+    <Property Type="Decimal" Name="Importe" Nullable="true" Precision="38" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_LogOperacion_Result">
+    <Property Type="Int64" Name="CodiLogOper" Nullable="false" />
+    <Property Type="Int32" Name="IDE_CONTRATO" Nullable="false" />
+    <Property Type="String" Name="DES_CONTRATO" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="FechEven" Nullable="false" Precision="23" />
+    <Property Type="String" Name="TipoOper" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CodiOper" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="CodiEven" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="CodiUsu" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="CodiCnx" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="TipoEvento" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Evento" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Columna" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="tabla" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_pagoNominaAprueba_Result">
+    <Property Type="Int32" Name="ArchivoId" Nullable="false" />
+    <Property Type="Int64" Name="IdLinCab" Nullable="false" />
+    <Property Type="String" Name="NombreArchivo" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="FechaCarga" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="7" />
+    <Property Type="Int32" Name="TotalRegistros" Nullable="true" />
+    <Property Type="Decimal" Name="ImporteTotal" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="PagoVC" Nullable="true" Precision="9" Scale="6" />
+    <Property Type="DateTime" Name="FechaInfo" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UsuReg" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Aprobar" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Eliminar" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_historiaCargaArchivoLinDet_Result">
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="NombreArchivo" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="FechaAprobacion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaInsert" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="IdHistorialCargaArchivoLinDet" Nullable="false" />
+    <Property Type="Int64" Name="IdHistorialCargaArchivoLinCab" Nullable="true" />
+    <Property Type="String" Name="TipoLinea" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="NumeroLinea" Nullable="true" />
+    <Property Type="DateTime" Name="FEC_DEVE" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FEC_FALL" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FEC_OCUR" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FEC_PAGO_APO_ADI" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FEC_INV_DEF" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CAP_GAST_SEP" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PARE" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="SAL_CIC_SOL" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="TIP_REGI" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="TIP_SOLI" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="NUM_BENE" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="NUM_MESE_DEV" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="POR_BENE" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TIP_IDEN_SOL" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TIP_PENS" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TIP_DOCU_IDE_PEN" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TIP_MOVI" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="COD_CSV_01" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_02" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_03" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_04" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_05" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_06" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_07" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_CSV_08" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_AFP" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="COD_IDE_CSV" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="FRA_MESE_DEV" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="IND_PENS_PRE" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="MTO_PPRE_ORI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TIP_CAMB_VTA" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="EXC_PENS_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="EXC_PENS_NM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MES_DEVE" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="CAP_REQU_PEN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CRU_FAMI" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="FEC_NACI" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_NACI_PEN" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_PAGO" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_PAGO_TEX" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_SECI" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_SINI_OCU" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_DEVE_ACT" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_DEVE_INI" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="FEC_FIN_SUB" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="RAM_PROM_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TAS_INTE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="VACIO_10" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DES_PENS_MONE" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_APOR_ADI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_APOR_ADI_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_APOR_COM" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PENS_PAG" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PPRE_MN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_APOR_OBL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_COM8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_MONE_APO_OBL8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PAGO_REE_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_PRIM_PAG_PENS_AFP8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_DSCT_PENS_PAG_AFP8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_APO_ADI_AFP8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP1" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP2" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP3" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP4" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP5" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP6" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP7" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MTO_SOLE_REE_PAG_AFP8" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NRO_CSV" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="NUM_DOCU_SOL" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_SINI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_SOLI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_SOLI_PEN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_DOCU_PEN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PEN_PAGA_MON" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PEN_BASE_MON" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="REM_PROM_ACT" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NUM_APOR_ACT" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SAL_CIC_MN" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="TIP_CAMB_COM" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="TIP_MONE" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="TOT_CAPI_REQ_MN" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TOT_CAPI_REQ_ORI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="COD_CUSP" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="COD_BENE_MN" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="APE_MATE_PEN" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="APE_MATE_SOLI" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="APE_PATE_PEN" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="APE_PATE_SOL" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PRI_NOMB_PEN" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PRI_NOMB_SOL" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SEG_NOMB_PEN" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SEG_NOMB_SOL" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SUC_INTE" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="CumpleValidacion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_nominaConsulta_Result">
+    <Property Type="DateTime" Name="FechaAprobacion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FechaInsert" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NombreArchivo" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="8" />
+    <Property Type="Int32" Name="Id_Nomina" Nullable="false" />
+    <Property Type="Int32" Name="ArchivoId" Nullable="true" />
+    <Property Type="Int32" Name="IDE_CONTRATO" Nullable="false" />
+    <Property Type="String" Name="RUC_ORDE" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="CTA_ORDE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="COD_TRAN" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="TIP_MONE" Nullable="true" />
+    <Property Type="Decimal" Name="MON_TRAN" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="FEC_TRAN" Nullable="true" Precision="23" />
+    <Property Type="String" Name="RUC_BENE" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="NOM_BENE" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="TIP_CTA" Nullable="true" />
+    <Property Type="String" Name="CTA_BENE" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DET_TRAN" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="pa_sel_SegDescarga_Result">
+    <Property Type="String" Name="NombreArchivo" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="FechaAprobacion" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="FecReg" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UsuReg" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="TotalRegistros" Nullable="true" />
+    <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="7" />
+    <Property Type="Decimal" Name="ImporteTotalSoles" Nullable="true" Precision="38" Scale="6" />
+  </ComplexType>
+  <EntityType Name="CIERRE_PROCESO">
+    <Key>
+      <PropertyRef Name="ID_CIERRE" />
+    </Key>
+    <Property Name="ID_CIERRE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NRO_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_INFO" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_CIE" Type="DateTime" Precision="0" />
+    <Property Name="ANIO_CIERRE" Type="Int32" />
+    <Property Name="MES_CIERRE" Type="Int32" />
+    <Property Name="NRO_REGISTRO" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_CIERRE" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="TOTAL_MONTO" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CONCEPTO">
+    <Key>
+      <PropertyRef Name="ID_CONCEPTO" />
+    </Key>
+    <Property Name="ID_CONCEPTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDE_IMPRESA" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_TABLA" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="CODIGO" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="CLASE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="IS_EDITABLE" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CONTRATO">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO" />
+    </Key>
+    <Property Name="ID_EMPRESA" Type="Int32" />
+    <Property Name="IDE_CONTRATO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NRO_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="COD_RAMO_PRI" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_RAMO_SIN" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="CLA_CONTRATO" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_INI_VIG" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FEC_FIN_VIG" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TIP_CONTRATO" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="COD_MONEDA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_CONTRATANTE" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="POR_PARTICIPA_CIA" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="POR_TASA_RIESGO" Type="Decimal" Precision="8" Scale="4" />
+    <Property Name="POR_TASA_REASEGURO" Type="Decimal" Precision="8" Scale="4" />
+    <Property Name="CENTRO_COSTO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="POR_IMPUESTO" Type="Decimal" Precision="8" Scale="4" />
+    <Property Name="DES_CONTRATO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MOD_CONTRATO" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="POR_RETENCION" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="POR_CESION" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_MAX_RETENCION" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_MAX_CESION" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PLENO" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_LINEA_MULT" Type="Int32" />
+    <Property Name="MTO_MAX_CUBERTURA" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_CAPA_XL1" Type="Int32" />
+    <Property Name="PRIORIDAD1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="CESION_EXC_PRIORIDAD1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_MAX_CAP_LIM_SUP1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_MIN_DEPOSITO1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_CAPA_XL2" Type="Int32" />
+    <Property Name="PRIORIDAD2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="CESION_EXC_PRIORIDAD2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_MAX_CAP_LIM_SUP2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_MIN_DEPOSITO2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CONTRATO_SIS_DET">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO_DET" />
+    </Key>
+    <Property Name="IDE_CONTRATO_DET" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDE_CONTRATO" Type="Int32" />
+    <Property Name="COD_CSV" Type="Int32" />
+    <Property Name="PRC_PARTICIACION" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="NRO_ORDEN" Type="Int32" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="USU_REG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CONTRATO_SYS" Relationship="DISModelo.FK_CONTRATO_SIS_DET_CONTRATO_SYS" FromRole="CONTRATO_SIS_DET" ToRole="CONTRATO_SYS" />
+  </EntityType>
+  <EntityType Name="CONTRATO_SYS">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO" />
+    </Key>
+    <Property Name="IDE_CONTRATO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_EMPRESA" Type="Int32" />
+    <Property Name="NRO_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CLA_CONTRATO" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_INI_VIG" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FEC_FIN_VIG" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CENTRO_COSTO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DES_CONTRATO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NRO_EMPRESAS" Type="Int32" />
+    <NavigationProperty Name="CONTRATO_SIS_DET" Relationship="DISModelo.FK_CONTRATO_SIS_DET_CONTRATO_SYS" FromRole="CONTRATO_SYS" ToRole="CONTRATO_SIS_DET" />
+    <NavigationProperty Name="EXACTUS_CABECERA_SIS" Relationship="DISModelo.FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS" FromRole="CONTRATO_SYS" ToRole="EXACTUS_CABECERA_SIS" />
+    <NavigationProperty Name="EXACTUS_DETALLE_EXPORT_SIS" Relationship="DISModelo.FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS" FromRole="CONTRATO_SYS" ToRole="EXACTUS_DETALLE_EXPORT_SIS" />
+    <NavigationProperty Name="HistorialCargaArchivo_LinCab" Relationship="DISModelo.FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS" FromRole="CONTRATO_SYS" ToRole="HistorialCargaArchivo_LinCab" />
+    <NavigationProperty Name="LogOperacions" Relationship="DISModelo.FK_LogOperacion_CONTRATO_SYS" FromRole="CONTRATO_SYS" ToRole="LogOperacion" />
+    <NavigationProperty Name="NOMINAs" Relationship="DISModelo.FK_NOMINA_CONTRATO_SYS" FromRole="CONTRATO_SYS" ToRole="NOMINA" />
+  </EntityType>
+  <EntityType Name="DATO_M">
+    <Key>
+      <PropertyRef Name="IDE_DATA_M" />
+    </Key>
+    <Property Name="IDE_EMPRESA" Type="Int32" />
+    <Property Name="IDE_DATA_M" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TIPO_INFO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="NRO_CONTRATO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ANIO_VIGENTE" Type="Int32" />
+    <Property Name="MES_VIGENTE" Type="Int32" />
+    <Property Name="MES_CONTABLE" Type="Int32" />
+    <Property Name="COD_RAMO" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="COD_PRODUCTO" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="MTO_ABONADO" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PRIMA_EST" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Precision="3" />
+    <Property Name="USU_REG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="CodiEven" />
+    </Key>
+    <Property Name="CodiEven" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="TipoEven" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DescEven" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AbreEven" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EstEven" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Exactu">
+    <Key>
+      <PropertyRef Name="RowNumber" />
+    </Key>
+    <Property Name="RowNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventClass" Type="Int32" />
+    <Property Name="TextData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NTUserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LoginName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CPU" Type="Int32" />
+    <Property Name="Reads" Type="Int64" />
+    <Property Name="Writes" Type="Int64" />
+    <Property Name="Duration" Type="Int64" />
+    <Property Name="ClientProcessID" Type="Int32" />
+    <Property Name="SPID" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="BinaryData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="DatabaseName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="HostName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NTDomainName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RowCounts" Type="Int64" />
+  </EntityType>
+  <EntityType Name="EXACTUS_CABECERA_SIS">
+    <Key>
+      <PropertyRef Name="IDE_EXACTUS_CABECERA_SIS" />
+    </Key>
+    <Property Name="IDE_EXACTUS_CABECERA_SIS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDE_CONTRATO" Type="Int32" Nullable="false" />
+    <Property Name="ArchivoId" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_ARCHIVO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDE_MONEDA" Type="Int32" />
+    <Property Name="ASIENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PAQUETE" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="TIPO_ASIENTO" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CONTABILIDAD" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO_TRANSFERENCIA" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PERMITIR_DESCUADRADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONSERVAR_NUMERACION" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ACTUALIZAR_CONSECUTIVO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FECHA_AUDITORIA" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USUARIO_REGISTRO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CONTRATO_SYS" Relationship="DISModelo.FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS" FromRole="EXACTUS_CABECERA_SIS" ToRole="CONTRATO_SYS" />
+    <NavigationProperty Name="Archivo" Relationship="DISModelo.FK_EXACTUS_CABECERA_SIS_Archivo" FromRole="EXACTUS_CABECERA_SIS" ToRole="Archivo" />
+    <NavigationProperty Name="EXACTUS_DETALLE_SIS" Relationship="DISModelo.FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS" FromRole="EXACTUS_CABECERA_SIS" ToRole="EXACTUS_DETALLE_SIS" />
+  </EntityType>
+  <EntityType Name="EXACTUS_DETALLE">
+    <Key>
+      <PropertyRef Name="CONSECUTIVO" />
+    </Key>
+    <Property Name="NRO_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ANIO_VIGENTE" Type="Int32" Nullable="false" />
+    <Property Name="MES_VIGENTE" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_INFO" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ASIENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CONSECUTIVO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CENTRO_COSTO" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CUENTA_CONTABLE" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FUENTE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="REFERENCIA" Type="String" Nullable="false" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRIBUYENTE" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MONTO_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONTO_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONTO_UNIDADES" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="FECHA_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ESTADO_TRANSFERENCIA" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION4" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION5" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EXACTUS_DETALLE_SIS">
+    <Key>
+      <PropertyRef Name="IDE_EXACTUS_DETALLE_SIS" />
+    </Key>
+    <Property Name="IDE_EXACTUS_DETALLE_SIS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDE_EXACTUS_CABECERA_SIS" Type="Int32" Nullable="false" />
+    <Property Name="ASIENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CENTRO_COSTO" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CUENTA_CONTABLE" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FUENTE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="REFERENCIA" Type="String" Nullable="false" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRIBUYENTE" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MONTO_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONTO_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONTO_UNIDADES" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="FECHA_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ESTADO_TRANSFERENCIA" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION4" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DIMENSION5" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EXACTUS_CABECERA_SIS" Relationship="DISModelo.FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS" FromRole="EXACTUS_DETALLE_SIS" ToRole="EXACTUS_CABECERA_SIS" />
+  </EntityType>
+  <EntityType Name="GENERAL">
+    <Key>
+      <PropertyRef Name="IDE_IMPRESA" />
+    </Key>
+    <Property Name="IDE_IMPRESA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RUC_EMPRESA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ANIO_VIGENTE" Type="Int32" Nullable="false" />
+    <Property Name="MES_VEGENTE" Type="Int32" Nullable="false" />
+    <Property Name="RUTA_ARCHIVO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NRO_DECIMAL" Type="Int32" />
+    <Property Name="TCA_MES" Type="Decimal" Precision="10" Scale="6" />
+    <Property Name="TCA_ANIO" Type="Decimal" Precision="10" Scale="6" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LogOperacion">
+    <Key>
+      <PropertyRef Name="CodiLogOper" />
+    </Key>
+    <Property Name="CodiLogOper" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDE_CONTRATO" Type="Int32" Nullable="false" />
+    <Property Name="FechEven" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TipoOper" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodiOper" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="CodiEven" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="CodiUsu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CodiCnx" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="Entidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CONTRATO_SYS" Relationship="DISModelo.FK_LogOperacion_CONTRATO_SYS" FromRole="LogOperacion" ToRole="CONTRATO_SYS" />
+  </EntityType>
+  <EntityType Name="NOMINA">
+    <Key>
+      <PropertyRef Name="Id_Nomina" />
+    </Key>
+    <Property Name="Id_Nomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Empresa" Type="Int32" />
+    <Property Name="ArchivoId" Type="Int32" />
+    <Property Name="IDE_CONTRATO" Type="Int32" Nullable="false" />
+    <Property Name="RUC_ORDE" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_ORDE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="COD_TRAN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_MONE" Type="Int32" />
+    <Property Name="MON_TRAN" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FEC_TRAN" Type="DateTime" Precision="3" />
+    <Property Name="RUC_BENE" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="NOM_BENE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_CTA" Type="Int32" />
+    <Property Name="CTA_BENE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DET_TRAN" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CumpleValidacion" Type="Int64" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FechaReg" Type="DateTime" Precision="3" />
+    <Property Name="UsuReg" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ReglaObservada" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoPago" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="CONTRATO_SYS" Relationship="DISModelo.FK_NOMINA_CONTRATO_SYS" FromRole="NOMINA" ToRole="CONTRATO_SYS" />
+    <NavigationProperty Name="Archivo" Relationship="DISModelo.FK_NOMINA_Archivo" FromRole="NOMINA" ToRole="Archivo" />
+  </EntityType>
+  <EntityType Name="OPERACION">
+    <Key>
+      <PropertyRef Name="NRO_OPERACION" />
+    </Key>
+    <Property Name="NRO_OPERACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TIP_OPERACION" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="TIPO_REGISTRO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_REASEGURADOR" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_OPERACION" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ANO_OPERACION" Type="Int32" Nullable="false" />
+    <Property Name="MES_OPERACION" Type="Int32" Nullable="false" />
+    <Property Name="COD_ASEGURADO" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="IDE_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="COD_RAMO" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_MONEDA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="TCA_CAMBIO" Type="Decimal" Precision="10" Scale="6" />
+    <Property Name="ENTORNO_PRIMA_T_2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="ENTORNO_PRIMA_T_1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_ABONADA" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_REG_CONTAB" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_CED_BRUTA" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_CED_MES" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="DES_REG_MES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IMP_IMPUESTO_MES" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_XPAG_REA_CED" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_XCOB_REA_ACE" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_DIRECTO" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_XCOB_REA_CED" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_XPAG_REA_ACE" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="OTR_CTA_XCOB_REA_CED" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="OTR_CTA_XPAG_REA_ACE" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="DSCTO_COMIS_REA" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_DEUDOR" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_ACREEDOR" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ORI_REG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="TIP_COMPROBANTE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="ORIGEN_OPERACION" Type="Int16" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="HistorialCargaArchivo">
+    <Key>
+      <PropertyRef Name="IdHistorialCargaArchivo" />
+    </Key>
+    <Property Name="IdHistorialCargaArchivo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdArchivo" Type="Int32" Nullable="false" />
+    <Property Name="FechaInsert" Type="DateTime" Precision="3" />
+    <Property Name="IdReglaArchivo" Type="Int32" />
+    <Property Name="TipoLinea" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroLinea" Type="Int32" />
+    <Property Name="CampoInicial" Type="Int32" />
+    <Property Name="LargoCampo" Type="Int32" />
+    <Property Name="ValorCampo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CumpleValidacion" Type="Int32" />
+    <Property Name="EsVC" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Archivo" Relationship="DISModelo.FK_HistorialCargaArchivo_Archivo" FromRole="HistorialCargaArchivo" ToRole="Archivo" />
+    <NavigationProperty Name="ReglaArchivo" Relationship="DISModelo.FK_HistorialCargaArchivo_ReglaArchivo" FromRole="HistorialCargaArchivo" ToRole="ReglaArchivo" />
+  </EntityType>
+  <EntityType Name="HistorialCargaArchivo_LinCab">
+    <Key>
+      <PropertyRef Name="IdHistorialCargaArchivoLinCab" />
+    </Key>
+    <Property Name="IdHistorialCargaArchivoLinCab" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArchivoId" Type="Int32" />
+    <Property Name="IDE_CONTRATO" Type="Int32" Nullable="false" />
+    <Property Name="TIP_REGI" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_ENVI_ARC" Type="DateTime" Precision="3" />
+    <Property Name="COD_CSV" Type="Int32" />
+    <Property Name="NUM_CONT_LIC" Type="Int32" />
+    <Property Name="MONEDA" Type="Int32" />
+    <Property Name="PER_CONT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_PAGO" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_PAGO" Type="DateTime" Precision="3" />
+    <Property Name="CumpleValidacion" Type="Int32" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ArchivoIdNomina" Type="Int32" />
+    <NavigationProperty Name="CONTRATO_SYS" Relationship="DISModelo.FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS" FromRole="HistorialCargaArchivo_LinCab" ToRole="CONTRATO_SYS" />
+    <NavigationProperty Name="Archivo" Relationship="DISModelo.FK_HistorialCargaArchivo_LinCab_Archivo" FromRole="HistorialCargaArchivo_LinCab" ToRole="Archivo" />
+    <NavigationProperty Name="HistorialCargaArchivo_LinDet" Relationship="DISModelo.FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab" FromRole="HistorialCargaArchivo_LinCab" ToRole="HistorialCargaArchivo_LinDet" />
+  </EntityType>
+  <EntityType Name="HistorialCargaArchivo_LinDet">
+    <Key>
+      <PropertyRef Name="IdHistorialCargaArchivoLinDet" />
+    </Key>
+    <Property Name="IdHistorialCargaArchivoLinDet" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdHistorialCargaArchivoLinCab" Type="Int64" />
+    <Property Name="FechaInsert" Type="DateTime" Precision="3" />
+    <Property Name="TipoLinea" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroLinea" Type="Int32" />
+    <Property Name="FEC_DEVE" Type="DateTime" Precision="3" />
+    <Property Name="FEC_FALL" Type="DateTime" Precision="3" />
+    <Property Name="FEC_OCUR" Type="DateTime" Precision="3" />
+    <Property Name="FEC_PAGO_APO_ADI" Type="DateTime" Precision="3" />
+    <Property Name="FEC_INV_DEF" Type="DateTime" Precision="3" />
+    <Property Name="CAP_GAST_SEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PARE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SAL_CIC_SOL" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_REGI" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_SOLI" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_BENE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_MESE_DEV" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="POR_BENE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_IDEN_SOL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_PENS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_DOCU_IDE_PEN" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_MOVI" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CSV_01" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CSV_02" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CSV_03" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CSV_04" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CSV_05" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CSV_06" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CSV_07" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CSV_08" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_AFP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COD_IDE_CSV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="FRA_MESE_DEV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="IND_PENS_PRE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PPRE_ORI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_CAMB_VTA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="EXC_PENS_SOL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EXC_PENS_NM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MES_DEVE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="CAP_REQU_PEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CRU_FAMI" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_NACI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_NACI_PEN" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_PAGO" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_PAGO_TEX" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_SECI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_SINI_OCU" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_DEVE_ACT" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_DEVE_INI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_FIN_SUB" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="RAM_PROM_SOL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TAS_INTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VACIO_10" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DES_PENS_MONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_APOR_ADI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_APOR_ADI_SOL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_APOR_COM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PENS_PAG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PPRE_MN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_APOR_OBL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_COM1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_COM2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_COM3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_COM4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_COM5" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_COM6" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_COM7" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_COM8" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_OBL1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_OBL2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_OBL3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_OBL4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_OBL5" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_OBL6" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_OBL7" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_MONE_APO_OBL8" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PAGO_REE_SOL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP5" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP6" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP7" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP8" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP5" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP6" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP7" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP8" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP5" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP6" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP7" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP8" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP5" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP6" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP7" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP8" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NRO_CSV" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_DOCU_SOL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_SINI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_SOLI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_SOLI_PEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_DOCU_PEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PEN_PAGA_MON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PEN_BASE_MON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="REM_PROM_ACT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_APOR_ACT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SAL_CIC_MN" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_CAMB_COM" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_MONE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TOT_CAPI_REQ_MN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TOT_CAPI_REQ_ORI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CUSP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="COD_BENE_MN" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="APE_MATE_PEN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="APE_MATE_SOLI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="APE_PATE_PEN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="APE_PATE_SOL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRI_NOMB_PEN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRI_NOMB_SOL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SEG_NOMB_PEN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SEG_NOMB_SOL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SUC_INTE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CumpleValidacion" Type="Int32" />
+    <Property Name="ReglaObservada" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HistorialCargaArchivo_LinCab" Relationship="DISModelo.FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab" FromRole="HistorialCargaArchivo_LinDet" ToRole="HistorialCargaArchivo_LinCab" />
+  </EntityType>
+  <EntityType Name="ReglaArchivo">
+    <Key>
+      <PropertyRef Name="IdReglaArchivo" />
+    </Key>
+    <Property Name="IdReglaArchivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Archivo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TipoLinea" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CaracterInicial" Type="Int32" />
+    <Property Name="LargoCampo" Type="Int32" />
+    <Property Name="TipoCampo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InformacionCampo" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="FormatoContenido" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="TipoValidacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ReglaValidacion" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="ReglaValidacionInterna" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="TablaDestino" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="vigente" Type="Int16" />
+    <Property Name="CampoNegocio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="VigenciaReglaDesde" Type="DateTime" Precision="3" />
+    <Property Name="VigenciaReglaHasta" Type="DateTime" Precision="3" />
+    <Property Name="NombreCampo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TituloColumna" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FormaValidacion" Type="Int16" />
+    <Property Name="NUM_CONT_LIC" Type="Int32" />
+    <NavigationProperty Name="HistorialCargaArchivoes" Relationship="DISModelo.FK_HistorialCargaArchivo_ReglaArchivo" FromRole="ReglaArchivo" ToRole="HistorialCargaArchivo" />
+  </EntityType>
+  <EntityType Name="AFP">
+    <Key>
+      <PropertyRef Name="AFPId" />
+    </Key>
+    <Property Name="AFPId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Abreviatura" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nit" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Siniestros" Relationship="DISModelo.FK_AFPSiniestro" FromRole="AFP" ToRole="Siniestro" />
+  </EntityType>
+  <EntityType Name="Archivo">
+    <Key>
+      <PropertyRef Name="ArchivoId" />
+    </Key>
+    <Property Name="ArchivoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EstadoArchivoId" Type="Int32" Nullable="false" />
+    <Property Name="TipoArchivoId" Type="Int32" Nullable="false" />
+    <Property Name="NombreArchivo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vigente" Type="Boolean" />
+    <Property Name="FechaAprobacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="EXACTUS_CABECERA_SIS" Relationship="DISModelo.FK_EXACTUS_CABECERA_SIS_Archivo" FromRole="Archivo" ToRole="EXACTUS_CABECERA_SIS" />
+    <NavigationProperty Name="NOMINAs" Relationship="DISModelo.FK_NOMINA_Archivo" FromRole="Archivo" ToRole="NOMINA" />
+    <NavigationProperty Name="HistorialCargaArchivoes" Relationship="DISModelo.FK_HistorialCargaArchivo_Archivo" FromRole="Archivo" ToRole="HistorialCargaArchivo" />
+    <NavigationProperty Name="HistorialCargaArchivo_LinCab" Relationship="DISModelo.FK_HistorialCargaArchivo_LinCab_Archivo" FromRole="Archivo" ToRole="HistorialCargaArchivo_LinCab" />
+    <NavigationProperty Name="EstadoArchivo" Relationship="DISModelo.FK_EstadoArchivoArchivo" FromRole="Archivo" ToRole="EstadoArchivo" />
+    <NavigationProperty Name="EXACTUS_DETALLE_EXPORT_SIS" Relationship="DISModelo.FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo" FromRole="Archivo" ToRole="EXACTUS_DETALLE_EXPORT_SIS" />
+    <NavigationProperty Name="TipoArchivo" Relationship="DISModelo.FK_TipoArchivoArchivo" FromRole="Archivo" ToRole="TipoArchivo" />
+  </EntityType>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="IdUsuario" Type="Int32" />
+    <Property Name="IdArchivo" Type="Int32" />
+    <Property Name="Descripcion" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="Comando" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Checkeado">
+    <Key>
+      <PropertyRef Name="CheckeadoId" />
+    </Key>
+    <Property Name="CheckeadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Visto" Type="Boolean" Nullable="false" />
+    <Property Name="CheckListId" Type="Int32" Nullable="false" />
+    <Property Name="DocumentoId" Type="Int32" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vigente" Type="Boolean" />
+    <NavigationProperty Name="Documento" Relationship="DISModelo.FK_DocumentoCheckeado" FromRole="Checkeado" ToRole="Documento" />
+  </EntityType>
+  <EntityType Name="ContratoCSV">
+    <Key>
+      <PropertyRef Name="ContratoCSVId" />
+    </Key>
+    <Property Name="ContratoCSVId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Partes" Type="Int32" Nullable="false" />
+    <Property Name="CSVId" Type="Int32" Nullable="false" />
+    <Property Name="ContratoId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contrato1">
+    <Key>
+      <PropertyRef Name="ContratoId" />
+    </Key>
+    <Property Name="ContratoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Identificador" Type="Int32" Nullable="false" />
+    <Property Name="Periodo_FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Periodo_FechaTermino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalPartes" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Siniestros" Relationship="DISModelo.FK_SiniestroContrato" FromRole="Contrato1" ToRole="Siniestro" />
+  </EntityType>
+  <EntityType Name="Correlativo">
+    <Key>
+      <PropertyRef Name="Tipo" />
+    </Key>
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Correlativo1" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CSV">
+    <Key>
+      <PropertyRef Name="CSVId" />
+    </Key>
+    <Property Name="CSVId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Abreviatura" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VidaCamara" Type="Boolean" Nullable="false" />
+    <Property Name="CodigoDIS" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Documento">
+    <Key>
+      <PropertyRef Name="DocumentoId" />
+    </Key>
+    <Property Name="DocumentoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Checkeados" Relationship="DISModelo.FK_DocumentoCheckeado" FromRole="Documento" ToRole="Checkeado" />
+    <NavigationProperty Name="DocumentoSolicitados" Relationship="DISModelo.FK_DocumentoDocumentoSolicitado" FromRole="Documento" ToRole="DocumentoSolicitado" />
+  </EntityType>
+  <EntityType Name="DocumentoSolicitado">
+    <Key>
+      <PropertyRef Name="DocumentoSolicitadoId" />
+    </Key>
+    <Property Name="DocumentoSolicitadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoMovimientoId" Type="Int32" Nullable="false" />
+    <Property Name="DocumentoId" Type="Int32" Nullable="false" />
+    <Property Name="TipoSolicitudId" Type="Int32" />
+    <NavigationProperty Name="Documento" Relationship="DISModelo.FK_DocumentoDocumentoSolicitado" FromRole="DocumentoSolicitado" ToRole="Documento" />
+    <NavigationProperty Name="TipoMovimiento" Relationship="DISModelo.FK_TipoMovimientoDocumentoSolicitado" FromRole="DocumentoSolicitado" ToRole="TipoMovimiento" />
+  </EntityType>
+  <EntityType Name="EstadoArchivo">
+    <Key>
+      <PropertyRef Name="EstadoArchivoId" />
+    </Key>
+    <Property Name="EstadoArchivoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreEstado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Archivoes" Relationship="DISModelo.FK_EstadoArchivoArchivo" FromRole="EstadoArchivo" ToRole="Archivo" />
+  </EntityType>
+  <EntityType Name="EstadoPago">
+    <Key>
+      <PropertyRef Name="EstadoId" />
+    </Key>
+    <Property Name="EstadoId" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Vigente" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Imputacion">
+    <Key>
+      <PropertyRef Name="ImputacionId" />
+    </Key>
+    <Property Name="ImputacionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Linea" Type="Int32" Nullable="false" />
+    <Property Name="Correlativo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CentroCosto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CuentaContable" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MonedaId" Type="Int32" Nullable="false" />
+    <Property Name="Debe_Soles" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="Haber_soles" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="Debe_Dolares" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="Haber_Dolares" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="Fuente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Referencia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioModificacion" Type="Int32" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Vigente" Type="Boolean" Nullable="false" />
+    <Property Name="ArchivoId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Moneda">
+    <Key>
+      <PropertyRef Name="MonedaId" />
+    </Key>
+    <Property Name="MonedaId" Type="Int32" Nullable="false" />
+    <Property Name="NombreMoneda" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TipoMonedas" Relationship="DISModelo.FK_MonedaTipoMoneda" FromRole="Moneda" ToRole="TipoMoneda" />
+    <NavigationProperty Name="Pagos" Relationship="DISModelo.FK_Pagos_Moneda" FromRole="Moneda" ToRole="Pago" />
+  </EntityType>
+  <EntityType Name="MontoAlto">
+    <Key>
+      <PropertyRef Name="MontoAltoId" />
+    </Key>
+    <Property Name="MontoAltoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoParametro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Correo" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Valor" Type="Int32" Nullable="false" />
+    <Property Name="Observacion" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Pago">
+    <Key>
+      <PropertyRef Name="PagoId" />
+    </Key>
+    <Property Name="PagoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArchivoId" Type="Int32" Nullable="false" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaPago" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <Property Name="SiniestroId" Type="Int32" Nullable="false" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="PagoVC" Type="Decimal" Nullable="false" Precision="11" Scale="2" />
+    <Property Name="FechaTransferencia" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MonedaId" Type="Int32" Nullable="false" />
+    <Property Name="NominaId" Type="Int32" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vigente" Type="Boolean" />
+    <NavigationProperty Name="Moneda" Relationship="DISModelo.FK_Pagos_Moneda" FromRole="Pago" ToRole="Moneda" />
+    <NavigationProperty Name="Siniestro" Relationship="DISModelo.FK_SiniestroPago" FromRole="Pago" ToRole="Siniestro" />
+  </EntityType>
+  <EntityType Name="Parametro">
+    <Key>
+      <PropertyRef Name="ParametroId" />
+    </Key>
+    <Property Name="ParametroId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoMovimientoId" Type="Int32" Nullable="false" />
+    <Property Name="TipoSolicitudId" Type="Int32" Nullable="false" />
+    <Property Name="TipoOperacion" Type="Int32" Nullable="false" />
+    <Property Name="CentroCosto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CuentaContable" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SignoCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vigente" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parentesco">
+    <Key>
+      <PropertyRef Name="ParentescoId" />
+    </Key>
+    <Property Name="ParentescoId" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionParentesco" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CodBeneficiario" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PorcentajeBeneficiario" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="PersonaId" />
+    </Key>
+    <Property Name="PersonaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrimerNombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SegundoNombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ApellidoPaterno" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ApellidoMaterno" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TipoIdentificacion" Type="Int32" Nullable="false" />
+    <Property Name="NumeroIdentificador" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RegistroMontoAlto">
+    <Key>
+      <PropertyRef Name="IdRegistroMontoAlto" />
+    </Key>
+    <Property Name="IdRegistroMontoAlto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Resultado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="IdUsuario" Type="Int32" />
+    <Property Name="IdArchivo" Type="Int32" />
+    <Property Name="Cuspp" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RolesId" />
+    </Key>
+    <Property Name="RolesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionRol" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Siniestro">
+    <Key>
+      <PropertyRef Name="SiniestroId" />
+    </Key>
+    <Property Name="SiniestroId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUSPP" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="TipoMovimientoId" Type="Int32" Nullable="false" />
+    <Property Name="AFPId" Type="Int32" Nullable="false" />
+    <Property Name="ContratoId" Type="Int32" Nullable="false" />
+    <Property Name="TipoSolicitudId" Type="Int32" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodTransferencia" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Vigente" Type="Boolean" />
+    <NavigationProperty Name="AFP" Relationship="DISModelo.FK_AFPSiniestro" FromRole="Siniestro" ToRole="AFP" />
+    <NavigationProperty Name="Contrato" Relationship="DISModelo.FK_SiniestroContrato" FromRole="Siniestro" ToRole="Contrato1" />
+    <NavigationProperty Name="Pagos" Relationship="DISModelo.FK_SiniestroPago" FromRole="Siniestro" ToRole="Pago" />
+    <NavigationProperty Name="TipoMovimiento" Relationship="DISModelo.FK_TipoMovimientoSiniestro" FromRole="Siniestro" ToRole="TipoMovimiento" />
+    <NavigationProperty Name="TipoSolicitude" Relationship="DISModelo.FK_TipoSolicitudSiniestro" FromRole="Siniestro" ToRole="TipoSolicitude" />
+  </EntityType>
+  <EntityType Name="TipoArchivo">
+    <Key>
+      <PropertyRef Name="TipoArchivoId" />
+    </Key>
+    <Property Name="TipoArchivoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreTipoArchivo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NombreClase" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EsEntrada" Type="Byte" Nullable="false" />
+    <Property Name="CabeceraLargo" Type="Int32" Nullable="false" />
+    <Property Name="DetalleLargo" Type="Int32" Nullable="false" />
+    <Property Name="TotalLargo" Type="Int32" Nullable="false" />
+    <Property Name="ReglaPrevia" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ReglaPosterior" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="TipoInformeId" Type="Int32" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+    <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vigente" Type="Boolean" />
+    <NavigationProperty Name="Archivoes" Relationship="DISModelo.FK_TipoArchivoArchivo" FromRole="TipoArchivo" ToRole="Archivo" />
+    <NavigationProperty Name="TipoInforme" Relationship="DISModelo.FK_TipoArchivo_TipoInforme" FromRole="TipoArchivo" ToRole="TipoInforme" />
+  </EntityType>
+  <EntityType Name="TipoCambio">
+    <Key>
+      <PropertyRef Name="IdTipoCambio" />
+    </Key>
+    <Property Name="IdTipoCambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Periodo" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="Vigente" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDocumentoIdentificacion">
+    <Key>
+      <PropertyRef Name="TipoDocumentoIdentificacionId" />
+    </Key>
+    <Property Name="TipoDocumentoIdentificacionId" Type="Int32" Nullable="false" />
+    <Property Name="NombreTipoDocumentoIdentificacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TipoInforme">
+    <Key>
+      <PropertyRef Name="TipoInformeId" />
+    </Key>
+    <Property Name="TipoInformeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TipoArchivoes" Relationship="DISModelo.FK_TipoArchivo_TipoInforme" FromRole="TipoInforme" ToRole="TipoArchivo" />
+  </EntityType>
+  <EntityType Name="TipoMoneda">
+    <Key>
+      <PropertyRef Name="TipoMonedaId" />
+    </Key>
+    <Property Name="TipoMonedaId" Type="Int32" Nullable="false" />
+    <Property Name="NombreMoneda" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MonedaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Moneda" Relationship="DISModelo.FK_MonedaTipoMoneda" FromRole="TipoMoneda" ToRole="Moneda" />
+  </EntityType>
+  <EntityType Name="TipoMovimiento">
+    <Key>
+      <PropertyRef Name="TipoMovimientoId" />
+    </Key>
+    <Property Name="TipoMovimientoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Abreviatura" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DocumentoSolicitados" Relationship="DISModelo.FK_TipoMovimientoDocumentoSolicitado" FromRole="TipoMovimiento" ToRole="DocumentoSolicitado" />
+    <NavigationProperty Name="Siniestros" Relationship="DISModelo.FK_TipoMovimientoSiniestro" FromRole="TipoMovimiento" ToRole="Siniestro" />
+  </EntityType>
+  <EntityType Name="TipoPension">
+    <Key>
+      <PropertyRef Name="TipoPensionId" />
+    </Key>
+    <Property Name="TipoPensionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoPension" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="NombreTipoPension" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TipoRegistro">
+    <Key>
+      <PropertyRef Name="TipoRegistroId" />
+    </Key>
+    <Property Name="TipoRegistroId" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TipoSolicitude">
+    <Key>
+      <PropertyRef Name="TipoSolicitudId" />
+    </Key>
+    <Property Name="TipoSolicitudId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Clasificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Siniestros" Relationship="DISModelo.FK_TipoSolicitudSiniestro" FromRole="TipoSolicitude" ToRole="Siniestro" />
+  </EntityType>
+  <EntityType Name="COMPROBANTE">
+    <Key>
+      <PropertyRef Name="NRO_COMPROBANTE" />
+      <PropertyRef Name="TIP_COMPROBANTE" />
+      <PropertyRef Name="COD_REASEGURADOR" />
+      <PropertyRef Name="FEC_COMPROBANTE" />
+      <PropertyRef Name="ANO_COMPROBANTE" />
+      <PropertyRef Name="MES_COMPROBANTE" />
+      <PropertyRef Name="COD_ASEGURADO" />
+      <PropertyRef Name="IDE_CONTRATO" />
+      <PropertyRef Name="COD_RAMO" />
+      <PropertyRef Name="COD_MONEDA" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="FEC_REG" />
+      <PropertyRef Name="USU_REG" />
+    </Key>
+    <Property Name="NRO_COMPROBANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TIP_COMPROBANTE" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_REASEGURADOR" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_COMPROBANTE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ANO_COMPROBANTE" Type="Int32" Nullable="false" />
+    <Property Name="MES_COMPROBANTE" Type="Int32" Nullable="false" />
+    <Property Name="COD_ASEGURADO" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="IDE_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="COD_RAMO" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_MONEDA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="TCA_CAMBIO" Type="Decimal" Precision="5" Scale="4" />
+    <Property Name="DES_REG_TRIMESTRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRI_XPAG_REA_CED" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_XCOB_REA_ACE" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_XCOB_REA_CED" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_XPAG_REA_ACE" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="OTR_CTA_XCOB_REA_CED" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="OTR_CTA_XPAG_REA_ACE" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="DSCTO_COMIS_REA" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_DEUDOR" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_ACREEDOR" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_DEUDOR_COMP" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_ACREEDOR_COMP" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ORI_REG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Consulta">
+    <Key>
+      <PropertyRef Name="IdReglaArchivo" />
+      <PropertyRef Name="Archivo" />
+    </Key>
+    <Property Name="IdReglaArchivo" Type="Int32" Nullable="false" />
+    <Property Name="Archivo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TipoLinea" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CaracterInicial" Type="Int32" />
+    <Property Name="LargoCampo" Type="Int32" />
+    <Property Name="TipoCampo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InformacionCampo" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="FormatoContenido" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="TipoValidacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ReglaValidacion" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="ReglaValidacionInterna" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="TablaDestino" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="vigente" Type="Int16" />
+    <Property Name="CampoNegocio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CONTRATO_DETALLE">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO_DET" />
+      <PropertyRef Name="NRO_CONTRATO" />
+      <PropertyRef Name="IDE_REASEGURADOR" />
+      <PropertyRef Name="COD_REASEGURADOR" />
+      <PropertyRef Name="CAL_CREDITICIA" />
+      <PropertyRef Name="PRC_PARTICIPACION_REA" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="FEC_REG" />
+    </Key>
+    <Property Name="ID_EMPRESA" Type="Int32" />
+    <Property Name="IDE_CONTRATO_DET" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NRO_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="IDE_REASEGURADOR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="COD_REASEGURADOR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="CAL_CREDITICIA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_EMPRESA_CALIFICA" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="MOD_CONTRATO" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="PRC_RETENCION" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="PRC_CESION" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="PRC_PARTICIPACION_REA" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
+    <Property Name="NOMBRE_REA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NRO_REGISTRO_REA" Type="Int32" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="USU_REG" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DATO_A">
+    <Key>
+      <PropertyRef Name="IDE_EMPRESA" />
+      <PropertyRef Name="NRO_CONTRATO" />
+      <PropertyRef Name="ANIO_VIGENTE" />
+      <PropertyRef Name="MES_VIGENTE" />
+      <PropertyRef Name="COD_RAMO" />
+      <PropertyRef Name="COD_PRODUCTO" />
+      <PropertyRef Name="COD_ASEGURADO" />
+      <PropertyRef Name="COD_MONEDA" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="FEC_REG" />
+      <PropertyRef Name="USU_REG" />
+    </Key>
+    <Property Name="IDE_EMPRESA" Type="Int32" Nullable="false" />
+    <Property Name="NRO_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ANIO_VIGENTE" Type="Int32" Nullable="false" />
+    <Property Name="MES_VIGENTE" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_INFO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="COD_RAMO" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_PRODUCTO" Type="Int32" Nullable="false" />
+    <Property Name="COD_ASEGURADO" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="COD_MONEDA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="AP_MTNO_PENS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AP_MTNO_SOLIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AP_PTNO_PENS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AP_PTNO_SOLIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APORT_COMP" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="APORT_OBLIG" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="CAP_REQ_PENS" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="CAP_REQ_SEPE" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="CIC_MON_NSOL" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="CIC_MON_ORIG" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="CRU_FAMILIAR" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="CUSPP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FE_SIN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ID_AFP" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="ID_COD_CSV1" Type="Int32" />
+    <Property Name="ID_COD_CSV2" Type="Int32" />
+    <Property Name="ID_COD_CSV3" Type="Int32" />
+    <Property Name="ID_COD_CSV4" Type="Int32" />
+    <Property Name="ID_COD_TRANSF" Type="Int32" />
+    <Property Name="ID_TIP_SOLI" Type="Int32" />
+    <Property Name="MTO_PAGO_CSV1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PAGO_CSV2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PAGO_CSV3" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PAGO_CSV4" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="TI_MOV" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="FE_DEV" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FE_FALLE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FE_INI_INV" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FE_PAG_AA" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TIP_DOC" Type="Int32" />
+    <Property Name="IND_PENS_PRE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="MTO_AA_MON_NSOL" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_AA_MON_ORIG" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_EXC_MON_NSOL" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_EXC_MON_ORIG" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PENS_PRE_MON_NSOL" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PENS_PRE_MON_ORIG" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_BENEF" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="NRO_IDEN_SOLIC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_CSV" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="PRI_NOMB_SOLIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RAM_PROM_NSOL" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SEGU_NOMB_SOLIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_INT" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="TI_CAMB_COMPRA" Type="Decimal" Precision="5" Scale="4" />
+    <Property Name="TI_CAMB_VTA" Type="Decimal" Precision="5" Scale="4" />
+    <Property Name="TI_REG" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="TIP_MON" Type="Int32" />
+    <Property Name="TIP_PEN_EQUIV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TOT_CAP_REQ_MON_NSOL" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="TOT_CAP_REQ_MON_ORIG" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS_CSV1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS_CSV2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS_CSV3" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS_CSV4" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="FE_DEV_ACT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FE_DEV_INI" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FE_FIN_SUBSI" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FE_NACI_PENS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FE_SECI" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_PAGO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FRAC_MES_DEV" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="ID_COD_BEN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ID_PARENT" Type="Int32" />
+    <Property Name="ID_TIP_DOCU_PENS" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="MES_DEV" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="MON_EQUI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MTO_APORT_COMP_CSV1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_COMP_CSV2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_COMP_CSV3" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_COMP_CSV4" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_OBLIG_CSV1" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_OBLIG_CSV2" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_OBLIG_CSV3" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_OBLIG_CSV4" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PAGO" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_DOCU_PENS" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="NRO_EESS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="NRO_MES_DEV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="NRO_SIN" Type="Int32" />
+    <Property Name="NRO_SOLI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PENS_BASE" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PENS_PAGAR_80" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_NOMB_PENS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PROC_BENE" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="PROM_ACT_6_MESES_APOCOMP" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="REMPRO_ACT" Type="Decimal" Precision="16" Scale="6" />
+    <Property Name="SEGU_NOMB_PENS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIP_PEN" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EXACTUS_CABECERA">
+    <Key>
+      <PropertyRef Name="NRO_CONTRATO" />
+      <PropertyRef Name="TIPO_INFO" />
+      <PropertyRef Name="ANIO_VIGENTE" />
+      <PropertyRef Name="MES_VIGENTE" />
+      <PropertyRef Name="ASIENTO" />
+      <PropertyRef Name="PAQUETE" />
+      <PropertyRef Name="TIPO_ASIENTO" />
+      <PropertyRef Name="FECHA" />
+      <PropertyRef Name="CONTABILIDAD" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="ESTADO_TRANSFERENCIA" />
+      <PropertyRef Name="PERMITIR_DESCUADRADO" />
+      <PropertyRef Name="CONSERVAR_NUMERACION" />
+      <PropertyRef Name="ACTUALIZAR_CONSECUTIVO" />
+      <PropertyRef Name="FECHA_CREACION" />
+      <PropertyRef Name="USUARIO_REGISTRO" />
+    </Key>
+    <Property Name="NRO_CONTRATO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_INFO" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ANIO_VIGENTE" Type="Int32" Nullable="false" />
+    <Property Name="MES_VIGENTE" Type="Int32" Nullable="false" />
+    <Property Name="ASIENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PAQUETE" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="TIPO_ASIENTO" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CONTABILIDAD" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO_TRANSFERENCIA" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PERMITIR_DESCUADRADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CONSERVAR_NUMERACION" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ACTUALIZAR_CONSECUTIVO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FECHA_AUDITORIA" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USUARIO_REGISTRO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EXACTUS_DETALLE_EXPORT_SIS">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO" />
+      <PropertyRef Name="ArchivoId" />
+      <PropertyRef Name="TIPO_ARHIVO" />
+      <PropertyRef Name="IDE_MONEDA" />
+      <PropertyRef Name="CUENTA_BANCARIA" />
+      <PropertyRef Name="NUMERO" />
+      <PropertyRef Name="TIPO_DOCUMENTO" />
+      <PropertyRef Name="FECHA_DOCUMENTO" />
+      <PropertyRef Name="CONTRIBUYENTE" />
+      <PropertyRef Name="MONTO" />
+      <PropertyRef Name="DETALLE" />
+      <PropertyRef Name="SUBTIPO" />
+      <PropertyRef Name="CENTRO_COSTO" />
+      <PropertyRef Name="CUENTA_CONTABLE" />
+      <PropertyRef Name="PAQUETE" />
+    </Key>
+    <Property Name="IDE_CONTRATO" Type="Int32" Nullable="false" />
+    <Property Name="ArchivoId" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_ARHIVO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDE_MONEDA" Type="Int32" Nullable="false" />
+    <Property Name="CUENTA_BANCARIA" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TIPO_DOCUMENTO" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="FECHA_DOCUMENTO" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CONCEPTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BENEFICIARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRIBUYENTE" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MONTO" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="DETALLE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SUBTIPO" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CENTRO_COSTO" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CUENTA_CONTABLE" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO_1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO_2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO_3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO_4" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO_5" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PAQUETE" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="CONTRATO_SYS" Relationship="DISModelo.FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS" FromRole="EXACTUS_DETALLE_EXPORT_SIS" ToRole="CONTRATO_SYS" />
+    <NavigationProperty Name="Archivo" Relationship="DISModelo.FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo" FromRole="EXACTUS_DETALLE_EXPORT_SIS" ToRole="Archivo" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IDE_USUARIO" />
+      <PropertyRef Name="USUARIO1" />
+      <PropertyRef Name="CONTRASENA" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="FEC_REG" />
+      <PropertyRef Name="USU_REG" />
+    </Key>
+    <Property Name="IDE_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USUARIO1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRASENA" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ACCESO_PAGINA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CARGO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_USUARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USU_REG" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_MOD" Type="DateTime" Precision="3" />
+    <Property Name="USU_MOD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CheckList">
+    <Key>
+      <PropertyRef Name="CheckListId" />
+      <PropertyRef Name="CUSPP" />
+      <PropertyRef Name="TipoMovimientoId" />
+    </Key>
+    <Property Name="CheckListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUSPP" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TipoMovimientoId" Type="Int32" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vigente" Type="Boolean" />
+    <Property Name="TipoSolicitudId" Type="Int32" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Observaciones" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_CONTRATO_SIS_DET_CONTRATO_SYS">
+    <End Type="DISModelo.CONTRATO_SYS" Role="CONTRATO_SYS" Multiplicity="0..1" />
+    <End Type="DISModelo.CONTRATO_SIS_DET" Role="CONTRATO_SIS_DET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="CONTRATO_SIS_DET">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS">
+    <End Type="DISModelo.CONTRATO_SYS" Role="CONTRATO_SYS" Multiplicity="1" />
+    <End Type="DISModelo.EXACTUS_CABECERA_SIS" Role="EXACTUS_CABECERA_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="EXACTUS_CABECERA_SIS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS">
+    <End Type="DISModelo.CONTRATO_SYS" Role="CONTRATO_SYS" Multiplicity="1" />
+    <End Type="DISModelo.EXACTUS_DETALLE_EXPORT_SIS" Role="EXACTUS_DETALLE_EXPORT_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="EXACTUS_DETALLE_EXPORT_SIS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS">
+    <End Type="DISModelo.CONTRATO_SYS" Role="CONTRATO_SYS" Multiplicity="1" />
+    <End Type="DISModelo.HistorialCargaArchivo_LinCab" Role="HistorialCargaArchivo_LinCab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo_LinCab">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LogOperacion_CONTRATO_SYS">
+    <End Type="DISModelo.CONTRATO_SYS" Role="CONTRATO_SYS" Multiplicity="1" />
+    <End Type="DISModelo.LogOperacion" Role="LogOperacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="LogOperacion">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOMINA_CONTRATO_SYS">
+    <End Type="DISModelo.CONTRATO_SYS" Role="CONTRATO_SYS" Multiplicity="1" />
+    <End Type="DISModelo.NOMINA" Role="NOMINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="NOMINA">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_CABECERA_SIS_Archivo">
+    <End Type="DISModelo.Archivo" Role="Archivo" Multiplicity="1" />
+    <End Type="DISModelo.EXACTUS_CABECERA_SIS" Role="EXACTUS_CABECERA_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="EXACTUS_CABECERA_SIS">
+        <PropertyRef Name="ArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS">
+    <End Type="DISModelo.EXACTUS_CABECERA_SIS" Role="EXACTUS_CABECERA_SIS" Multiplicity="1" />
+    <End Type="DISModelo.EXACTUS_DETALLE_SIS" Role="EXACTUS_DETALLE_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXACTUS_CABECERA_SIS">
+        <PropertyRef Name="IDE_EXACTUS_CABECERA_SIS" />
+      </Principal>
+      <Dependent Role="EXACTUS_DETALLE_SIS">
+        <PropertyRef Name="IDE_EXACTUS_CABECERA_SIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOMINA_Archivo">
+    <End Type="DISModelo.Archivo" Role="Archivo" Multiplicity="0..1" />
+    <End Type="DISModelo.NOMINA" Role="NOMINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="NOMINA">
+        <PropertyRef Name="ArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_Archivo">
+    <End Type="DISModelo.Archivo" Role="Archivo" Multiplicity="1" />
+    <End Type="DISModelo.HistorialCargaArchivo" Role="HistorialCargaArchivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo">
+        <PropertyRef Name="IdArchivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_ReglaArchivo">
+    <End Type="DISModelo.ReglaArchivo" Role="ReglaArchivo" Multiplicity="0..1" />
+    <End Type="DISModelo.HistorialCargaArchivo" Role="HistorialCargaArchivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReglaArchivo">
+        <PropertyRef Name="IdReglaArchivo" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo">
+        <PropertyRef Name="IdReglaArchivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_LinCab_Archivo">
+    <End Type="DISModelo.Archivo" Role="Archivo" Multiplicity="0..1" />
+    <End Type="DISModelo.HistorialCargaArchivo_LinCab" Role="HistorialCargaArchivo_LinCab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo_LinCab">
+        <PropertyRef Name="ArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab">
+    <End Type="DISModelo.HistorialCargaArchivo_LinCab" Role="HistorialCargaArchivo_LinCab" Multiplicity="0..1" />
+    <End Type="DISModelo.HistorialCargaArchivo_LinDet" Role="HistorialCargaArchivo_LinDet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HistorialCargaArchivo_LinCab">
+        <PropertyRef Name="IdHistorialCargaArchivoLinCab" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo_LinDet">
+        <PropertyRef Name="IdHistorialCargaArchivoLinCab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AFPSiniestro">
+    <End Type="DISModelo.AFP" Role="AFP" Multiplicity="1" />
+    <End Type="DISModelo.Siniestro" Role="Siniestro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AFP">
+        <PropertyRef Name="AFPId" />
+      </Principal>
+      <Dependent Role="Siniestro">
+        <PropertyRef Name="AFPId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EstadoArchivoArchivo">
+    <End Type="DISModelo.EstadoArchivo" Role="EstadoArchivo" Multiplicity="1" />
+    <End Type="DISModelo.Archivo" Role="Archivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoArchivo">
+        <PropertyRef Name="EstadoArchivoId" />
+      </Principal>
+      <Dependent Role="Archivo">
+        <PropertyRef Name="EstadoArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo">
+    <End Type="DISModelo.Archivo" Role="Archivo" Multiplicity="1" />
+    <End Type="DISModelo.EXACTUS_DETALLE_EXPORT_SIS" Role="EXACTUS_DETALLE_EXPORT_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="EXACTUS_DETALLE_EXPORT_SIS">
+        <PropertyRef Name="ArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoArchivoArchivo">
+    <End Type="DISModelo.TipoArchivo" Role="TipoArchivo" Multiplicity="1" />
+    <End Type="DISModelo.Archivo" Role="Archivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoArchivo">
+        <PropertyRef Name="TipoArchivoId" />
+      </Principal>
+      <Dependent Role="Archivo">
+        <PropertyRef Name="TipoArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentoCheckeado">
+    <End Type="DISModelo.Documento" Role="Documento" Multiplicity="1" />
+    <End Type="DISModelo.Checkeado" Role="Checkeado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documento">
+        <PropertyRef Name="DocumentoId" />
+      </Principal>
+      <Dependent Role="Checkeado">
+        <PropertyRef Name="DocumentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiniestroContrato">
+    <End Type="DISModelo.Contrato1" Role="Contrato1" Multiplicity="1" />
+    <End Type="DISModelo.Siniestro" Role="Siniestro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contrato1">
+        <PropertyRef Name="ContratoId" />
+      </Principal>
+      <Dependent Role="Siniestro">
+        <PropertyRef Name="ContratoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentoDocumentoSolicitado">
+    <End Type="DISModelo.Documento" Role="Documento" Multiplicity="1" />
+    <End Type="DISModelo.DocumentoSolicitado" Role="DocumentoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documento">
+        <PropertyRef Name="DocumentoId" />
+      </Principal>
+      <Dependent Role="DocumentoSolicitado">
+        <PropertyRef Name="DocumentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoMovimientoDocumentoSolicitado">
+    <End Type="DISModelo.TipoMovimiento" Role="TipoMovimiento" Multiplicity="1" />
+    <End Type="DISModelo.DocumentoSolicitado" Role="DocumentoSolicitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoMovimiento">
+        <PropertyRef Name="TipoMovimientoId" />
+      </Principal>
+      <Dependent Role="DocumentoSolicitado">
+        <PropertyRef Name="TipoMovimientoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonedaTipoMoneda">
+    <End Type="DISModelo.Moneda" Role="Moneda" Multiplicity="1" />
+    <End Type="DISModelo.TipoMoneda" Role="TipoMoneda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="MonedaId" />
+      </Principal>
+      <Dependent Role="TipoMoneda">
+        <PropertyRef Name="MonedaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pagos_Moneda">
+    <End Type="DISModelo.Moneda" Role="Moneda" Multiplicity="1" />
+    <End Type="DISModelo.Pago" Role="Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="MonedaId" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="MonedaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiniestroPago">
+    <End Type="DISModelo.Siniestro" Role="Siniestro" Multiplicity="1" />
+    <End Type="DISModelo.Pago" Role="Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Siniestro">
+        <PropertyRef Name="SiniestroId" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="SiniestroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoMovimientoSiniestro">
+    <End Type="DISModelo.TipoMovimiento" Role="TipoMovimiento" Multiplicity="1" />
+    <End Type="DISModelo.Siniestro" Role="Siniestro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoMovimiento">
+        <PropertyRef Name="TipoMovimientoId" />
+      </Principal>
+      <Dependent Role="Siniestro">
+        <PropertyRef Name="TipoMovimientoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoSolicitudSiniestro">
+    <End Type="DISModelo.TipoSolicitude" Role="TipoSolicitude" Multiplicity="1" />
+    <End Type="DISModelo.Siniestro" Role="Siniestro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoSolicitude">
+        <PropertyRef Name="TipoSolicitudId" />
+      </Principal>
+      <Dependent Role="Siniestro">
+        <PropertyRef Name="TipoSolicitudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoArchivo_TipoInforme">
+    <End Type="DISModelo.TipoInforme" Role="TipoInforme" Multiplicity="0..1" />
+    <End Type="DISModelo.TipoArchivo" Role="TipoArchivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoInforme">
+        <PropertyRef Name="TipoInformeId" />
+      </Principal>
+      <Dependent Role="TipoArchivo">
+        <PropertyRef Name="TipoInformeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,294 @@
+﻿*
+{
+    padding:0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+body
+{
+   font-family:Calibri;
+}
+/*estilos para jtable*/
+section .jtable
+{
+    font-size:11px;
+}
+select, input[type="text"]
+{
+    font-size:12px;
+}
+header,nav,section
+{
+    margin-left:2%;
+    margin-right:2%;
+}
+section
+{
+    min-height:80%;
+    height:auto!important;
+}
+header #titulo .lbl_header
+{
+    float:left;
+    clear:left;
+}
+header #titulo #ctl00_lbl_title,#ctl00_lbl_titulo
+{
+    color:#797979;
+    font-size:35px;
+    font-weight:bold;
+}
+header #titulo #lbl_user, #lbl_connect
+{
+    color:#797979;
+    font-weight:bold;
+    font-size: 12px;
+}
+header #titulo span
+{
+    color:#797979;
+    float:left;
+    margin-left:1%;
+}
+
+header #img_titulo
+{
+    margin-left:78%;
+    width:200px;
+}
+header #img_titulo img
+{
+    height:100%;
+    width:100%;
+}
+nav
+{
+    margin-bottom:0.4%;
+}
+section .siteMap
+{
+    border-bottom:1px dashed #797979;
+    clear:left;
+    margin-bottom:0.5%;
+    float:left;
+    font-weight:bold;
+    line-height:3;
+    color:#797979;
+    width:50%;
+}
+
+/*footer
+{
+    text-align:center;
+    background-color:#009bb8;
+    color:white;
+    height:2em;
+    margin-top:-3em;
+    position:absolute;
+    bottom:0px;
+    width:100%;
+}*/
+ 
+/*estilos para los label de class = label_to*/
+section .label_to
+{
+    background:rgba(0,10,10,0.1);
+    clear:left;
+    float:left;
+    font-size:12px;
+    height:30px;
+    line-height:2;
+    margin-right:2%;
+    margin-left:3%;
+    margin-bottom:1%;
+    padding:0 0.8% 0 0;
+    text-align:right;
+    width:13.2%;
+}
+section .input_to
+{
+    float:left;
+    margin-bottom:1%;
+}
+section .label_at
+{
+    background:rgba(0,10,10,0.1);
+    float:left;
+    font-size:12px;
+    height:30px;
+    margin-left:2%;
+    margin-right:2%;
+    line-height:2;
+    padding:0 0.8% 0 0;
+    width:13.2%;
+}
+section .tabBody
+{
+    margin-left:3%;
+    border:1px dashed #009bb8;
+    position:absolute;
+    padding-bottom:0.5%;
+    padding-top:1%; 
+    width:90%;
+}
+section #frmTabla,#frmInformes,#frmOperacion,#frmComprobante,#tblopemanual,#frmInterface{margin-top:6%;}
+section .btn_crud
+{
+    border-bottom:1px dashed #797979;
+    float:right;
+    height:48px;
+    width:50%;
+}
+section .btn_crud a img
+{
+    width:100%;
+}
+section .btn_crud .btn_crud_button
+{
+    float:right;
+    border:1px solid #797979;
+    border-radius:10%;
+    height:70%;
+    padding:0.5%;
+    margin:0 0% 0 0.5%;
+    width: 34px;
+}
+
+section .menuTabs{
+    clear:left;
+    margin-left:2%;
+    margin-bottom:1%;
+    height:30px;
+}
+section .menuTabs ul li{
+    background:#009bb8;
+    border: 1px solid #90DAE7;
+    line-height:2;
+    text-align:center;
+    height:30px;
+}
+section .menuTabs ul li a{
+    color:white;
+    font-size:12px;
+    width:150px;
+}
+section .menuTabs ul li a:hover{
+    background:rgba(0,0,0,.3);
+    color:white;
+    height:30px;
+}
+/*estilos para tablas*/
+section .iframe
+{
+    width:100%;position:relative;height:auto;overflow:auto;scrollbar-base-color:#ffeaff;
+}
+section .tabBody .buttons{font-size:0.9em;margin-left:1%;}
+section .tabBody .buttons span{margin-right:3%;}
+/*media screen*/
+@media  screen  and (max-width: 1024px)
+{
+    section .menuTabs ul li a
+    {
+        width:120px;
+    }
+    section .tabBody label
+    {
+        font-size:0.65em;
+    }
+    section .tabBody .buttons
+    {
+        font-size:1.2em;
+    }
+}
+@media screen and  (max-width: 768px) {
+    header #lbl_title,#ctl00_lbl_titulo
+    {
+       font-size:20px!important;
+    } 
+    header #titulo
+    {
+        width:100%;
+    }
+     header #img_titulo
+    {
+        margin-left:60%;
+    }
+    section .respuestaServ
+    {
+        width:100%;
+        margin-bottom:2%;
+    }
+        section .menuTabs
+    {
+        margin-left:0;
+        margin-bottom:1%;
+        width:100%;
+    }
+    section .menuTabs ul
+    {
+        width:100%!important;
+    }
+    section .menuTabs ul li
+    {
+        margin:0;
+        width:100%;
+    }
+    section .menuTabs ul li a
+    {
+        width:100%;
+    }
+    section .menuTabs ul li a:hover{
+        width:100%;
+    }
+    section .btn_crud
+    {
+        float:left;
+        margin-bottom:4%;
+        right:30%;
+        width:100%;
+    }
+   section  label
+    {
+        float:left;
+        clear:left;
+        text-align:center!important;
+        width:90%!important;
+    }
+    section .tabBody select.input_to,select.input_right, input[type="text"],input[type="submit"],input[type="file"],span.input_right,span.input_to
+    {
+        margin-left:3%;
+        width:90%!important;
+    }
+        section .tabBody
+    {
+        margin-top:16%;
+        padding-bottom:5%;
+    }
+}
+@media screen and  (max-width: 460px) {
+        header #img_titulo
+    {
+        margin-left:5%!important;
+    }  
+     section label
+    {
+        float:left;
+        clear:left;
+        text-align:center!important;
+        width:90%!important;
+    }
+     section .tabBody
+    {
+        margin-top:20%;
+        padding-bottom:5%;
+    }
+    section .siteMap
+    {
+        font-size:13px;
+        width:100%;
+    }
+}
+section #ctl00_ContentPlaceHolder1_menuTabs a.static.selected{height:100%;}
+/*estilo adicional*/
+section .tabBody span.input_right,span.input_to{font-size:12px;line-height:2;}

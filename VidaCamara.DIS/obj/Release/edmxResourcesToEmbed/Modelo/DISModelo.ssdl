@@ -1,0 +1,2376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DISModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CIERRE_PROCESO">
+    <Key>
+      <PropertyRef Name="ID_CIERRE" />
+    </Key>
+    <Property Name="ID_CIERRE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NRO_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TIPO_INFO" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="FEC_CIE" Type="date" />
+    <Property Name="ANIO_CIERRE" Type="int" />
+    <Property Name="MES_CIERRE" Type="int" />
+    <Property Name="NRO_REGISTRO" Type="int" Nullable="false" />
+    <Property Name="TIPO_CIERRE" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="TOTAL_MONTO" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'vcamara2.dbo.COMPROBANTE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="COMPROBANTE">
+    <Key>
+      <PropertyRef Name="NRO_COMPROBANTE" />
+      <PropertyRef Name="TIP_COMPROBANTE" />
+      <PropertyRef Name="COD_REASEGURADOR" />
+      <PropertyRef Name="FEC_COMPROBANTE" />
+      <PropertyRef Name="ANO_COMPROBANTE" />
+      <PropertyRef Name="MES_COMPROBANTE" />
+      <PropertyRef Name="COD_ASEGURADO" />
+      <PropertyRef Name="IDE_CONTRATO" />
+      <PropertyRef Name="COD_RAMO" />
+      <PropertyRef Name="COD_MONEDA" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="FEC_REG" />
+      <PropertyRef Name="USU_REG" />
+    </Key>
+    <Property Name="NRO_COMPROBANTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIP_COMPROBANTE" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="COD_REASEGURADOR" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="FEC_COMPROBANTE" Type="date" Nullable="false" />
+    <Property Name="ANO_COMPROBANTE" Type="int" Nullable="false" />
+    <Property Name="MES_COMPROBANTE" Type="int" Nullable="false" />
+    <Property Name="COD_ASEGURADO" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="IDE_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="COD_RAMO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="COD_MONEDA" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="TCA_CAMBIO" Type="decimal" Precision="5" Scale="4" />
+    <Property Name="DES_REG_TRIMESTRE" Type="varchar" MaxLength="50" />
+    <Property Name="PRI_XPAG_REA_CED" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_XCOB_REA_ACE" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_XCOB_REA_CED" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_XPAG_REA_ACE" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="OTR_CTA_XCOB_REA_CED" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="OTR_CTA_XPAG_REA_ACE" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="DSCTO_COMIS_REA" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_DEUDOR" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_ACREEDOR" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_DEUDOR_COMP" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_ACREEDOR_COMP" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+    <Property Name="ORI_REG" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="CONCEPTO">
+    <Key>
+      <PropertyRef Name="ID_CONCEPTO" />
+    </Key>
+    <Property Name="ID_CONCEPTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDE_IMPRESA" Type="int" Nullable="false" />
+    <Property Name="TIPO_TABLA" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="CODIGO" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VALOR" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="CLASE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+    <Property Name="IS_EDITABLE" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'vcamara2.dbo.Consulta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Consulta">
+    <Key>
+      <PropertyRef Name="IdReglaArchivo" />
+      <PropertyRef Name="Archivo" />
+    </Key>
+    <Property Name="IdReglaArchivo" Type="int" Nullable="false" />
+    <Property Name="Archivo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TipoLinea" Type="varchar" MaxLength="10" />
+    <Property Name="CaracterInicial" Type="int" />
+    <Property Name="LargoCampo" Type="int" />
+    <Property Name="TipoCampo" Type="varchar" MaxLength="20" />
+    <Property Name="InformacionCampo" Type="varchar" MaxLength="3000" />
+    <Property Name="FormatoContenido" Type="varchar" MaxLength="3000" />
+    <Property Name="TipoValidacion" Type="varchar" MaxLength="30" />
+    <Property Name="ReglaValidacion" Type="varchar" MaxLength="3000" />
+    <Property Name="ReglaValidacionInterna" Type="varchar" MaxLength="3000" />
+    <Property Name="TablaDestino" Type="varchar" MaxLength="1000" />
+    <Property Name="vigente" Type="smallint" />
+    <Property Name="CampoNegocio" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CONTRATO">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO" />
+    </Key>
+    <Property Name="ID_EMPRESA" Type="int" />
+    <Property Name="IDE_CONTRATO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NRO_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="COD_RAMO_PRI" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="COD_RAMO_SIN" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CLA_CONTRATO" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="FEC_INI_VIG" Type="date" Nullable="false" />
+    <Property Name="FEC_FIN_VIG" Type="date" Nullable="false" />
+    <Property Name="TIP_CONTRATO" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="COD_MONEDA" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="COD_CONTRATANTE" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="POR_PARTICIPA_CIA" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="POR_TASA_RIESGO" Type="decimal" Precision="8" Scale="4" />
+    <Property Name="POR_TASA_REASEGURO" Type="decimal" Precision="8" Scale="4" />
+    <Property Name="CENTRO_COSTO" Type="varchar" MaxLength="25" />
+    <Property Name="POR_IMPUESTO" Type="decimal" Precision="8" Scale="4" />
+    <Property Name="DES_CONTRATO" Type="varchar" MaxLength="100" />
+    <Property Name="MOD_CONTRATO" Type="char" MaxLength="4" />
+    <Property Name="POR_RETENCION" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="POR_CESION" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_MAX_RETENCION" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_MAX_CESION" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PLENO" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_LINEA_MULT" Type="int" />
+    <Property Name="MTO_MAX_CUBERTURA" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_CAPA_XL1" Type="int" />
+    <Property Name="PRIORIDAD1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="CESION_EXC_PRIORIDAD1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_MAX_CAP_LIM_SUP1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_MIN_DEPOSITO1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_CAPA_XL2" Type="int" />
+    <Property Name="PRIORIDAD2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="CESION_EXC_PRIORIDAD2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_MAX_CAP_LIM_SUP2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_MIN_DEPOSITO2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'vcamara2.dbo.CONTRATO_DETALLE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="CONTRATO_DETALLE">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO_DET" />
+      <PropertyRef Name="NRO_CONTRATO" />
+      <PropertyRef Name="IDE_REASEGURADOR" />
+      <PropertyRef Name="COD_REASEGURADOR" />
+      <PropertyRef Name="CAL_CREDITICIA" />
+      <PropertyRef Name="PRC_PARTICIPACION_REA" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="FEC_REG" />
+    </Key>
+    <Property Name="ID_EMPRESA" Type="int" />
+    <Property Name="IDE_CONTRATO_DET" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NRO_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="IDE_REASEGURADOR" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="COD_REASEGURADOR" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="CAL_CREDITICIA" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="COD_EMPRESA_CALIFICA" Type="char" MaxLength="3" />
+    <Property Name="MOD_CONTRATO" Type="char" MaxLength="4" />
+    <Property Name="PRC_RETENCION" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="PRC_CESION" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="PRC_PARTICIPACION_REA" Type="decimal" Precision="9" Scale="6" Nullable="false" />
+    <Property Name="NOMBRE_REA" Type="varchar" MaxLength="100" />
+    <Property Name="NRO_REGISTRO_REA" Type="int" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CONTRATO_SIS_DET">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO_DET" />
+    </Key>
+    <Property Name="IDE_CONTRATO_DET" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDE_CONTRATO" Type="int" />
+    <Property Name="COD_CSV" Type="int" />
+    <Property Name="PRC_PARTICIACION" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="NRO_ORDEN" Type="int" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CONTRATO_SYS">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO" />
+    </Key>
+    <Property Name="IDE_CONTRATO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_EMPRESA" Type="int" />
+    <Property Name="NRO_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CLA_CONTRATO" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="FEC_INI_VIG" Type="date" Nullable="false" />
+    <Property Name="FEC_FIN_VIG" Type="date" Nullable="false" />
+    <Property Name="CENTRO_COSTO" Type="varchar" MaxLength="25" />
+    <Property Name="DES_CONTRATO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+    <Property Name="NRO_EMPRESAS" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'vcamara2.dbo.DATO_A' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="DATO_A">
+    <Key>
+      <PropertyRef Name="IDE_EMPRESA" />
+      <PropertyRef Name="NRO_CONTRATO" />
+      <PropertyRef Name="ANIO_VIGENTE" />
+      <PropertyRef Name="MES_VIGENTE" />
+      <PropertyRef Name="COD_RAMO" />
+      <PropertyRef Name="COD_PRODUCTO" />
+      <PropertyRef Name="COD_ASEGURADO" />
+      <PropertyRef Name="COD_MONEDA" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="FEC_REG" />
+      <PropertyRef Name="USU_REG" />
+    </Key>
+    <Property Name="IDE_EMPRESA" Type="int" Nullable="false" />
+    <Property Name="NRO_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ANIO_VIGENTE" Type="int" Nullable="false" />
+    <Property Name="MES_VIGENTE" Type="int" Nullable="false" />
+    <Property Name="TIPO_INFO" Type="char" MaxLength="2" />
+    <Property Name="COD_RAMO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="COD_PRODUCTO" Type="int" Nullable="false" />
+    <Property Name="COD_ASEGURADO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="COD_MONEDA" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="AP_MTNO_PENS" Type="varchar" MaxLength="50" />
+    <Property Name="AP_MTNO_SOLIC" Type="varchar" MaxLength="50" />
+    <Property Name="AP_PTNO_PENS" Type="varchar" MaxLength="50" />
+    <Property Name="AP_PTNO_SOLIC" Type="varchar" MaxLength="50" />
+    <Property Name="APORT_COMP" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="APORT_OBLIG" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="CAP_REQ_PENS" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="CAP_REQ_SEPE" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="CIC_MON_NSOL" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="CIC_MON_ORIG" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="CRU_FAMILIAR" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="CUSPP" Type="varchar" MaxLength="20" />
+    <Property Name="FE_SIN" Type="varchar" MaxLength="12" />
+    <Property Name="ID_AFP" Type="char" MaxLength="6" />
+    <Property Name="ID_COD_CSV1" Type="int" />
+    <Property Name="ID_COD_CSV2" Type="int" />
+    <Property Name="ID_COD_CSV3" Type="int" />
+    <Property Name="ID_COD_CSV4" Type="int" />
+    <Property Name="ID_COD_TRANSF" Type="int" />
+    <Property Name="ID_TIP_SOLI" Type="int" />
+    <Property Name="MTO_PAGO_CSV1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PAGO_CSV2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PAGO_CSV3" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PAGO_CSV4" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="TI_MOV" Type="char" MaxLength="6" />
+    <Property Name="FE_DEV" Type="varchar" MaxLength="12" />
+    <Property Name="FE_FALLE" Type="varchar" MaxLength="12" />
+    <Property Name="FE_INI_INV" Type="varchar" MaxLength="12" />
+    <Property Name="FE_PAG_AA" Type="varchar" MaxLength="12" />
+    <Property Name="ID_TIP_DOC" Type="int" />
+    <Property Name="IND_PENS_PRE" Type="char" MaxLength="3" />
+    <Property Name="MTO_AA_MON_NSOL" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_AA_MON_ORIG" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_EXC_MON_NSOL" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_EXC_MON_ORIG" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PENS_PRE_MON_NSOL" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PENS_PRE_MON_ORIG" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_BENEF" Type="char" MaxLength="4" />
+    <Property Name="NRO_IDEN_SOLIC" Type="varchar" MaxLength="12" />
+    <Property Name="NUM_CSV" Type="char" MaxLength="4" />
+    <Property Name="PRI_NOMB_SOLIC" Type="varchar" MaxLength="50" />
+    <Property Name="RAM_PROM_NSOL" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SEGU_NOMB_SOLIC" Type="varchar" MaxLength="50" />
+    <Property Name="TASA_INT" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="TI_CAMB_COMPRA" Type="decimal" Precision="5" Scale="4" />
+    <Property Name="TI_CAMB_VTA" Type="decimal" Precision="5" Scale="4" />
+    <Property Name="TI_REG" Type="char" MaxLength="3" />
+    <Property Name="TIP_MON" Type="int" />
+    <Property Name="TIP_PEN_EQUIV" Type="varchar" MaxLength="50" />
+    <Property Name="TOT_CAP_REQ_MON_NSOL" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="TOT_CAP_REQ_MON_ORIG" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS_CSV1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS_CSV2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS_CSV3" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="DESCT_PENS_CSV4" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="FE_DEV_ACT" Type="varchar" MaxLength="12" />
+    <Property Name="FE_DEV_INI" Type="varchar" MaxLength="12" />
+    <Property Name="FE_FIN_SUBSI" Type="varchar" MaxLength="12" />
+    <Property Name="FE_NACI_PENS" Type="varchar" MaxLength="12" />
+    <Property Name="FE_SECI" Type="varchar" MaxLength="12" />
+    <Property Name="FEC_PAGO" Type="varchar" MaxLength="12" />
+    <Property Name="FRAC_MES_DEV" Type="char" MaxLength="8" />
+    <Property Name="ID_COD_BEN" Type="varchar" MaxLength="30" />
+    <Property Name="ID_PARENT" Type="int" />
+    <Property Name="ID_TIP_DOCU_PENS" Type="char" MaxLength="4" />
+    <Property Name="MES_DEV" Type="varchar" MaxLength="12" />
+    <Property Name="MON_EQUI" Type="varchar" MaxLength="15" />
+    <Property Name="MTO_APORT_COMP_CSV1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_COMP_CSV2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_COMP_CSV3" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_COMP_CSV4" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_OBLIG_CSV1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_OBLIG_CSV2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_OBLIG_CSV3" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_APORT_OBLIG_CSV4" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PAGO" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="NRO_DOCU_PENS" Type="varchar" MaxLength="16" />
+    <Property Name="NRO_EESS" Type="varchar" MaxLength="4" />
+    <Property Name="NRO_MES_DEV" Type="varchar" MaxLength="4" />
+    <Property Name="NRO_SIN" Type="int" />
+    <Property Name="NRO_SOLI" Type="varchar" MaxLength="20" />
+    <Property Name="PENS_BASE" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PENS_PAGAR_80" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_NOMB_PENS" Type="varchar" MaxLength="50" />
+    <Property Name="PROC_BENE" Type="char" MaxLength="6" />
+    <Property Name="PROM_ACT_6_MESES_APOCOMP" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="REMPRO_ACT" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SEGU_NOMB_PENS" Type="varchar" MaxLength="50" />
+    <Property Name="TIP_PEN" Type="char" MaxLength="6" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="DATO_M">
+    <Key>
+      <PropertyRef Name="IDE_DATA_M" />
+    </Key>
+    <Property Name="IDE_EMPRESA" Type="int" />
+    <Property Name="IDE_DATA_M" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO_INFO" Type="char" MaxLength="2" />
+    <Property Name="NRO_CONTRATO" Type="varchar" MaxLength="30" />
+    <Property Name="ANIO_VIGENTE" Type="int" />
+    <Property Name="MES_VIGENTE" Type="int" />
+    <Property Name="MES_CONTABLE" Type="int" />
+    <Property Name="COD_RAMO" Type="char" MaxLength="4" />
+    <Property Name="COD_PRODUCTO" Type="char" MaxLength="4" />
+    <Property Name="MTO_ABONADO" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="MTO_PRIMA_EST" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" />
+    <Property Name="FEC_REG" Type="datetime" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="CodiEven" />
+    </Key>
+    <Property Name="CodiEven" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="TipoEven" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DescEven" Type="varchar" MaxLength="100" />
+    <Property Name="AbreEven" Type="varchar" MaxLength="20" />
+    <Property Name="EstEven" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Exactus">
+    <Key>
+      <PropertyRef Name="RowNumber" />
+    </Key>
+    <Property Name="RowNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventClass" Type="int" />
+    <Property Name="TextData" Type="ntext" />
+    <Property Name="ApplicationName" Type="nvarchar" MaxLength="128" />
+    <Property Name="NTUserName" Type="nvarchar" MaxLength="128" />
+    <Property Name="LoginName" Type="nvarchar" MaxLength="128" />
+    <Property Name="CPU" Type="int" />
+    <Property Name="Reads" Type="bigint" />
+    <Property Name="Writes" Type="bigint" />
+    <Property Name="Duration" Type="bigint" />
+    <Property Name="ClientProcessID" Type="int" />
+    <Property Name="SPID" Type="int" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="BinaryData" Type="image" />
+    <Property Name="DatabaseName" Type="nvarchar" MaxLength="128" />
+    <Property Name="HostName" Type="nvarchar" MaxLength="128" />
+    <Property Name="NTDomainName" Type="nvarchar" MaxLength="128" />
+    <Property Name="RowCounts" Type="bigint" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'vcamara2.dbo.EXACTUS_CABECERA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="EXACTUS_CABECERA">
+    <Key>
+      <PropertyRef Name="NRO_CONTRATO" />
+      <PropertyRef Name="TIPO_INFO" />
+      <PropertyRef Name="ANIO_VIGENTE" />
+      <PropertyRef Name="MES_VIGENTE" />
+      <PropertyRef Name="ASIENTO" />
+      <PropertyRef Name="PAQUETE" />
+      <PropertyRef Name="TIPO_ASIENTO" />
+      <PropertyRef Name="FECHA" />
+      <PropertyRef Name="CONTABILIDAD" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="ESTADO_TRANSFERENCIA" />
+      <PropertyRef Name="PERMITIR_DESCUADRADO" />
+      <PropertyRef Name="CONSERVAR_NUMERACION" />
+      <PropertyRef Name="ACTUALIZAR_CONSECUTIVO" />
+      <PropertyRef Name="FECHA_CREACION" />
+      <PropertyRef Name="USUARIO_REGISTRO" />
+    </Key>
+    <Property Name="NRO_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TIPO_INFO" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="ANIO_VIGENTE" Type="int" Nullable="false" />
+    <Property Name="MES_VIGENTE" Type="int" Nullable="false" />
+    <Property Name="ASIENTO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PAQUETE" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="TIPO_ASIENTO" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="CONTABILIDAD" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTAS" Type="text" />
+    <Property Name="ESTADO" Type="int" Nullable="false" />
+    <Property Name="ESTADO_TRANSFERENCIA" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PERMITIR_DESCUADRADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CONSERVAR_NUMERACION" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ACTUALIZAR_CONSECUTIVO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_AUDITORIA" Type="datetime" />
+    <Property Name="FECHA_CREACION" Type="datetime" Nullable="false" />
+    <Property Name="USUARIO_REGISTRO" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EXACTUS_CABECERA_SIS">
+    <Key>
+      <PropertyRef Name="IDE_EXACTUS_CABECERA_SIS" />
+    </Key>
+    <Property Name="IDE_EXACTUS_CABECERA_SIS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDE_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="ArchivoId" Type="int" Nullable="false" />
+    <Property Name="TIPO_ARCHIVO" Type="varchar" MaxLength="20" />
+    <Property Name="IDE_MONEDA" Type="int" />
+    <Property Name="ASIENTO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PAQUETE" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="TIPO_ASIENTO" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="CONTABILIDAD" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTAS" Type="text" />
+    <Property Name="ESTADO" Type="int" Nullable="false" />
+    <Property Name="ESTADO_TRANSFERENCIA" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PERMITIR_DESCUADRADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CONSERVAR_NUMERACION" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ACTUALIZAR_CONSECUTIVO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_AUDITORIA" Type="datetime" />
+    <Property Name="FECHA_CREACION" Type="datetime" Nullable="false" />
+    <Property Name="USUARIO_REGISTRO" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EXACTUS_DETALLE">
+    <Key>
+      <PropertyRef Name="CONSECUTIVO" />
+    </Key>
+    <Property Name="NRO_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ANIO_VIGENTE" Type="int" Nullable="false" />
+    <Property Name="MES_VIGENTE" Type="int" Nullable="false" />
+    <Property Name="TIPO_INFO" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="ASIENTO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CONSECUTIVO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CENTRO_COSTO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CUENTA_CONTABLE" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="FUENTE" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="REFERENCIA" Type="varchar" MaxLength="249" Nullable="false" />
+    <Property Name="CONTRIBUYENTE" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MONTO_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_UNIDADES" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="FECHA_REGISTRO" Type="datetime" Nullable="false" />
+    <Property Name="ESTADO_TRANSFERENCIA" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NIT" Type="varchar" MaxLength="20" />
+    <Property Name="DIMENSION1" Type="varchar" MaxLength="25" />
+    <Property Name="DIMENSION2" Type="varchar" MaxLength="25" />
+    <Property Name="DIMENSION3" Type="varchar" MaxLength="25" />
+    <Property Name="DIMENSION4" Type="varchar" MaxLength="25" />
+    <Property Name="DIMENSION5" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'vcamara2.dbo.EXACTUS_DETALLE_EXPORT_SIS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="EXACTUS_DETALLE_EXPORT_SIS">
+    <Key>
+      <PropertyRef Name="IDE_CONTRATO" />
+      <PropertyRef Name="ArchivoId" />
+      <PropertyRef Name="TIPO_ARHIVO" />
+      <PropertyRef Name="IDE_MONEDA" />
+      <PropertyRef Name="CUENTA_BANCARIA" />
+      <PropertyRef Name="NUMERO" />
+      <PropertyRef Name="TIPO_DOCUMENTO" />
+      <PropertyRef Name="FECHA_DOCUMENTO" />
+      <PropertyRef Name="CONTRIBUYENTE" />
+      <PropertyRef Name="MONTO" />
+      <PropertyRef Name="DETALLE" />
+      <PropertyRef Name="SUBTIPO" />
+      <PropertyRef Name="CENTRO_COSTO" />
+      <PropertyRef Name="CUENTA_CONTABLE" />
+      <PropertyRef Name="PAQUETE" />
+    </Key>
+    <Property Name="IDE_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="ArchivoId" Type="int" Nullable="false" />
+    <Property Name="TIPO_ARHIVO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IDE_MONEDA" Type="int" Nullable="false" />
+    <Property Name="CUENTA_BANCARIA" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NUMERO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIPO_DOCUMENTO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="FECHA_DOCUMENTO" Type="date" Nullable="false" />
+    <Property Name="CONCEPTO" Type="varchar" MaxLength="50" />
+    <Property Name="BENEFICIARIO" Type="varchar" MaxLength="50" />
+    <Property Name="CONTRIBUYENTE" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MONTO" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DETALLE" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SUBTIPO" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CENTRO_COSTO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CUENTA_CONTABLE" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="RUBRO_1" Type="varchar" MaxLength="25" />
+    <Property Name="RUBRO_2" Type="varchar" MaxLength="25" />
+    <Property Name="RUBRO_3" Type="varchar" MaxLength="25" />
+    <Property Name="RUBRO_4" Type="varchar" MaxLength="25" />
+    <Property Name="RUBRO_5" Type="varchar" MaxLength="25" />
+    <Property Name="PAQUETE" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EXACTUS_DETALLE_SIS">
+    <Key>
+      <PropertyRef Name="IDE_EXACTUS_DETALLE_SIS" />
+    </Key>
+    <Property Name="IDE_EXACTUS_DETALLE_SIS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDE_EXACTUS_CABECERA_SIS" Type="int" Nullable="false" />
+    <Property Name="ASIENTO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CENTRO_COSTO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CUENTA_CONTABLE" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="FUENTE" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="REFERENCIA" Type="varchar" MaxLength="249" Nullable="false" />
+    <Property Name="CONTRIBUYENTE" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="MONTO_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_UNIDADES" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="FECHA_REGISTRO" Type="datetime" Nullable="false" />
+    <Property Name="ESTADO_TRANSFERENCIA" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NIT" Type="varchar" MaxLength="20" />
+    <Property Name="DIMENSION1" Type="varchar" MaxLength="25" />
+    <Property Name="DIMENSION2" Type="varchar" MaxLength="25" />
+    <Property Name="DIMENSION3" Type="varchar" MaxLength="25" />
+    <Property Name="DIMENSION4" Type="varchar" MaxLength="25" />
+    <Property Name="DIMENSION5" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="GENERAL">
+    <Key>
+      <PropertyRef Name="IDE_IMPRESA" />
+    </Key>
+    <Property Name="IDE_IMPRESA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RUC_EMPRESA" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ANIO_VIGENTE" Type="int" Nullable="false" />
+    <Property Name="MES_VEGENTE" Type="int" Nullable="false" />
+    <Property Name="RUTA_ARCHIVO" Type="varchar" MaxLength="30" />
+    <Property Name="NRO_DECIMAL" Type="int" />
+    <Property Name="TCA_MES" Type="decimal" Precision="10" Scale="6" />
+    <Property Name="TCA_ANIO" Type="decimal" Precision="10" Scale="6" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LogOperacion">
+    <Key>
+      <PropertyRef Name="CodiLogOper" />
+    </Key>
+    <Property Name="CodiLogOper" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDE_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="FechEven" Type="datetime" Nullable="false" />
+    <Property Name="TipoOper" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CodiOper" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="CodiEven" Type="char" MaxLength="8" />
+    <Property Name="CodiUsu" Type="varchar" MaxLength="30" />
+    <Property Name="CodiCnx" Type="char" MaxLength="15" />
+    <Property Name="Entidad" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="NOMINA">
+    <Key>
+      <PropertyRef Name="Id_Nomina" />
+    </Key>
+    <Property Name="Id_Nomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Empresa" Type="int" />
+    <Property Name="ArchivoId" Type="int" />
+    <Property Name="IDE_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="RUC_ORDE" Type="varchar" MaxLength="11" />
+    <Property Name="CTA_ORDE" Type="varchar" MaxLength="20" />
+    <Property Name="COD_TRAN" Type="varchar" MaxLength="25" />
+    <Property Name="TIP_MONE" Type="int" />
+    <Property Name="MON_TRAN" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FEC_TRAN" Type="datetime" />
+    <Property Name="RUC_BENE" Type="varchar" MaxLength="11" />
+    <Property Name="NOM_BENE" Type="varchar" MaxLength="40" />
+    <Property Name="TIP_CTA" Type="int" />
+    <Property Name="CTA_BENE" Type="varchar" MaxLength="20" />
+    <Property Name="DET_TRAN" Type="varchar" MaxLength="40" />
+    <Property Name="CumpleValidacion" Type="bigint" Nullable="false" />
+    <Property Name="Estado" Type="char" MaxLength="1" />
+    <Property Name="FechaReg" Type="datetime" />
+    <Property Name="UsuReg" Type="varchar" MaxLength="30" />
+    <Property Name="ReglaObservada" Type="varchar" MaxLength="40" />
+    <Property Name="EstadoPago" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="OPERACION">
+    <Key>
+      <PropertyRef Name="NRO_OPERACION" />
+    </Key>
+    <Property Name="NRO_OPERACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIP_OPERACION" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="TIPO_REGISTRO" Type="char" MaxLength="3" />
+    <Property Name="COD_REASEGURADOR" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="FEC_OPERACION" Type="date" Nullable="false" />
+    <Property Name="ANO_OPERACION" Type="int" Nullable="false" />
+    <Property Name="MES_OPERACION" Type="int" Nullable="false" />
+    <Property Name="COD_ASEGURADO" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="IDE_CONTRATO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="COD_RAMO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="COD_MONEDA" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="TCA_CAMBIO" Type="decimal" Precision="10" Scale="6" />
+    <Property Name="ENTORNO_PRIMA_T_2" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="ENTORNO_PRIMA_T_1" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_ABONADA" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_REG_CONTAB" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRIMA_CED_BRUTA" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_CED_MES" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="DES_REG_MES" Type="varchar" MaxLength="50" />
+    <Property Name="IMP_IMPUESTO_MES" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_XPAG_REA_CED" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="PRI_XCOB_REA_ACE" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_DIRECTO" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_XCOB_REA_CED" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SIN_XPAG_REA_ACE" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="OTR_CTA_XCOB_REA_CED" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="OTR_CTA_XPAG_REA_ACE" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="DSCTO_COMIS_REA" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_DEUDOR" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="SALDO_ACREEDOR" Type="decimal" Precision="16" Scale="6" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+    <Property Name="ORI_REG" Type="char" MaxLength="1" />
+    <Property Name="TIP_COMPROBANTE" Type="char" MaxLength="3" />
+    <Property Name="ORIGEN_OPERACION" Type="smallint" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'vcamara2.dbo.ReporteDictamen' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="ReporteDictamen">
+          <Property Name="CUSPP" Type="nvarchar" MaxLength="255" />
+          <Property Name="APELLIDO PATERNO AFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="APELLIDO MATERNO AFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="PRIMER NOMBRE AFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="SEGUNDO _NOMBRE AFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPO DE SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="AFP" Type="nvarchar" MaxLength="255" />
+          <Property Name="CONTRATO" Type="float" />
+          <Property Name="ESTADO DE SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="NÚMERO DE SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="EMISOR DICTAMEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPO DE PENSIÓN" Type="nvarchar" MaxLength="255" />
+          <Property Name="NÚMERO DE EVALUACIÓN" Type="float" />
+          <Property Name="PORCENTAJE DE PENSIÓN" Type="float" />
+          <Property Name="FECHA DE OCURRENCIA" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE DEVENGUE  INICIAL" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE INICIO DE VIGENCIA DEL DICTAMEN INICIAL#" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA FIN DE VIGENCIA DEL DICTAMEN " Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE AVISO DEL# DICTAMEN " Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'vcamara2.dbo.ReporteSECI' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="ReporteSECI">
+          <Property Name="CUSPP" Type="nvarchar" MaxLength="255" />
+          <Property Name="APELLIDOPATERNOAFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="APELLIDOMATERNOAFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="PRIMERNOMBREAFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="SEGUNDONOMBREAFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPODESOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="AFP" Type="nvarchar" MaxLength="255" />
+          <Property Name="CONTRATO" Type="float" />
+          <Property Name="NUMERODESECI" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHADESECI" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHADEAVISODESECI" Type="nvarchar" MaxLength="255" />
+          <Property Name="INDICADORDESUBSIDIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="NUMERODE SOLICITUDDEPENSION" Type="nvarchar" MaxLength="255" />
+          <Property Name="ESTADODELASOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHADESOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPODESOLICITUD1" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHADEAVISODESOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPODEPENSION" Type="nvarchar" MaxLength="255" />
+          <Property Name="PORCENTAJEDEPENSION" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHADEOCURRENCIA" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE  DEVENGUE INICIAL" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'vcamara2.dbo.ReportesSolicitudes' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="ReportesSolicitudes">
+          <Property Name="CUSPP" Type="nvarchar" MaxLength="255" />
+          <Property Name="APELLIDO PATERNO AFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="APELLIDO MATERNO AFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="PRIMER NOMBRE AFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="SEGUNDO NOMBRE AFILIADO" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPO DE SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="AFP" Type="nvarchar" MaxLength="255" />
+          <Property Name="CONTRATO" Type="float" />
+          <Property Name="ESTADO DE LA_SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="NÚMERO DE SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPO DE INVALIDEZ" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPO DE PENSIÓN" Type="nvarchar" MaxLength="255" />
+          <Property Name="APELLIDO PATERNO BENEFICIARIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="APELLIDO MATERNO BENEFICIARIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="PRIMER NOMBRE BENEFICIARIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="SEGUNDO NOMBRE BENEFICIARIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="PARENTESCO" Type="nvarchar" MaxLength="255" />
+          <Property Name="SEXO  DEL BENEFICIARIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="EDAD DEL BENEFICIARIO" Type="float" />
+          <Property Name="CONDICIÓN DE INVALIDEZ DEL BENEFICIARIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="PORCENTAJE DE PENSIÓN" Type="float" />
+          <Property Name="ESTADO DEL BENFICIARIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE OCURRENCIA" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE DEVENGE INICIAL" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE AVISO  DE SOLICITUD" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA  PRONUNCIAMIENTO  DE COBERTURA" Type="nvarchar" MaxLength="255" />
+          <Property Name="TIPO  DE COBERTURA " Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE  REACTIVACIÓN  DE COBERTURA" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE  NOTIFICACIÓN DEL ANEXO  16" Type="nvarchar" MaxLength="255" />
+          <Property Name="NÚMERO DE DIAS TRANSCURRIDOS DESDE LA FECHA  DEL FALLECIMIENTO" Type="float" />
+          <Property Name="MONEDA" Type="nvarchar" MaxLength="255" />
+          <Property Name="PROMEDIO DE RAM" Type="nvarchar" MaxLength="255" />
+          <Property Name="MONTO DE LA PENSIÓN  QUE LE CORRESPONDE" Type="float" />
+          <Property Name="FECHA DE LIQUIDACIÓN DEL PRIMER PAGO" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE VENCIMIENTO DEL C#S#" Type="nvarchar" MaxLength="255" />
+          <Property Name="NÚMERO DE PAGOS DE PENSIONES PRELIMINARES" Type="float" />
+          <Property Name="FECHA DE CUMPLIMIENTO DE CONDICIONES PARA CALCULO AA " Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE NOTIFICACIÓN DE AA AL DIS" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE PRONUNCIAMIENTO DEL PAGO DEL AA# " Type="nvarchar" MaxLength="255" />
+          <Property Name="ESTADO DE LA SOLICITUD DEL AA" Type="nvarchar" MaxLength="255" />
+          <Property Name="FECHA DE LIQUIDACIÓN DE AA" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'vcamara2.dbo.USUARIO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="IDE_USUARIO" />
+      <PropertyRef Name="USUARIO" />
+      <PropertyRef Name="CONTRASENA" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="FEC_REG" />
+      <PropertyRef Name="USU_REG" />
+    </Key>
+    <Property Name="IDE_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CONTRASENA" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ACCESO_PAGINA" Type="varchar" MaxLength="255" />
+    <Property Name="NOMBRES" Type="varchar" MaxLength="50" />
+    <Property Name="CARGO" Type="varchar" MaxLength="30" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="TIPO_USUARIO" Type="varchar" MaxLength="20" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FEC_MOD" Type="datetime" />
+    <Property Name="USU_MOD" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="HistorialCargaArchivo">
+    <Key>
+      <PropertyRef Name="IdHistorialCargaArchivo" />
+    </Key>
+    <Property Name="IdHistorialCargaArchivo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdArchivo" Type="int" Nullable="false" />
+    <Property Name="FechaInsert" Type="datetime" />
+    <Property Name="IdReglaArchivo" Type="int" />
+    <Property Name="TipoLinea" Type="varchar" MaxLength="10" />
+    <Property Name="NumeroLinea" Type="int" />
+    <Property Name="CampoInicial" Type="int" />
+    <Property Name="LargoCampo" Type="int" />
+    <Property Name="ValorCampo" Type="varchar" MaxLength="500" />
+    <Property Name="CumpleValidacion" Type="int" />
+    <Property Name="EsVC" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistorialCargaArchivo_LinCab">
+    <Key>
+      <PropertyRef Name="IdHistorialCargaArchivoLinCab" />
+    </Key>
+    <Property Name="IdHistorialCargaArchivoLinCab" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArchivoId" Type="int" />
+    <Property Name="IDE_CONTRATO" Type="int" Nullable="false" />
+    <Property Name="TIP_REGI" Type="varchar" MaxLength="1" />
+    <Property Name="FEC_ENVI_ARC" Type="datetime" />
+    <Property Name="COD_CSV" Type="int" />
+    <Property Name="NUM_CONT_LIC" Type="int" />
+    <Property Name="MONEDA" Type="int" />
+    <Property Name="PER_CONT" Type="varchar" MaxLength="6" />
+    <Property Name="TIP_PAGO" Type="varchar" MaxLength="3" />
+    <Property Name="FEC_PAGO" Type="datetime" />
+    <Property Name="CumpleValidacion" Type="int" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FEC_REG" Type="datetime" Nullable="false" />
+    <Property Name="USU_REG" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ArchivoIdNomina" Type="int" />
+  </EntityType>
+  <EntityType Name="HistorialCargaArchivo_LinDet">
+    <Key>
+      <PropertyRef Name="IdHistorialCargaArchivoLinDet" />
+    </Key>
+    <Property Name="IdHistorialCargaArchivoLinDet" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdHistorialCargaArchivoLinCab" Type="bigint" />
+    <Property Name="FechaInsert" Type="datetime" />
+    <Property Name="TipoLinea" Type="varchar" MaxLength="10" />
+    <Property Name="NumeroLinea" Type="int" />
+    <Property Name="FEC_DEVE" Type="datetime" />
+    <Property Name="FEC_FALL" Type="datetime" />
+    <Property Name="FEC_OCUR" Type="datetime" />
+    <Property Name="FEC_PAGO_APO_ADI" Type="datetime" />
+    <Property Name="FEC_INV_DEF" Type="datetime" />
+    <Property Name="CAP_GAST_SEP" Type="varchar" MaxLength="10" />
+    <Property Name="PARE" Type="varchar" MaxLength="1" />
+    <Property Name="SAL_CIC_SOL" Type="varchar" MaxLength="11" />
+    <Property Name="TIP_REGI" Type="varchar" MaxLength="1" />
+    <Property Name="TIP_SOLI" Type="varchar" MaxLength="1" />
+    <Property Name="NUM_BENE" Type="varchar" MaxLength="2" />
+    <Property Name="NUM_MESE_DEV" Type="varchar" MaxLength="2" />
+    <Property Name="POR_BENE" Type="varchar" MaxLength="2" />
+    <Property Name="TIP_IDEN_SOL" Type="varchar" MaxLength="2" />
+    <Property Name="TIP_PENS" Type="varchar" MaxLength="2" />
+    <Property Name="TIP_DOCU_IDE_PEN" Type="varchar" MaxLength="2" />
+    <Property Name="TIP_MOVI" Type="varchar" MaxLength="3" />
+    <Property Name="COD_CSV_01" Type="varchar" MaxLength="4" />
+    <Property Name="COD_CSV_02" Type="varchar" MaxLength="4" />
+    <Property Name="COD_CSV_03" Type="varchar" MaxLength="4" />
+    <Property Name="COD_CSV_04" Type="varchar" MaxLength="4" />
+    <Property Name="COD_CSV_05" Type="varchar" MaxLength="4" />
+    <Property Name="COD_CSV_06" Type="varchar" MaxLength="4" />
+    <Property Name="COD_CSV_07" Type="varchar" MaxLength="4" />
+    <Property Name="COD_CSV_08" Type="varchar" MaxLength="4" />
+    <Property Name="COD_AFP" Type="varchar" MaxLength="4" />
+    <Property Name="COD_IDE_CSV" Type="varchar" MaxLength="4" />
+    <Property Name="FRA_MESE_DEV" Type="varchar" MaxLength="4" />
+    <Property Name="IND_PENS_PRE" Type="varchar" MaxLength="1" />
+    <Property Name="MTO_PPRE_ORI" Type="varchar" MaxLength="10" />
+    <Property Name="TIP_CAMB_VTA" Type="varchar" MaxLength="5" />
+    <Property Name="EXC_PENS_SOL" Type="varchar" MaxLength="10" />
+    <Property Name="EXC_PENS_NM" Type="varchar" MaxLength="10" />
+    <Property Name="MES_DEVE" Type="varchar" MaxLength="6" />
+    <Property Name="CAP_REQU_PEN" Type="varchar" MaxLength="10" />
+    <Property Name="CRU_FAMI" Type="varchar" MaxLength="12" />
+    <Property Name="FEC_NACI" Type="varchar" MaxLength="8" />
+    <Property Name="FEC_NACI_PEN" Type="varchar" MaxLength="8" />
+    <Property Name="FEC_PAGO" Type="varchar" MaxLength="8" />
+    <Property Name="FEC_PAGO_TEX" Type="varchar" MaxLength="8" />
+    <Property Name="FEC_SECI" Type="varchar" MaxLength="8" />
+    <Property Name="FEC_SINI_OCU" Type="varchar" MaxLength="8" />
+    <Property Name="FEC_DEVE_ACT" Type="varchar" MaxLength="8" />
+    <Property Name="FEC_DEVE_INI" Type="varchar" MaxLength="8" />
+    <Property Name="FEC_FIN_SUB" Type="varchar" MaxLength="8" />
+    <Property Name="RAM_PROM_SOL" Type="varchar" MaxLength="10" />
+    <Property Name="TAS_INTE" Type="varchar" MaxLength="10" />
+    <Property Name="VACIO_10" Type="varchar" MaxLength="10" />
+    <Property Name="DES_PENS_MONE" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_APOR_ADI" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_APOR_ADI_SOL" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_APOR_COM" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PENS_PAG" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PPRE_MN" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_APOR_OBL" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_COM1" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_COM2" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_COM3" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_COM4" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_COM5" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_COM6" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_COM7" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_COM8" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_OBL1" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_OBL2" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_OBL3" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_OBL4" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_OBL5" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_OBL6" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_OBL7" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_MONE_APO_OBL8" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PAGO_REE_SOL" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP1" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP2" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP3" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP4" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP5" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP6" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP7" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_PRIM_PAG_PENS_AFP8" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP1" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP2" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP3" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP4" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP5" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP6" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP7" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_DSCT_PENS_PAG_AFP8" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP1" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP2" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP3" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP4" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP5" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP6" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP7" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_APO_ADI_AFP8" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP1" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP2" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP3" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP4" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP5" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP6" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP7" Type="varchar" MaxLength="10" />
+    <Property Name="MTO_SOLE_REE_PAG_AFP8" Type="varchar" MaxLength="10" />
+    <Property Name="NRO_CSV" Type="varchar" MaxLength="2" />
+    <Property Name="NUM_DOCU_SOL" Type="varchar" MaxLength="10" />
+    <Property Name="NUM_SINI" Type="varchar" MaxLength="10" />
+    <Property Name="NUM_SOLI" Type="varchar" MaxLength="10" />
+    <Property Name="NUM_SOLI_PEN" Type="varchar" MaxLength="10" />
+    <Property Name="NUM_DOCU_PEN" Type="varchar" MaxLength="10" />
+    <Property Name="PEN_PAGA_MON" Type="varchar" MaxLength="10" />
+    <Property Name="PEN_BASE_MON" Type="varchar" MaxLength="10" />
+    <Property Name="REM_PROM_ACT" Type="varchar" MaxLength="10" />
+    <Property Name="NUM_APOR_ACT" Type="varchar" MaxLength="10" />
+    <Property Name="SAL_CIC_MN" Type="varchar" MaxLength="11" />
+    <Property Name="TIP_CAMB_COM" Type="varchar" MaxLength="5" />
+    <Property Name="TIP_MONE" Type="varchar" MaxLength="2" />
+    <Property Name="TOT_CAPI_REQ_MN" Type="varchar" MaxLength="10" />
+    <Property Name="TOT_CAPI_REQ_ORI" Type="varchar" MaxLength="10" />
+    <Property Name="COD_CUSP" Type="varchar" MaxLength="12" />
+    <Property Name="COD_BENE_MN" Type="varchar" MaxLength="16" />
+    <Property Name="APE_MATE_PEN" Type="varchar" MaxLength="20" />
+    <Property Name="APE_MATE_SOLI" Type="varchar" MaxLength="20" />
+    <Property Name="APE_PATE_PEN" Type="varchar" MaxLength="20" />
+    <Property Name="APE_PATE_SOL" Type="varchar" MaxLength="20" />
+    <Property Name="PRI_NOMB_PEN" Type="varchar" MaxLength="20" />
+    <Property Name="PRI_NOMB_SOL" Type="varchar" MaxLength="20" />
+    <Property Name="SEG_NOMB_PEN" Type="varchar" MaxLength="20" />
+    <Property Name="SEG_NOMB_SOL" Type="varchar" MaxLength="20" />
+    <Property Name="SUC_INTE" Type="varchar" MaxLength="25" />
+    <Property Name="CumpleValidacion" Type="int" />
+    <Property Name="ReglaObservada" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ReglaArchivo">
+    <Key>
+      <PropertyRef Name="IdReglaArchivo" />
+    </Key>
+    <Property Name="IdReglaArchivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Archivo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TipoLinea" Type="varchar" MaxLength="10" />
+    <Property Name="CaracterInicial" Type="int" />
+    <Property Name="LargoCampo" Type="int" />
+    <Property Name="TipoCampo" Type="varchar" MaxLength="20" />
+    <Property Name="InformacionCampo" Type="varchar" MaxLength="3000" />
+    <Property Name="FormatoContenido" Type="varchar" MaxLength="3000" />
+    <Property Name="TipoValidacion" Type="varchar" MaxLength="30" />
+    <Property Name="ReglaValidacion" Type="varchar" MaxLength="3000" />
+    <Property Name="ReglaValidacionInterna" Type="varchar" MaxLength="3000" />
+    <Property Name="TablaDestino" Type="varchar" MaxLength="1000" />
+    <Property Name="vigente" Type="smallint" />
+    <Property Name="CampoNegocio" Type="varchar" MaxLength="30" />
+    <Property Name="VigenciaReglaDesde" Type="datetime" />
+    <Property Name="VigenciaReglaHasta" Type="datetime" />
+    <Property Name="NombreCampo" Type="varchar" MaxLength="50" />
+    <Property Name="TituloColumna" Type="varchar" MaxLength="50" />
+    <Property Name="FormaValidacion" Type="smallint" />
+    <Property Name="NUM_CONT_LIC" Type="int" />
+  </EntityType>
+  <EntityType Name="AFPs">
+    <Key>
+      <PropertyRef Name="AFPId" />
+    </Key>
+    <Property Name="AFPId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Abreviatura" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nit" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Archivo">
+    <Key>
+      <PropertyRef Name="ArchivoId" />
+    </Key>
+    <Property Name="ArchivoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstadoArchivoId" Type="int" Nullable="false" />
+    <Property Name="TipoArchivoId" Type="int" Nullable="false" />
+    <Property Name="NombreArchivo" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="50" />
+    <Property Name="Vigente" Type="bit" />
+    <Property Name="FechaAprobacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="IdUsuario" Type="int" />
+    <Property Name="IdArchivo" Type="int" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="4000" />
+    <Property Name="Comando" Type="varchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="Checkeados">
+    <Key>
+      <PropertyRef Name="CheckeadoId" />
+    </Key>
+    <Property Name="CheckeadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Visto" Type="bit" Nullable="false" />
+    <Property Name="CheckListId" Type="int" Nullable="false" />
+    <Property Name="DocumentoId" Type="int" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="50" />
+    <Property Name="Vigente" Type="bit" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'vcamara2.Negocio.CheckLists' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="CheckLists">
+    <Key>
+      <PropertyRef Name="CheckListId" />
+      <PropertyRef Name="CUSPP" />
+      <PropertyRef Name="TipoMovimientoId" />
+    </Key>
+    <Property Name="CheckListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUSPP" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipoMovimientoId" Type="int" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="50" />
+    <Property Name="Vigente" Type="bit" />
+    <Property Name="TipoSolicitudId" Type="int" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="ContratoCSVs">
+    <Key>
+      <PropertyRef Name="ContratoCSVId" />
+    </Key>
+    <Property Name="ContratoCSVId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Partes" Type="int" Nullable="false" />
+    <Property Name="CSVId" Type="int" Nullable="false" />
+    <Property Name="ContratoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contratos">
+    <Key>
+      <PropertyRef Name="ContratoId" />
+    </Key>
+    <Property Name="ContratoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Identificador" Type="int" Nullable="false" />
+    <Property Name="Periodo_FechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="Periodo_FechaTermino" Type="datetime" Nullable="false" />
+    <Property Name="TotalPartes" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Correlativos">
+    <Key>
+      <PropertyRef Name="Tipo" />
+    </Key>
+    <Property Name="Tipo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Correlativo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CSVs">
+    <Key>
+      <PropertyRef Name="CSVId" />
+    </Key>
+    <Property Name="CSVId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Abreviatura" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VidaCamara" Type="bit" Nullable="false" />
+    <Property Name="CodigoDIS" Type="nvarchar" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Documentos">
+    <Key>
+      <PropertyRef Name="DocumentoId" />
+    </Key>
+    <Property Name="DocumentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentoSolicitados">
+    <Key>
+      <PropertyRef Name="DocumentoSolicitadoId" />
+    </Key>
+    <Property Name="DocumentoSolicitadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoMovimientoId" Type="int" Nullable="false" />
+    <Property Name="DocumentoId" Type="int" Nullable="false" />
+    <Property Name="TipoSolicitudId" Type="int" />
+  </EntityType>
+  <EntityType Name="EstadoArchivo">
+    <Key>
+      <PropertyRef Name="EstadoArchivoId" />
+    </Key>
+    <Property Name="EstadoArchivoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreEstado" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstadoPago">
+    <Key>
+      <PropertyRef Name="EstadoId" />
+    </Key>
+    <Property Name="EstadoId" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Vigente" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Imputacion">
+    <Key>
+      <PropertyRef Name="ImputacionId" />
+    </Key>
+    <Property Name="ImputacionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Linea" Type="int" Nullable="false" />
+    <Property Name="Correlativo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CentroCosto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CuentaContable" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MonedaId" Type="int" Nullable="false" />
+    <Property Name="Debe_Soles" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="Haber_soles" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="Debe_Dolares" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="Haber_Dolares" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="Fuente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Referencia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UsuarioModificacion" Type="int" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Vigente" Type="bit" Nullable="false" />
+    <Property Name="ArchivoId" Type="int" />
+  </EntityType>
+  <EntityType Name="Moneda">
+    <Key>
+      <PropertyRef Name="MonedaId" />
+    </Key>
+    <Property Name="MonedaId" Type="int" Nullable="false" />
+    <Property Name="NombreMoneda" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MontoAlto">
+    <Key>
+      <PropertyRef Name="MontoAltoId" />
+    </Key>
+    <Property Name="MontoAltoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoParametro" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="Valor" Type="int" Nullable="false" />
+    <Property Name="Observacion" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="Pagos">
+    <Key>
+      <PropertyRef Name="PagoId" />
+    </Key>
+    <Property Name="PagoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArchivoId" Type="int" Nullable="false" />
+    <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+    <Property Name="FechaPago" Type="datetime" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="SiniestroId" Type="int" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="PagoVC" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="FechaTransferencia" Type="datetime" Nullable="false" />
+    <Property Name="MonedaId" Type="int" Nullable="false" />
+    <Property Name="NominaId" Type="int" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="50" />
+    <Property Name="Vigente" Type="bit" />
+  </EntityType>
+  <EntityType Name="Parametros">
+    <Key>
+      <PropertyRef Name="ParametroId" />
+    </Key>
+    <Property Name="ParametroId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoMovimientoId" Type="int" Nullable="false" />
+    <Property Name="TipoSolicitudId" Type="int" Nullable="false" />
+    <Property Name="TipoOperacion" Type="int" Nullable="false" />
+    <Property Name="CentroCosto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CuentaContable" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SignoCuenta" Type="varchar" MaxLength="50" />
+    <Property Name="Vigente" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parentesco">
+    <Key>
+      <PropertyRef Name="ParentescoId" />
+    </Key>
+    <Property Name="ParentescoId" Type="int" Nullable="false" />
+    <Property Name="DescripcionParentesco" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="CodBeneficiario" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PorcentajeBeneficiario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="PersonaId" />
+    </Key>
+    <Property Name="PersonaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrimerNombre" Type="nvarchar" MaxLength="20" />
+    <Property Name="SegundoNombre" Type="nvarchar" MaxLength="20" />
+    <Property Name="ApellidoPaterno" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ApellidoMaterno" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+    <Property Name="TipoIdentificacion" Type="int" Nullable="false" />
+    <Property Name="NumeroIdentificador" Type="varchar" MaxLength="14" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RegistroMontoAlto">
+    <Key>
+      <PropertyRef Name="IdRegistroMontoAlto" />
+    </Key>
+    <Property Name="IdRegistroMontoAlto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Resultado" Type="varchar" MaxLength="1" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="IdUsuario" Type="int" />
+    <Property Name="IdArchivo" Type="int" />
+    <Property Name="Cuspp" Type="varchar" MaxLength="12" />
+    <Property Name="Valor" Type="int" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RolesId" />
+    </Key>
+    <Property Name="RolesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionRol" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Siniestros">
+    <Key>
+      <PropertyRef Name="SiniestroId" />
+    </Key>
+    <Property Name="SiniestroId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUSPP" Type="nchar" MaxLength="12" Nullable="false" />
+    <Property Name="TipoMovimientoId" Type="int" Nullable="false" />
+    <Property Name="AFPId" Type="int" Nullable="false" />
+    <Property Name="ContratoId" Type="int" Nullable="false" />
+    <Property Name="TipoSolicitudId" Type="int" Nullable="false" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="50" />
+    <Property Name="CodTransferencia" Type="varchar" MaxLength="25" />
+    <Property Name="Vigente" Type="bit" />
+  </EntityType>
+  <EntityType Name="TipoArchivo">
+    <Key>
+      <PropertyRef Name="TipoArchivoId" />
+    </Key>
+    <Property Name="TipoArchivoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreTipoArchivo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NombreClase" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EsEntrada" Type="tinyint" Nullable="false" />
+    <Property Name="CabeceraLargo" Type="int" Nullable="false" />
+    <Property Name="DetalleLargo" Type="int" Nullable="false" />
+    <Property Name="TotalLargo" Type="int" Nullable="false" />
+    <Property Name="ReglaPrevia" Type="varchar" MaxLength="1000" />
+    <Property Name="ReglaPosterior" Type="varchar" MaxLength="1000" />
+    <Property Name="TipoInformeId" Type="int" />
+    <Property Name="FechaModificacion" Type="date" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="50" />
+    <Property Name="Vigente" Type="bit" />
+  </EntityType>
+  <EntityType Name="TipoCambio">
+    <Key>
+      <PropertyRef Name="IdTipoCambio" />
+    </Key>
+    <Property Name="IdTipoCambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Periodo" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="Vigente" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoDocumentoIdentificacion">
+    <Key>
+      <PropertyRef Name="TipoDocumentoIdentificacionId" />
+    </Key>
+    <Property Name="TipoDocumentoIdentificacionId" Type="int" Nullable="false" />
+    <Property Name="NombreTipoDocumentoIdentificacion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoInforme">
+    <Key>
+      <PropertyRef Name="TipoInformeId" />
+    </Key>
+    <Property Name="TipoInformeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipoMoneda">
+    <Key>
+      <PropertyRef Name="TipoMonedaId" />
+    </Key>
+    <Property Name="TipoMonedaId" Type="int" Nullable="false" />
+    <Property Name="NombreMoneda" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MonedaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoMovimientos">
+    <Key>
+      <PropertyRef Name="TipoMovimientoId" />
+    </Key>
+    <Property Name="TipoMovimientoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Abreviatura" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoPension">
+    <Key>
+      <PropertyRef Name="TipoPensionId" />
+    </Key>
+    <Property Name="TipoPensionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoPension" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="NombreTipoPension" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoRegistro">
+    <Key>
+      <PropertyRef Name="TipoRegistroId" />
+    </Key>
+    <Property Name="TipoRegistroId" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoSolicitudes">
+    <Key>
+      <PropertyRef Name="TipoSolicitudId" />
+    </Key>
+    <Property Name="TipoSolicitudId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Clasificacion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_AFPSiniestro">
+    <End Role="AFPs" Type="Self.AFPs" Multiplicity="1" />
+    <End Role="Siniestros" Type="Self.Siniestros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AFPs">
+        <PropertyRef Name="AFPId" />
+      </Principal>
+      <Dependent Role="Siniestros">
+        <PropertyRef Name="AFPId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRATO_SIS_DET_CONTRATO_SYS">
+    <End Role="CONTRATO_SYS" Type="Self.CONTRATO_SYS" Multiplicity="0..1" />
+    <End Role="CONTRATO_SIS_DET" Type="Self.CONTRATO_SIS_DET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="CONTRATO_SIS_DET">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentoCheckeado">
+    <End Role="Documentos" Type="Self.Documentos" Multiplicity="1" />
+    <End Role="Checkeados" Type="Self.Checkeados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documentos">
+        <PropertyRef Name="DocumentoId" />
+      </Principal>
+      <Dependent Role="Checkeados">
+        <PropertyRef Name="DocumentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentoDocumentoSolicitado">
+    <End Role="Documentos" Type="Self.Documentos" Multiplicity="1" />
+    <End Role="DocumentoSolicitados" Type="Self.DocumentoSolicitados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documentos">
+        <PropertyRef Name="DocumentoId" />
+      </Principal>
+      <Dependent Role="DocumentoSolicitados">
+        <PropertyRef Name="DocumentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EstadoArchivoArchivo">
+    <End Role="EstadoArchivo" Type="Self.EstadoArchivo" Multiplicity="1" />
+    <End Role="Archivo" Type="Self.Archivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoArchivo">
+        <PropertyRef Name="EstadoArchivoId" />
+      </Principal>
+      <Dependent Role="Archivo">
+        <PropertyRef Name="EstadoArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_CABECERA_SIS_Archivo">
+    <End Role="Archivo" Type="Self.Archivo" Multiplicity="1" />
+    <End Role="EXACTUS_CABECERA_SIS" Type="Self.EXACTUS_CABECERA_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="EXACTUS_CABECERA_SIS">
+        <PropertyRef Name="ArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS">
+    <End Role="CONTRATO_SYS" Type="Self.CONTRATO_SYS" Multiplicity="1" />
+    <End Role="EXACTUS_CABECERA_SIS" Type="Self.EXACTUS_CABECERA_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="EXACTUS_CABECERA_SIS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo">
+    <End Role="Archivo" Type="Self.Archivo" Multiplicity="1" />
+    <End Role="EXACTUS_DETALLE_EXPORT_SIS" Type="Self.EXACTUS_DETALLE_EXPORT_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="EXACTUS_DETALLE_EXPORT_SIS">
+        <PropertyRef Name="ArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS">
+    <End Role="CONTRATO_SYS" Type="Self.CONTRATO_SYS" Multiplicity="1" />
+    <End Role="EXACTUS_DETALLE_EXPORT_SIS" Type="Self.EXACTUS_DETALLE_EXPORT_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="EXACTUS_DETALLE_EXPORT_SIS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS">
+    <End Role="EXACTUS_CABECERA_SIS" Type="Self.EXACTUS_CABECERA_SIS" Multiplicity="1" />
+    <End Role="EXACTUS_DETALLE_SIS" Type="Self.EXACTUS_DETALLE_SIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EXACTUS_CABECERA_SIS">
+        <PropertyRef Name="IDE_EXACTUS_CABECERA_SIS" />
+      </Principal>
+      <Dependent Role="EXACTUS_DETALLE_SIS">
+        <PropertyRef Name="IDE_EXACTUS_CABECERA_SIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_Archivo">
+    <End Role="Archivo" Type="Self.Archivo" Multiplicity="1" />
+    <End Role="HistorialCargaArchivo" Type="Self.HistorialCargaArchivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo">
+        <PropertyRef Name="IdArchivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_LinCab_Archivo">
+    <End Role="Archivo" Type="Self.Archivo" Multiplicity="0..1" />
+    <End Role="HistorialCargaArchivo_LinCab" Type="Self.HistorialCargaArchivo_LinCab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo_LinCab">
+        <PropertyRef Name="ArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS">
+    <End Role="CONTRATO_SYS" Type="Self.CONTRATO_SYS" Multiplicity="1" />
+    <End Role="HistorialCargaArchivo_LinCab" Type="Self.HistorialCargaArchivo_LinCab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo_LinCab">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab">
+    <End Role="HistorialCargaArchivo_LinCab" Type="Self.HistorialCargaArchivo_LinCab" Multiplicity="0..1" />
+    <End Role="HistorialCargaArchivo_LinDet" Type="Self.HistorialCargaArchivo_LinDet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HistorialCargaArchivo_LinCab">
+        <PropertyRef Name="IdHistorialCargaArchivoLinCab" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo_LinDet">
+        <PropertyRef Name="IdHistorialCargaArchivoLinCab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialCargaArchivo_ReglaArchivo">
+    <End Role="ReglaArchivo" Type="Self.ReglaArchivo" Multiplicity="0..1" />
+    <End Role="HistorialCargaArchivo" Type="Self.HistorialCargaArchivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReglaArchivo">
+        <PropertyRef Name="IdReglaArchivo" />
+      </Principal>
+      <Dependent Role="HistorialCargaArchivo">
+        <PropertyRef Name="IdReglaArchivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LogOperacion_CONTRATO_SYS">
+    <End Role="CONTRATO_SYS" Type="Self.CONTRATO_SYS" Multiplicity="1" />
+    <End Role="LogOperacion" Type="Self.LogOperacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="LogOperacion">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonedaTipoMoneda">
+    <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+    <End Role="TipoMoneda" Type="Self.TipoMoneda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="MonedaId" />
+      </Principal>
+      <Dependent Role="TipoMoneda">
+        <PropertyRef Name="MonedaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOMINA_Archivo">
+    <End Role="Archivo" Type="Self.Archivo" Multiplicity="0..1" />
+    <End Role="NOMINA" Type="Self.NOMINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Archivo">
+        <PropertyRef Name="ArchivoId" />
+      </Principal>
+      <Dependent Role="NOMINA">
+        <PropertyRef Name="ArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOMINA_CONTRATO_SYS">
+    <End Role="CONTRATO_SYS" Type="Self.CONTRATO_SYS" Multiplicity="1" />
+    <End Role="NOMINA" Type="Self.NOMINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO_SYS">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Principal>
+      <Dependent Role="NOMINA">
+        <PropertyRef Name="IDE_CONTRATO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pagos_Moneda">
+    <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="MonedaId" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="MonedaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiniestroContrato">
+    <End Role="Contratos" Type="Self.Contratos" Multiplicity="1" />
+    <End Role="Siniestros" Type="Self.Siniestros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contratos">
+        <PropertyRef Name="ContratoId" />
+      </Principal>
+      <Dependent Role="Siniestros">
+        <PropertyRef Name="ContratoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiniestroPago">
+    <End Role="Siniestros" Type="Self.Siniestros" Multiplicity="1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Siniestros">
+        <PropertyRef Name="SiniestroId" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="SiniestroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoArchivo_TipoInforme">
+    <End Role="TipoInforme" Type="Self.TipoInforme" Multiplicity="0..1" />
+    <End Role="TipoArchivo" Type="Self.TipoArchivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoInforme">
+        <PropertyRef Name="TipoInformeId" />
+      </Principal>
+      <Dependent Role="TipoArchivo">
+        <PropertyRef Name="TipoInformeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoArchivoArchivo">
+    <End Role="TipoArchivo" Type="Self.TipoArchivo" Multiplicity="1" />
+    <End Role="Archivo" Type="Self.Archivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoArchivo">
+        <PropertyRef Name="TipoArchivoId" />
+      </Principal>
+      <Dependent Role="Archivo">
+        <PropertyRef Name="TipoArchivoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoMovimientoDocumentoSolicitado">
+    <End Role="TipoMovimientos" Type="Self.TipoMovimientos" Multiplicity="1" />
+    <End Role="DocumentoSolicitados" Type="Self.DocumentoSolicitados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoMovimientos">
+        <PropertyRef Name="TipoMovimientoId" />
+      </Principal>
+      <Dependent Role="DocumentoSolicitados">
+        <PropertyRef Name="TipoMovimientoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoMovimientoSiniestro">
+    <End Role="TipoMovimientos" Type="Self.TipoMovimientos" Multiplicity="1" />
+    <End Role="Siniestros" Type="Self.Siniestros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoMovimientos">
+        <PropertyRef Name="TipoMovimientoId" />
+      </Principal>
+      <Dependent Role="Siniestros">
+        <PropertyRef Name="TipoMovimientoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoSolicitudSiniestro">
+    <End Role="TipoSolicitudes" Type="Self.TipoSolicitudes" Multiplicity="1" />
+    <End Role="Siniestros" Type="Self.Siniestros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoSolicitudes">
+        <PropertyRef Name="TipoSolicitudId" />
+      </Principal>
+      <Dependent Role="Siniestros">
+        <PropertyRef Name="TipoSolicitudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="fn_SoloLetras" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="texto" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fn_SoloNumeros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="texto" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fn_ValidaFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="fecha" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fn_ValidaPeriodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="periodo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_audit_InsertaBitacora" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param_IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Param_Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Param_Comando" Type="varchar" Mode="In" />
+    <Parameter Name="Param_Idarchivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_confirmaPagoNomina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ArchivoId" Type="int" Mode="In" />
+    <Parameter Name="Column" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_copia_reglaArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NroContrato" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_create_cuenta_26_export_sis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ArchivoNominaId" Type="int" Mode="In" />
+    <Parameter Name="NumeroAsiento" Type="int" Mode="In" />
+    <Parameter Name="TipoArchivo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_create_cuenta_42_26_sis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExactusCabeceraId" Type="int" Mode="In" />
+    <Parameter Name="Asiento" Type="varchar" Mode="In" />
+    <Parameter Name="ArchivoNominaId" Type="int" Mode="In" />
+    <Parameter Name="NumeroAsiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_devuelveresultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idarchivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_envioCorreo_Procesos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Para" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CC" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CCO" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Asunto" Type="varchar" Mode="In" />
+    <Parameter Name="Cuerpo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FormatoCuerpo" Type="varchar" Mode="In" />
+    <Parameter Name="Archivos" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="pa_file_AgregaReferenciaTablaArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreArchivo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_file_ArchivoValido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdArchivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_file_CantidadRegistroArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdArchivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_file_CierreCarga" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCarga" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_file_ConsultaEstadoArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreArchivo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_file_Imputa_Nomina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idarchivo" Type="int" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_file_InsertaHistorialCarga" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Aux_IdArchivo" Type="int" Mode="In" />
+    <Parameter Name="Aux_IdReglaArchivo" Type="int" Mode="In" />
+    <Parameter Name="Aux_TipoLinea" Type="varchar" Mode="In" />
+    <Parameter Name="Aux_NumeroLinea" Type="int" Mode="In" />
+    <Parameter Name="Aux_CampoInicial" Type="int" Mode="In" />
+    <Parameter Name="Aux_LargoCampo" Type="int" Mode="In" />
+    <Parameter Name="Aux_ValorCampo" Type="varchar" Mode="In" />
+    <Parameter Name="Aux_CumpleValidacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_file_InsertaReferenciaArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreArchivo" Type="varchar" Mode="In" />
+    <Parameter Name="usuarioModificacion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_file_ObtieneErrorArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdArchivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_file_ObtienePrimerCaracterLineaPorTipoArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param_TipoArchivo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_file_ObtieneReglasArchivoPorLinea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param_TipoArchivo" Type="varchar" Mode="In" />
+    <Parameter Name="Param_TipoLinea" Type="char" Mode="In" />
+    <Parameter Name="Num_Contrato" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_file_ObtieneReglavalidacionArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Archivo" Type="varchar" Mode="In" />
+    <Parameter Name="Tipo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_file_ObtieneTipoArchivos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="pa_impactanegocio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idarchivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_impactanomina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idnomina" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_imputa_aad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idnomina" Type="int" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_imputa_ppp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idnomina" Type="int" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_imputa_ppr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idnomina" Type="int" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_imputa_prp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idnomina" Type="int" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_imputa_rgs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idnomina" Type="int" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_ReporteArchivo_CUSPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CUSPP" Type="varchar" Mode="In" />
+    <Parameter Name="ArchivoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_rpt_archivocarga_fecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tipo" Type="int" Mode="In" />
+    <Parameter Name="fechainicio" Type="date" Mode="In" />
+    <Parameter Name="fechatermino" Type="date" Mode="In" />
+  </Function>
+  <Function Name="pa_rptNominas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="pa_rptPrimas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="periodo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_historiaCargaArchivoLinDet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreTipoArchivo" Type="nvarchar" Mode="In" />
+    <Parameter Name="IDE_CONTRATO" Type="int" Mode="In" />
+    <Parameter Name="COD_AFP" Type="varchar" Mode="In" />
+    <Parameter Name="COD_CUSP" Type="varchar" Mode="In" />
+    <Parameter Name="PRI_NOMB_PEN" Type="varchar" Mode="In" />
+    <Parameter Name="APE_MATE_PEN" Type="varchar" Mode="In" />
+    <Parameter Name="NUM_DOCU_PEN" Type="varchar" Mode="In" />
+    <Parameter Name="NUM_SOLI_PEN" Type="varchar" Mode="In" />
+    <Parameter Name="TIP_MONE" Type="char" Mode="In" />
+    <Parameter Name="FEC_PAGO_INI" Type="date" Mode="In" />
+    <Parameter Name="FEC_PAGO_FIN" Type="date" Mode="In" />
+    <Parameter Name="FechaAprobacionInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaAprobacionHasta" Type="date" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_historiaLinDetXArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreArchivo" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdeContrato" Type="int" Mode="In" />
+    <Parameter Name="CumpleValidacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_LogOperacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdeContrato" Type="int" Mode="In" />
+    <Parameter Name="TipoEvento" Type="char" Mode="In" />
+    <Parameter Name="FechaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaFin" Type="date" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_nominaConsulta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreTipoArchivo" Type="varchar" Mode="In" />
+    <Parameter Name="ContratoId" Type="int" Mode="In" />
+    <Parameter Name="NombreBene" Type="varchar" Mode="In" />
+    <Parameter Name="MonedaId" Type="smallint" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+    <Parameter Name="FechaCreacionInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaCreacionFin" Type="date" Mode="In" />
+    <Parameter Name="FechaAprobacionInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaAprobacionFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_NominaForTelebankinByArchivoId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ArchivoId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_NominaForTelebanking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdeContrato" Type="int" Mode="In" />
+    <Parameter Name="FechaCarga" Type="date" Mode="In" />
+    <Parameter Name="Estado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_nominaXArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdeContrato" Type="int" Mode="In" />
+    <Parameter Name="NombreArchivo" Type="varchar" Mode="In" />
+    <Parameter Name="CumpleValidacion" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_pagoNominaAprueba" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdeContrato" Type="int" Mode="In" />
+    <Parameter Name="NombreTipoArchivo" Type="varchar" Mode="In" />
+    <Parameter Name="FechaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_pagoNominaApruebaDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHistoriaLinCab" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_sel_SegDescarga" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdeContrato" Type="int" Mode="In" />
+    <Parameter Name="NombreTipoArchivo" Type="varchar" Mode="In" />
+    <Parameter Name="FechaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaFin" Type="date" Mode="In" />
+    <Parameter Name="FechaInicioAprobacion" Type="date" Mode="In" />
+    <Parameter Name="FechaFinAprobacion" Type="date" Mode="In" />
+  </Function>
+  <Function Name="pa_upd_ApruebaLinCabNomina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdContrato" Type="int" Mode="In" />
+    <Parameter Name="IdHistoriaLinCab" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_upd_cambiaEstadoNomina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdArchivoNomina" Type="int" Mode="In" />
+    <Parameter Name="IdContrato" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_upd_InactivaLinCabNomina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdContrato" Type="int" Mode="In" />
+    <Parameter Name="IdHistoriaLinCab" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_CodigoTransferenciaNomina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+    <Parameter Name="IdArchivo" Type="int" Mode="In" />
+    <Parameter Name="LargoCampo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_CUSPP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_EjecutaProcedimientoAlmacenado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_EjecutaQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_Fecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+    <Parameter Name="Inicio" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_MontoAlto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idarchivo" Type="int" Mode="In" />
+    <Parameter Name="idusuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_NoEspacios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_Numero12x2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_Numero2x2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_Numero4x7" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_Numero7x2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_Numero8x2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_ObtieneValor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdArchivo" Type="int" Mode="In" />
+    <Parameter Name="NumeroLinea" Type="int" Mode="In" />
+    <Parameter Name="CampoInicial" Type="int" Mode="In" />
+    <Parameter Name="LargoCampo" Type="int" Mode="In" />
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_Periodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_Periodo_PrimaPag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_persona" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PrimerNombre" Type="varchar" Mode="In" />
+    <Parameter Name="SegundoNombre" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="FechaNacimiento" Type="datetime" Mode="In" />
+    <Parameter Name="CUSPP" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_Valida_RangoFechaXContrato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date1" Type="date" Mode="In" />
+    <Parameter Name="date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="pa_Valida_RangoFechaXContratoV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date1" Type="date" Mode="In" />
+    <Parameter Name="date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_RetornaTrue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="pa_valida_SoloNumeros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_SumaDetalleEnTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+    <Parameter Name="IdArchivo" Type="int" Mode="In" />
+    <Parameter Name="NumeroLinea" Type="int" Mode="In" />
+    <Parameter Name="CampoInicial" Type="int" Mode="In" />
+    <Parameter Name="LargoCampo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="pa_valida_TotalNominaEnLiquidacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+    <Parameter Name="IdArchivo" Type="int" Mode="In" />
+    <Parameter Name="NumeroLinea" Type="int" Mode="In" />
+    <Parameter Name="CampoInicial" Type="int" Mode="In" />
+    <Parameter Name="LargoCampo" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="DISModeloStoreContainer">
+    <EntitySet Name="CIERRE_PROCESO" EntityType="Self.CIERRE_PROCESO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONCEPTO" EntityType="Self.CONCEPTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONTRATO" EntityType="Self.CONTRATO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONTRATO_SIS_DET" EntityType="Self.CONTRATO_SIS_DET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONTRATO_SYS" EntityType="Self.CONTRATO_SYS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DATO_M" EntityType="Self.DATO_M" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exactus" EntityType="Self.Exactus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EXACTUS_CABECERA_SIS" EntityType="Self.EXACTUS_CABECERA_SIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EXACTUS_DETALLE" EntityType="Self.EXACTUS_DETALLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EXACTUS_DETALLE_SIS" EntityType="Self.EXACTUS_DETALLE_SIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GENERAL" EntityType="Self.GENERAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogOperacion" EntityType="Self.LogOperacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOMINA" EntityType="Self.NOMINA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OPERACION" EntityType="Self.OPERACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistorialCargaArchivo" EntityType="Self.HistorialCargaArchivo" Schema="Importacion" store:Type="Tables" />
+    <EntitySet Name="HistorialCargaArchivo_LinCab" EntityType="Self.HistorialCargaArchivo_LinCab" Schema="Importacion" store:Type="Tables" />
+    <EntitySet Name="HistorialCargaArchivo_LinDet" EntityType="Self.HistorialCargaArchivo_LinDet" Schema="Importacion" store:Type="Tables" />
+    <EntitySet Name="ReglaArchivo" EntityType="Self.ReglaArchivo" Schema="Importacion" store:Type="Tables" />
+    <EntitySet Name="AFPs" EntityType="Self.AFPs" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Archivo" EntityType="Self.Archivo" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Checkeados" EntityType="Self.Checkeados" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="ContratoCSVs" EntityType="Self.ContratoCSVs" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Contratos" EntityType="Self.Contratos" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Correlativos" EntityType="Self.Correlativos" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="CSVs" EntityType="Self.CSVs" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="DocumentoSolicitados" EntityType="Self.DocumentoSolicitados" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="EstadoArchivo" EntityType="Self.EstadoArchivo" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="EstadoPago" EntityType="Self.EstadoPago" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Imputacion" EntityType="Self.Imputacion" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Moneda" EntityType="Self.Moneda" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="MontoAlto" EntityType="Self.MontoAlto" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Pagos" EntityType="Self.Pagos" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Parametros" EntityType="Self.Parametros" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Parentesco" EntityType="Self.Parentesco" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Personas" EntityType="Self.Personas" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="RegistroMontoAlto" EntityType="Self.RegistroMontoAlto" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="Siniestros" EntityType="Self.Siniestros" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoArchivo" EntityType="Self.TipoArchivo" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoCambio" EntityType="Self.TipoCambio" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoDocumentoIdentificacion" EntityType="Self.TipoDocumentoIdentificacion" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoInforme" EntityType="Self.TipoInforme" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoMoneda" EntityType="Self.TipoMoneda" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoMovimientos" EntityType="Self.TipoMovimientos" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoPension" EntityType="Self.TipoPension" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoRegistro" EntityType="Self.TipoRegistro" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="TipoSolicitudes" EntityType="Self.TipoSolicitudes" Schema="Negocio" store:Type="Tables" />
+    <EntitySet Name="COMPROBANTE" EntityType="Self.COMPROBANTE" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [COMPROBANTE].[NRO_COMPROBANTE] AS [NRO_COMPROBANTE], 
+    [COMPROBANTE].[TIP_COMPROBANTE] AS [TIP_COMPROBANTE], 
+    [COMPROBANTE].[COD_REASEGURADOR] AS [COD_REASEGURADOR], 
+    [COMPROBANTE].[FEC_COMPROBANTE] AS [FEC_COMPROBANTE], 
+    [COMPROBANTE].[ANO_COMPROBANTE] AS [ANO_COMPROBANTE], 
+    [COMPROBANTE].[MES_COMPROBANTE] AS [MES_COMPROBANTE], 
+    [COMPROBANTE].[COD_ASEGURADO] AS [COD_ASEGURADO], 
+    [COMPROBANTE].[IDE_CONTRATO] AS [IDE_CONTRATO], 
+    [COMPROBANTE].[COD_RAMO] AS [COD_RAMO], 
+    [COMPROBANTE].[COD_MONEDA] AS [COD_MONEDA], 
+    [COMPROBANTE].[TCA_CAMBIO] AS [TCA_CAMBIO], 
+    [COMPROBANTE].[DES_REG_TRIMESTRE] AS [DES_REG_TRIMESTRE], 
+    [COMPROBANTE].[PRI_XPAG_REA_CED] AS [PRI_XPAG_REA_CED], 
+    [COMPROBANTE].[PRI_XCOB_REA_ACE] AS [PRI_XCOB_REA_ACE], 
+    [COMPROBANTE].[SIN_XCOB_REA_CED] AS [SIN_XCOB_REA_CED], 
+    [COMPROBANTE].[SIN_XPAG_REA_ACE] AS [SIN_XPAG_REA_ACE], 
+    [COMPROBANTE].[OTR_CTA_XCOB_REA_CED] AS [OTR_CTA_XCOB_REA_CED], 
+    [COMPROBANTE].[OTR_CTA_XPAG_REA_ACE] AS [OTR_CTA_XPAG_REA_ACE], 
+    [COMPROBANTE].[DSCTO_COMIS_REA] AS [DSCTO_COMIS_REA], 
+    [COMPROBANTE].[SALDO_DEUDOR] AS [SALDO_DEUDOR], 
+    [COMPROBANTE].[SALDO_ACREEDOR] AS [SALDO_ACREEDOR], 
+    [COMPROBANTE].[SALDO_DEUDOR_COMP] AS [SALDO_DEUDOR_COMP], 
+    [COMPROBANTE].[SALDO_ACREEDOR_COMP] AS [SALDO_ACREEDOR_COMP], 
+    [COMPROBANTE].[ESTADO] AS [ESTADO], 
+    [COMPROBANTE].[FEC_REG] AS [FEC_REG], 
+    [COMPROBANTE].[USU_REG] AS [USU_REG], 
+    [COMPROBANTE].[FEC_MOD] AS [FEC_MOD], 
+    [COMPROBANTE].[USU_MOD] AS [USU_MOD], 
+    [COMPROBANTE].[ORI_REG] AS [ORI_REG]
+    FROM [dbo].[COMPROBANTE] AS [COMPROBANTE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Consulta" EntityType="Self.Consulta" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Consulta].[IdReglaArchivo] AS [IdReglaArchivo], 
+    [Consulta].[Archivo] AS [Archivo], 
+    [Consulta].[TipoLinea] AS [TipoLinea], 
+    [Consulta].[CaracterInicial] AS [CaracterInicial], 
+    [Consulta].[LargoCampo] AS [LargoCampo], 
+    [Consulta].[TipoCampo] AS [TipoCampo], 
+    [Consulta].[InformacionCampo] AS [InformacionCampo], 
+    [Consulta].[FormatoContenido] AS [FormatoContenido], 
+    [Consulta].[TipoValidacion] AS [TipoValidacion], 
+    [Consulta].[ReglaValidacion] AS [ReglaValidacion], 
+    [Consulta].[ReglaValidacionInterna] AS [ReglaValidacionInterna], 
+    [Consulta].[TablaDestino] AS [TablaDestino], 
+    [Consulta].[vigente] AS [vigente], 
+    [Consulta].[CampoNegocio] AS [CampoNegocio]
+    FROM [dbo].[Consulta] AS [Consulta]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CONTRATO_DETALLE" EntityType="Self.CONTRATO_DETALLE" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CONTRATO_DETALLE].[ID_EMPRESA] AS [ID_EMPRESA], 
+    [CONTRATO_DETALLE].[IDE_CONTRATO_DET] AS [IDE_CONTRATO_DET], 
+    [CONTRATO_DETALLE].[NRO_CONTRATO] AS [NRO_CONTRATO], 
+    [CONTRATO_DETALLE].[IDE_REASEGURADOR] AS [IDE_REASEGURADOR], 
+    [CONTRATO_DETALLE].[COD_REASEGURADOR] AS [COD_REASEGURADOR], 
+    [CONTRATO_DETALLE].[CAL_CREDITICIA] AS [CAL_CREDITICIA], 
+    [CONTRATO_DETALLE].[COD_EMPRESA_CALIFICA] AS [COD_EMPRESA_CALIFICA], 
+    [CONTRATO_DETALLE].[MOD_CONTRATO] AS [MOD_CONTRATO], 
+    [CONTRATO_DETALLE].[PRC_RETENCION] AS [PRC_RETENCION], 
+    [CONTRATO_DETALLE].[PRC_CESION] AS [PRC_CESION], 
+    [CONTRATO_DETALLE].[PRC_PARTICIPACION_REA] AS [PRC_PARTICIPACION_REA], 
+    [CONTRATO_DETALLE].[NOMBRE_REA] AS [NOMBRE_REA], 
+    [CONTRATO_DETALLE].[NRO_REGISTRO_REA] AS [NRO_REGISTRO_REA], 
+    [CONTRATO_DETALLE].[ESTADO] AS [ESTADO], 
+    [CONTRATO_DETALLE].[USU_REG] AS [USU_REG], 
+    [CONTRATO_DETALLE].[FEC_REG] AS [FEC_REG], 
+    [CONTRATO_DETALLE].[FEC_MOD] AS [FEC_MOD], 
+    [CONTRATO_DETALLE].[USU_MOD] AS [USU_MOD]
+    FROM [dbo].[CONTRATO_DETALLE] AS [CONTRATO_DETALLE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DATO_A" EntityType="Self.DATO_A" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DATO_A].[IDE_EMPRESA] AS [IDE_EMPRESA], 
+    [DATO_A].[NRO_CONTRATO] AS [NRO_CONTRATO], 
+    [DATO_A].[ANIO_VIGENTE] AS [ANIO_VIGENTE], 
+    [DATO_A].[MES_VIGENTE] AS [MES_VIGENTE], 
+    [DATO_A].[TIPO_INFO] AS [TIPO_INFO], 
+    [DATO_A].[COD_RAMO] AS [COD_RAMO], 
+    [DATO_A].[COD_PRODUCTO] AS [COD_PRODUCTO], 
+    [DATO_A].[COD_ASEGURADO] AS [COD_ASEGURADO], 
+    [DATO_A].[COD_MONEDA] AS [COD_MONEDA], 
+    [DATO_A].[AP_MTNO_PENS] AS [AP_MTNO_PENS], 
+    [DATO_A].[AP_MTNO_SOLIC] AS [AP_MTNO_SOLIC], 
+    [DATO_A].[AP_PTNO_PENS] AS [AP_PTNO_PENS], 
+    [DATO_A].[AP_PTNO_SOLIC] AS [AP_PTNO_SOLIC], 
+    [DATO_A].[APORT_COMP] AS [APORT_COMP], 
+    [DATO_A].[APORT_OBLIG] AS [APORT_OBLIG], 
+    [DATO_A].[CAP_REQ_PENS] AS [CAP_REQ_PENS], 
+    [DATO_A].[CAP_REQ_SEPE] AS [CAP_REQ_SEPE], 
+    [DATO_A].[CIC_MON_NSOL] AS [CIC_MON_NSOL], 
+    [DATO_A].[CIC_MON_ORIG] AS [CIC_MON_ORIG], 
+    [DATO_A].[CRU_FAMILIAR] AS [CRU_FAMILIAR], 
+    [DATO_A].[CUSPP] AS [CUSPP], 
+    [DATO_A].[FE_SIN] AS [FE_SIN], 
+    [DATO_A].[ID_AFP] AS [ID_AFP], 
+    [DATO_A].[ID_COD_CSV1] AS [ID_COD_CSV1], 
+    [DATO_A].[ID_COD_CSV2] AS [ID_COD_CSV2], 
+    [DATO_A].[ID_COD_CSV3] AS [ID_COD_CSV3], 
+    [DATO_A].[ID_COD_CSV4] AS [ID_COD_CSV4], 
+    [DATO_A].[ID_COD_TRANSF] AS [ID_COD_TRANSF], 
+    [DATO_A].[ID_TIP_SOLI] AS [ID_TIP_SOLI], 
+    [DATO_A].[MTO_PAGO_CSV1] AS [MTO_PAGO_CSV1], 
+    [DATO_A].[MTO_PAGO_CSV2] AS [MTO_PAGO_CSV2], 
+    [DATO_A].[MTO_PAGO_CSV3] AS [MTO_PAGO_CSV3], 
+    [DATO_A].[MTO_PAGO_CSV4] AS [MTO_PAGO_CSV4], 
+    [DATO_A].[TI_MOV] AS [TI_MOV], 
+    [DATO_A].[FE_DEV] AS [FE_DEV], 
+    [DATO_A].[FE_FALLE] AS [FE_FALLE], 
+    [DATO_A].[FE_INI_INV] AS [FE_INI_INV], 
+    [DATO_A].[FE_PAG_AA] AS [FE_PAG_AA], 
+    [DATO_A].[ID_TIP_DOC] AS [ID_TIP_DOC], 
+    [DATO_A].[IND_PENS_PRE] AS [IND_PENS_PRE], 
+    [DATO_A].[MTO_AA_MON_NSOL] AS [MTO_AA_MON_NSOL], 
+    [DATO_A].[MTO_AA_MON_ORIG] AS [MTO_AA_MON_ORIG], 
+    [DATO_A].[MTO_EXC_MON_NSOL] AS [MTO_EXC_MON_NSOL], 
+    [DATO_A].[MTO_EXC_MON_ORIG] AS [MTO_EXC_MON_ORIG], 
+    [DATO_A].[MTO_PENS_PRE_MON_NSOL] AS [MTO_PENS_PRE_MON_NSOL], 
+    [DATO_A].[MTO_PENS_PRE_MON_ORIG] AS [MTO_PENS_PRE_MON_ORIG], 
+    [DATO_A].[NRO_BENEF] AS [NRO_BENEF], 
+    [DATO_A].[NRO_IDEN_SOLIC] AS [NRO_IDEN_SOLIC], 
+    [DATO_A].[NUM_CSV] AS [NUM_CSV], 
+    [DATO_A].[PRI_NOMB_SOLIC] AS [PRI_NOMB_SOLIC], 
+    [DATO_A].[RAM_PROM_NSOL] AS [RAM_PROM_NSOL], 
+    [DATO_A].[SEGU_NOMB_SOLIC] AS [SEGU_NOMB_SOLIC], 
+    [DATO_A].[TASA_INT] AS [TASA_INT], 
+    [DATO_A].[TI_CAMB_COMPRA] AS [TI_CAMB_COMPRA], 
+    [DATO_A].[TI_CAMB_VTA] AS [TI_CAMB_VTA], 
+    [DATO_A].[TI_REG] AS [TI_REG], 
+    [DATO_A].[TIP_MON] AS [TIP_MON], 
+    [DATO_A].[TIP_PEN_EQUIV] AS [TIP_PEN_EQUIV], 
+    [DATO_A].[TOT_CAP_REQ_MON_NSOL] AS [TOT_CAP_REQ_MON_NSOL], 
+    [DATO_A].[TOT_CAP_REQ_MON_ORIG] AS [TOT_CAP_REQ_MON_ORIG], 
+    [DATO_A].[DESCT_PENS] AS [DESCT_PENS], 
+    [DATO_A].[DESCT_PENS_CSV1] AS [DESCT_PENS_CSV1], 
+    [DATO_A].[DESCT_PENS_CSV2] AS [DESCT_PENS_CSV2], 
+    [DATO_A].[DESCT_PENS_CSV3] AS [DESCT_PENS_CSV3], 
+    [DATO_A].[DESCT_PENS_CSV4] AS [DESCT_PENS_CSV4], 
+    [DATO_A].[FE_DEV_ACT] AS [FE_DEV_ACT], 
+    [DATO_A].[FE_DEV_INI] AS [FE_DEV_INI], 
+    [DATO_A].[FE_FIN_SUBSI] AS [FE_FIN_SUBSI], 
+    [DATO_A].[FE_NACI_PENS] AS [FE_NACI_PENS], 
+    [DATO_A].[FE_SECI] AS [FE_SECI], 
+    [DATO_A].[FEC_PAGO] AS [FEC_PAGO], 
+    [DATO_A].[FRAC_MES_DEV] AS [FRAC_MES_DEV], 
+    [DATO_A].[ID_COD_BEN] AS [ID_COD_BEN], 
+    [DATO_A].[ID_PARENT] AS [ID_PARENT], 
+    [DATO_A].[ID_TIP_DOCU_PENS] AS [ID_TIP_DOCU_PENS], 
+    [DATO_A].[MES_DEV] AS [MES_DEV], 
+    [DATO_A].[MON_EQUI] AS [MON_EQUI], 
+    [DATO_A].[MTO_APORT_COMP_CSV1] AS [MTO_APORT_COMP_CSV1], 
+    [DATO_A].[MTO_APORT_COMP_CSV2] AS [MTO_APORT_COMP_CSV2], 
+    [DATO_A].[MTO_APORT_COMP_CSV3] AS [MTO_APORT_COMP_CSV3], 
+    [DATO_A].[MTO_APORT_COMP_CSV4] AS [MTO_APORT_COMP_CSV4], 
+    [DATO_A].[MTO_APORT_OBLIG_CSV1] AS [MTO_APORT_OBLIG_CSV1], 
+    [DATO_A].[MTO_APORT_OBLIG_CSV2] AS [MTO_APORT_OBLIG_CSV2], 
+    [DATO_A].[MTO_APORT_OBLIG_CSV3] AS [MTO_APORT_OBLIG_CSV3], 
+    [DATO_A].[MTO_APORT_OBLIG_CSV4] AS [MTO_APORT_OBLIG_CSV4], 
+    [DATO_A].[MTO_PAGO] AS [MTO_PAGO], 
+    [DATO_A].[NRO_DOCU_PENS] AS [NRO_DOCU_PENS], 
+    [DATO_A].[NRO_EESS] AS [NRO_EESS], 
+    [DATO_A].[NRO_MES_DEV] AS [NRO_MES_DEV], 
+    [DATO_A].[NRO_SIN] AS [NRO_SIN], 
+    [DATO_A].[NRO_SOLI] AS [NRO_SOLI], 
+    [DATO_A].[PENS_BASE] AS [PENS_BASE], 
+    [DATO_A].[PENS_PAGAR_80] AS [PENS_PAGAR_80], 
+    [DATO_A].[PRI_NOMB_PENS] AS [PRI_NOMB_PENS], 
+    [DATO_A].[PROC_BENE] AS [PROC_BENE], 
+    [DATO_A].[PROM_ACT_6_MESES_APOCOMP] AS [PROM_ACT_6_MESES_APOCOMP], 
+    [DATO_A].[REMPRO_ACT] AS [REMPRO_ACT], 
+    [DATO_A].[SEGU_NOMB_PENS] AS [SEGU_NOMB_PENS], 
+    [DATO_A].[TIP_PEN] AS [TIP_PEN], 
+    [DATO_A].[ESTADO] AS [ESTADO], 
+    [DATO_A].[FEC_REG] AS [FEC_REG], 
+    [DATO_A].[USU_REG] AS [USU_REG], 
+    [DATO_A].[FEC_MOD] AS [FEC_MOD], 
+    [DATO_A].[USU_MOD] AS [USU_MOD]
+    FROM [dbo].[DATO_A] AS [DATO_A]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EXACTUS_CABECERA" EntityType="Self.EXACTUS_CABECERA" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EXACTUS_CABECERA].[NRO_CONTRATO] AS [NRO_CONTRATO], 
+    [EXACTUS_CABECERA].[TIPO_INFO] AS [TIPO_INFO], 
+    [EXACTUS_CABECERA].[ANIO_VIGENTE] AS [ANIO_VIGENTE], 
+    [EXACTUS_CABECERA].[MES_VIGENTE] AS [MES_VIGENTE], 
+    [EXACTUS_CABECERA].[ASIENTO] AS [ASIENTO], 
+    [EXACTUS_CABECERA].[PAQUETE] AS [PAQUETE], 
+    [EXACTUS_CABECERA].[TIPO_ASIENTO] AS [TIPO_ASIENTO], 
+    [EXACTUS_CABECERA].[FECHA] AS [FECHA], 
+    [EXACTUS_CABECERA].[CONTABILIDAD] AS [CONTABILIDAD], 
+    [EXACTUS_CABECERA].[NOTAS] AS [NOTAS], 
+    [EXACTUS_CABECERA].[ESTADO] AS [ESTADO], 
+    [EXACTUS_CABECERA].[ESTADO_TRANSFERENCIA] AS [ESTADO_TRANSFERENCIA], 
+    [EXACTUS_CABECERA].[PERMITIR_DESCUADRADO] AS [PERMITIR_DESCUADRADO], 
+    [EXACTUS_CABECERA].[CONSERVAR_NUMERACION] AS [CONSERVAR_NUMERACION], 
+    [EXACTUS_CABECERA].[ACTUALIZAR_CONSECUTIVO] AS [ACTUALIZAR_CONSECUTIVO], 
+    [EXACTUS_CABECERA].[FECHA_AUDITORIA] AS [FECHA_AUDITORIA], 
+    [EXACTUS_CABECERA].[FECHA_CREACION] AS [FECHA_CREACION], 
+    [EXACTUS_CABECERA].[USUARIO_REGISTRO] AS [USUARIO_REGISTRO]
+    FROM [dbo].[EXACTUS_CABECERA] AS [EXACTUS_CABECERA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EXACTUS_DETALLE_EXPORT_SIS" EntityType="Self.EXACTUS_DETALLE_EXPORT_SIS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EXACTUS_DETALLE_EXPORT_SIS].[IDE_CONTRATO] AS [IDE_CONTRATO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[ArchivoId] AS [ArchivoId], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[TIPO_ARHIVO] AS [TIPO_ARHIVO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[IDE_MONEDA] AS [IDE_MONEDA], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[CUENTA_BANCARIA] AS [CUENTA_BANCARIA], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[NUMERO] AS [NUMERO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[TIPO_DOCUMENTO] AS [TIPO_DOCUMENTO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[FECHA_DOCUMENTO] AS [FECHA_DOCUMENTO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[CONCEPTO] AS [CONCEPTO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[BENEFICIARIO] AS [BENEFICIARIO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[CONTRIBUYENTE] AS [CONTRIBUYENTE], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[MONTO] AS [MONTO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[DETALLE] AS [DETALLE], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[SUBTIPO] AS [SUBTIPO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[CENTRO_COSTO] AS [CENTRO_COSTO], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[CUENTA_CONTABLE] AS [CUENTA_CONTABLE], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[RUBRO_1] AS [RUBRO_1], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[RUBRO_2] AS [RUBRO_2], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[RUBRO_3] AS [RUBRO_3], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[RUBRO_4] AS [RUBRO_4], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[RUBRO_5] AS [RUBRO_5], 
+    [EXACTUS_DETALLE_EXPORT_SIS].[PAQUETE] AS [PAQUETE]
+    FROM [dbo].[EXACTUS_DETALLE_EXPORT_SIS] AS [EXACTUS_DETALLE_EXPORT_SIS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [USUARIO].[IDE_USUARIO] AS [IDE_USUARIO], 
+    [USUARIO].[USUARIO] AS [USUARIO], 
+    [USUARIO].[CONTRASENA] AS [CONTRASENA], 
+    [USUARIO].[ACCESO_PAGINA] AS [ACCESO_PAGINA], 
+    [USUARIO].[NOMBRES] AS [NOMBRES], 
+    [USUARIO].[CARGO] AS [CARGO], 
+    [USUARIO].[EMAIL] AS [EMAIL], 
+    [USUARIO].[TIPO_USUARIO] AS [TIPO_USUARIO], 
+    [USUARIO].[ESTADO] AS [ESTADO], 
+    [USUARIO].[FEC_REG] AS [FEC_REG], 
+    [USUARIO].[USU_REG] AS [USU_REG], 
+    [USUARIO].[FEC_MOD] AS [FEC_MOD], 
+    [USUARIO].[USU_MOD] AS [USU_MOD]
+    FROM [dbo].[USUARIO] AS [USUARIO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CheckLists" EntityType="Self.CheckLists" store:Type="Tables" store:Schema="Negocio">
+      <DefiningQuery>SELECT 
+    [CheckLists].[CheckListId] AS [CheckListId], 
+    [CheckLists].[CUSPP] AS [CUSPP], 
+    [CheckLists].[TipoMovimientoId] AS [TipoMovimientoId], 
+    [CheckLists].[FechaModificacion] AS [FechaModificacion], 
+    [CheckLists].[UsuarioModificacion] AS [UsuarioModificacion], 
+    [CheckLists].[Vigente] AS [Vigente], 
+    [CheckLists].[TipoSolicitudId] AS [TipoSolicitudId], 
+    [CheckLists].[Estado] AS [Estado], 
+    [CheckLists].[Observaciones] AS [Observaciones]
+    FROM [Negocio].[CheckLists] AS [CheckLists]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_AFPSiniestro" Association="Self.FK_AFPSiniestro">
+      <End Role="AFPs" EntitySet="AFPs" />
+      <End Role="Siniestros" EntitySet="Siniestros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRATO_SIS_DET_CONTRATO_SYS" Association="Self.FK_CONTRATO_SIS_DET_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="CONTRATO_SIS_DET" EntitySet="CONTRATO_SIS_DET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentoCheckeado" Association="Self.FK_DocumentoCheckeado">
+      <End Role="Documentos" EntitySet="Documentos" />
+      <End Role="Checkeados" EntitySet="Checkeados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentoDocumentoSolicitado" Association="Self.FK_DocumentoDocumentoSolicitado">
+      <End Role="Documentos" EntitySet="Documentos" />
+      <End Role="DocumentoSolicitados" EntitySet="DocumentoSolicitados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EstadoArchivoArchivo" Association="Self.FK_EstadoArchivoArchivo">
+      <End Role="EstadoArchivo" EntitySet="EstadoArchivo" />
+      <End Role="Archivo" EntitySet="Archivo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_CABECERA_SIS_Archivo" Association="Self.FK_EXACTUS_CABECERA_SIS_Archivo">
+      <End Role="Archivo" EntitySet="Archivo" />
+      <End Role="EXACTUS_CABECERA_SIS" EntitySet="EXACTUS_CABECERA_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS" Association="Self.FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="EXACTUS_CABECERA_SIS" EntitySet="EXACTUS_CABECERA_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo" Association="Self.FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo">
+      <End Role="Archivo" EntitySet="Archivo" />
+      <End Role="EXACTUS_DETALLE_EXPORT_SIS" EntitySet="EXACTUS_DETALLE_EXPORT_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS" Association="Self.FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="EXACTUS_DETALLE_EXPORT_SIS" EntitySet="EXACTUS_DETALLE_EXPORT_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS" Association="Self.FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS">
+      <End Role="EXACTUS_CABECERA_SIS" EntitySet="EXACTUS_CABECERA_SIS" />
+      <End Role="EXACTUS_DETALLE_SIS" EntitySet="EXACTUS_DETALLE_SIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_Archivo" Association="Self.FK_HistorialCargaArchivo_Archivo">
+      <End Role="Archivo" EntitySet="Archivo" />
+      <End Role="HistorialCargaArchivo" EntitySet="HistorialCargaArchivo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_LinCab_Archivo" Association="Self.FK_HistorialCargaArchivo_LinCab_Archivo">
+      <End Role="Archivo" EntitySet="Archivo" />
+      <End Role="HistorialCargaArchivo_LinCab" EntitySet="HistorialCargaArchivo_LinCab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS" Association="Self.FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="HistorialCargaArchivo_LinCab" EntitySet="HistorialCargaArchivo_LinCab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab" Association="Self.FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab">
+      <End Role="HistorialCargaArchivo_LinCab" EntitySet="HistorialCargaArchivo_LinCab" />
+      <End Role="HistorialCargaArchivo_LinDet" EntitySet="HistorialCargaArchivo_LinDet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialCargaArchivo_ReglaArchivo" Association="Self.FK_HistorialCargaArchivo_ReglaArchivo">
+      <End Role="ReglaArchivo" EntitySet="ReglaArchivo" />
+      <End Role="HistorialCargaArchivo" EntitySet="HistorialCargaArchivo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LogOperacion_CONTRATO_SYS" Association="Self.FK_LogOperacion_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="LogOperacion" EntitySet="LogOperacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonedaTipoMoneda" Association="Self.FK_MonedaTipoMoneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="TipoMoneda" EntitySet="TipoMoneda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOMINA_Archivo" Association="Self.FK_NOMINA_Archivo">
+      <End Role="Archivo" EntitySet="Archivo" />
+      <End Role="NOMINA" EntitySet="NOMINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOMINA_CONTRATO_SYS" Association="Self.FK_NOMINA_CONTRATO_SYS">
+      <End Role="CONTRATO_SYS" EntitySet="CONTRATO_SYS" />
+      <End Role="NOMINA" EntitySet="NOMINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pagos_Moneda" Association="Self.FK_Pagos_Moneda">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiniestroContrato" Association="Self.FK_SiniestroContrato">
+      <End Role="Contratos" EntitySet="Contratos" />
+      <End Role="Siniestros" EntitySet="Siniestros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiniestroPago" Association="Self.FK_SiniestroPago">
+      <End Role="Siniestros" EntitySet="Siniestros" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoArchivo_TipoInforme" Association="Self.FK_TipoArchivo_TipoInforme">
+      <End Role="TipoInforme" EntitySet="TipoInforme" />
+      <End Role="TipoArchivo" EntitySet="TipoArchivo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoArchivoArchivo" Association="Self.FK_TipoArchivoArchivo">
+      <End Role="TipoArchivo" EntitySet="TipoArchivo" />
+      <End Role="Archivo" EntitySet="Archivo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoMovimientoDocumentoSolicitado" Association="Self.FK_TipoMovimientoDocumentoSolicitado">
+      <End Role="TipoMovimientos" EntitySet="TipoMovimientos" />
+      <End Role="DocumentoSolicitados" EntitySet="DocumentoSolicitados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoMovimientoSiniestro" Association="Self.FK_TipoMovimientoSiniestro">
+      <End Role="TipoMovimientos" EntitySet="TipoMovimientos" />
+      <End Role="Siniestros" EntitySet="Siniestros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoSolicitudSiniestro" Association="Self.FK_TipoSolicitudSiniestro">
+      <End Role="TipoSolicitudes" EntitySet="TipoSolicitudes" />
+      <End Role="Siniestros" EntitySet="Siniestros" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

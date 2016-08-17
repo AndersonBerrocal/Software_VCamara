@@ -1,0 +1,29 @@
+﻿/*ESTILO PARA ALINEAR COLUMNAS DE TABLA*/
+section .tabBody #tblRsp .jtable th{text-align:center;}
+section .tabBody #tableCargaDatos .jtable th{text-align:center;}
+section .tabBody #tableCargaDatos .jtable tr td:nth-child(10),td:nth-child(11),td:nth-child(12),td:nth-child(13),
+        td:nth-child(14),td:nth-child(15),td:nth-child(16),td:nth-child(26),td:nth-child(27),td:nth-child(28),
+        td:nth-child(29),td:nth-child(37),td:nth-child(38),td:nth-child(39),td:nth-child(40),td:nth-child(41),
+        td:nth-child(42),td:nth-child(47),td:nth-child(49),td:nth-child(50),td:nth-child(51),td:nth-child(55),
+        td:nth-child(56),td:nth-child(57),td:nth-child(58),td:nth-child(59),td:nth-child(60),td:nth-child(61),
+        td:nth-child(74),td:nth-child(75),td:nth-child(76),td:nth-child(77),td:nth-child(78),td:nth-child(79),
+        td:nth-child(80),td:nth-child(81),td:nth-child(82),td:nth-child(88),td:nth-child(89),td:nth-child(92),
+        td:nth-child(93){text-align:right;}
+.modal
+{position: fixed;top: 0;left: 0;background:#aaaaaa url(../imagenes/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;z-index: 99;opacity: .3;filter: alpha(opacity=30);-moz-opacity: 0.3;min-height: 100%;width: 100%;}
+.loading
+{
+    background:rgba(0,0,0,.0);
+    font-family: Arial;
+    font-size: 10pt;
+    width: 250px;
+    height: 180px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+}
+.loading img
+{
+    width:50%;
+    height:50%;
+}

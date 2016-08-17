@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95901F71-ABD0-406B-AC2B-FF34D86D21B3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VidaCamara.Web</RootNamespace>
+    <AssemblyName>VidaCamara.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveDirectoryValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\ActiveDirectoryValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxControlToolkit, Version=3.5.50927.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\..\Archivos\Recursos\Nuevoo\AjaxControlToolkit.Binary.NET35\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Librerias\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Seguridadv2">
+      <HintPath>Librerias\Seguridadv2.dll</HintPath>
+    </Reference>
+    <Reference Include="skmMenu, Version=2.2.3350.17689, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Lib\skmMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Log" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Librerias\ActiveDirectoryValidation.dll" />
+    <Content Include="Librerias\AjaxControlToolkit.dll" />
+    <Content Include="Librerias\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Librerias\NPOI.dll" />
+    <Content Include="Librerias\NPOI.OOXML.dll" />
+    <Content Include="Librerias\NPOI.OOXML.XML" />
+    <Content Include="Librerias\NPOI.OpenXml4Net.dll" />
+    <Content Include="Librerias\NPOI.OpenXml4Net.XML" />
+    <Content Include="Librerias\NPOI.OpenXmlFormats.dll" />
+    <Content Include="Librerias\NPOI.XML" />
+    <Content Include="Librerias\Seguridadv2.dll" />
+    <Content Include="Resources\CSS\AjaxMenu.css" />
+    <Content Include="Resources\CSS\BarraHerramientas.css" />
+    <Content Include="Resources\CSS\bootstrap.css" />
+    <Content Include="Resources\CSS\Label.css" />
+    <Content Include="Resources\CSS\Login.css" />
+    <Content Include="Resources\CSS\mpHead.css" />
+    <Content Include="Resources\CSS\normalize.css" />
+    <Content Include="Resources\CSS\Page.css" />
+    <Content Include="Resources\CSS\Progressbar.css" />
+    <Content Include="Resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Resources\Imagenes\Buscar_Documento.jpg" />
+    <Content Include="Resources\Imagenes\data_transfer.jpg" />
+    <Content Include="Resources\Imagenes\edit.jpg" />
+    <Content Include="Resources\Imagenes\im_titulo.jpg" />
+    <Content Include="Resources\Imagenes\loading19.gif" />
+    <Content Include="Resources\Imagenes\Login.jpg" />
+    <Content Include="Resources\Imagenes\u10_normal.png" />
+    <Content Include="Resources\Imagenes\u123_normal.png" />
+    <Content Include="Resources\Imagenes\u13_normal.jpg" />
+    <Content Include="Resources\Imagenes\u14_normal.png" />
+    <Content Include="Resources\Imagenes\u154_normal.png" />
+    <Content Include="Resources\Imagenes\u158_normal.png" />
+    <Content Include="Resources\Imagenes\u17_original.png" />
+    <Content Include="Resources\Imagenes\u20_original.jpg" />
+    <Content Include="Resources\Imagenes\u21.jpg" />
+    <Content Include="Resources\Imagenes\u6_normal.png" />
+    <Content Include="Resources\Imagenes\upload.png" />
+    <Content Include="Resources\js\bootstrap.min.js" />
+    <Content Include="Resources\js\ConfirmWindow.js" />
+    <Content Include="Resources\js\j-valida-login.js" />
+    <Content Include="Resources\js\jquery-2.1.3.min.js" />
+    <Content Include="Resources\js\jquery.numeric.js" />
+    <Content Include="Resources\js\jqueryUI\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Resources\js\jqueryUI\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Resources\js\jqueryUI\jquery-ui.css" />
+    <Content Include="Resources\js\jqueryUI\jquery-ui.min.js" />
+    <Content Include="Resources\js\jqueryUI\jquery-ui.theme.min.css" />
+    <Content Include="Resources\js\jqueryUI\jquery.js" />
+    <Content Include="Resources\Menu\images\downArrow.png" />
+    <Content Include="Resources\Menu\menu.js" />
+    <Content Include="Resources\Menu\menu.css" />
+    <Content Include="SCRIPT SQL.txt" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.bd.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.ca.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.cz.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.de.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.fa.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.fr.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.hr.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.hu.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.id.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.it.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.nl-NL.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.no.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.ro.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.ru.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.se.js" />
+    <Content Include="Scripts\jtable\themes\metro\green\list_metro.png" />
+    <Content Include="WebPage\Mantenimiento\frmReglaArchivo.aspx" />
+    <Content Include="WebPage\Mantenimiento\frmTipoCambio.aspx" />
+    <Content Include="WebPage\Mantenimiento\js\frmReglaArchivo.js" />
+    <Content Include="WebPage\Mantenimiento\js\frmTipoCambio.js" />
+    <Content Include="WebPage\Mantenimiento\js\parametro-validacion.js" />
+    <Content Include="WebPage\Mantenimiento\js\tblContratoSisDetalle.js" />
+    <Content Include="WebPage\Mantenimiento\js\tblContratoViewSyS.js" />
+    <Content Include="WebPage\ModuloDIS\Consultas\frmSegConsulta.aspx" />
+    <Content Include="WebPage\ModuloDIS\Consultas\frmSegDescarga.aspx" />
+    <Content Include="WebPage\ModuloDIS\Consultas\frmSegLogAdmin.aspx" />
+    <Content Include="WebPage\ModuloDIS\Consultas\script\frmSegDescarga.js" />
+    <Content Include="WebPage\ModuloDIS\Consultas\script\frmSegLogAdmin.js" />
+    <Content Include="WebPage\ModuloDIS\Consultas\script\frmSeqConsulta.js" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\frmCargaAprobacion.aspx" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\frmCargaDatos.aspx" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\frmInterfaceContableSIS.aspx" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\frmTelebankig.aspx" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\js\CargaDatos.js" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\js\frmInterfaceContable.js" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\js\frmReglaArchivo.js" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\js\frmTelebanking.js" />
+    <Content Include="WebPage\ModuloSBS\Consultas\js\frmInformes.js" />
+    <Content Include="WebPage\ModuloSBS\Consultas\js\tblComprobante.js" />
+    <Content Include="WebPage\ModuloSBS\Consultas\js\tblOperacion.js" />
+    <Content Include="WebPage\Inicio\frmError.aspx" />
+    <Content Include="WebPage\Inicio\frmInicio.aspx" />
+    <Content Include="WebPage\Inicio\frmLogin.aspx" />
+    <Content Include="WebPage\Mantenimiento\js\tblContratoView.js" />
+    <Content Include="WebPage\Mantenimiento\js\tblGeneral.js" />
+    <Content Include="WebPage\Mantenimiento\js\tblReasegurador.js" />
+    <Content Include="Resources\Lib\AjaxControlToolkit.dll" />
+    <Content Include="Resources\Lib\CKEditor.NET.dll" />
+    <Content Include="Resources\Lib\Excel.dll" />
+    <Content Include="Resources\Lib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Resources\Lib\itextsharp.dll" />
+    <Content Include="Resources\Lib\skmMenu.dll" />
+    <Content Include="Scripts\jquery-1.9.0.min.map" />
+    <Content Include="Scripts\jtable\themes\jtable_theme_base.less" />
+    <Content Include="Scripts\jtable\themes\metro\green\jtable.less" />
+    <Content Include="Scripts\jtable\themes\metro\jtable_metro_base.less" />
+    <Content Include="Resources\CSS\Mater.css" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\frmOperacionManual.aspx" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\js\CargaDatos.js" />
+    <Content Include="WebPage\ModuloDIS\Operaciones\js\ApruebaCarga.js" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\js\CargaRsp.js" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\js\CierreOperacion.js" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\js\InterfaceContable.js" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\js\ProcesaOperacion.js" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\js\ProcesoManual.js" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\js\RegistroDato.js" />
+    <Content Include="Resources\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Resources\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Resources\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Resources\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\camara.pubxml" />
+    <None Include="Properties\PublishProfiles\DAVID.pubxml" />
+    <None Include="Properties\PublishProfiles\vcamara.pubxml" />
+    <None Include="Properties\PublishProfiles\vcamara1.pubxml" />
+    <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.js" />
+    <Content Include="Scripts\jquery-ui-1.10.0.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
+    <Content Include="Scripts\jtablesite.js" />
+    <Content Include="Scripts\jtable\extensions\jquery.jtable.aspnetpagemethods.js" />
+    <Content Include="Scripts\jtable\extensions\jquery.jtable.aspnetpagemethods.min.js" />
+    <Content Include="Scripts\jtable\external\json2.js" />
+    <Content Include="Scripts\jtable\external\json2.min.js" />
+    <Content Include="Scripts\jtable\jquery.jtable.js" />
+    <Content Include="Scripts\jtable\jquery.jtable.min.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.es.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.lt.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.pl.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.pt-BR.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.pt-PT.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.tr.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.vi.js" />
+    <Content Include="Scripts\jtable\localization\jquery.jtable.zh-CN.js" />
+    <Content Include="Scripts\jtable\themes\metro\close.png" />
+    <Content Include="Scripts\jtable\themes\metro\column-asc.png" />
+    <Content Include="Scripts\jtable\themes\metro\column-desc.png" />
+    <Content Include="Scripts\jtable\themes\metro\column-sortable.png" />
+    <Content Include="Scripts\jtable\themes\metro\delete.png" />
+    <Content Include="Scripts\jtable\themes\metro\edit.png" />
+    <Content Include="Scripts\jtable\themes\metro\green\jtable.css" />
+    <Content Include="Scripts\jtable\themes\metro\green\jtable.min.css" />
+    <Content Include="Scripts\jtable\themes\metro\green\loading.gif" />
+    <Content Include="Scripts\jtable\themes\metro\jtable_metro_base.css" />
+    <Content Include="Scripts\jtable\themes\metro\jtable_metro_base.min.css" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushCSharp.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushCss.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushJava.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushJScript.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushPhp.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushSql.js" />
+    <Content Include="Scripts\syntaxhighligher\shBrushXml.js" />
+    <Content Include="Scripts\syntaxhighligher\shCore.js" />
+    <Content Include="Scripts\syntaxhighligher\styles\shCore.css" />
+    <Content Include="Scripts\syntaxhighligher\styles\shThemeDefault.css" />
+    <Content Include="Scripts\validationEngine\jquery.validationEngine-en.js" />
+    <Content Include="Scripts\validationEngine\jquery.validationEngine.js" />
+    <Content Include="Scripts\validationEngine\validationEngine.jquery.css" />
+    <Content Include="WebPage\ModuloSBS\Consultas\frmConsultaComprobante.aspx" />
+    <Content Include="WebPage\ModuloSBS\Consultas\frmConsultaOperaciones.aspx" />
+    <Content Include="WebPage\ModuloSBS\Consultas\frmInformes.aspx" />
+    <Content Include="WebPage\Mantenimiento\frmTabla.aspx" />
+    <Content Include="WebPage\Mantenimiento\frmUsuario.aspx" />
+    <Content Include="WebPage\Mantenimiento\frmGeneral.aspx" />
+    <Content Include="WebPage\Mantenimiento\js\tblTableView.js" />
+    <Content Include="WebPage\Mantenimiento\js\tblUsuarioView.js" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\frmCargaDatos.aspx" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\frmCierreProceso.aspx" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\frmInterfaceContable.aspx" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\frmProcesaOperacion.aspx" />
+    <Content Include="WebPage\ModuloSBS\Operaciones\frmRegistroDatos.aspx" />
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPage\Mantenimiento\frmReglaArchivo.aspx.cs">
+      <DependentUpon>frmReglaArchivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmReglaArchivo.aspx.designer.cs">
+      <DependentUpon>frmReglaArchivo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmTipoCambio.aspx.cs">
+      <DependentUpon>frmTipoCambio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmTipoCambio.aspx.designer.cs">
+      <DependentUpon>frmTipoCambio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Consultas\frmSegConsulta.aspx.cs">
+      <DependentUpon>frmSegConsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Consultas\frmSegConsulta.aspx.designer.cs">
+      <DependentUpon>frmSegConsulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Consultas\frmSegDescarga.aspx.cs">
+      <DependentUpon>frmSegDescarga.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Consultas\frmSegDescarga.aspx.designer.cs">
+      <DependentUpon>frmSegDescarga.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Consultas\frmSegLogAdmin.aspx.cs">
+      <DependentUpon>frmSegLogAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Consultas\frmSegLogAdmin.aspx.designer.cs">
+      <DependentUpon>frmSegLogAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Operaciones\frmCargaAprobacion.aspx.cs">
+      <DependentUpon>frmCargaAprobacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Operaciones\frmCargaAprobacion.aspx.designer.cs">
+      <DependentUpon>frmCargaAprobacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Operaciones\frmCargaDatos.aspx.cs">
+      <DependentUpon>frmCargaDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Operaciones\frmCargaDatos.aspx.designer.cs">
+      <DependentUpon>frmCargaDatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Operaciones\frmInterfaceContableSIS.aspx.cs">
+      <DependentUpon>frmInterfaceContableSIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Operaciones\frmInterfaceContableSIS.aspx.designer.cs">
+      <DependentUpon>frmInterfaceContableSIS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Operaciones\frmTelebankig.aspx.cs">
+      <DependentUpon>frmTelebankig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloDIS\Operaciones\frmTelebankig.aspx.designer.cs">
+      <DependentUpon>frmTelebankig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Consultas\frmConsultaComprobante.aspx.cs">
+      <DependentUpon>frmConsultaComprobante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Consultas\frmConsultaComprobante.aspx.designer.cs">
+      <DependentUpon>frmConsultaComprobante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Consultas\frmConsultaOperaciones.aspx.cs">
+      <DependentUpon>frmConsultaOperaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Consultas\frmConsultaOperaciones.aspx.designer.cs">
+      <DependentUpon>frmConsultaOperaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Consultas\frmInformes.aspx.cs">
+      <DependentUpon>frmInformes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Consultas\frmInformes.aspx.designer.cs">
+      <DependentUpon>frmInformes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Inicio\frmError.aspx.cs">
+      <DependentUpon>frmError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Inicio\frmError.aspx.designer.cs">
+      <DependentUpon>frmError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Inicio\frmInicio.aspx.cs">
+      <DependentUpon>frmInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Inicio\frmInicio.aspx.designer.cs">
+      <DependentUpon>frmInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Inicio\frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Inicio\frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmTabla.aspx.cs">
+      <DependentUpon>frmTabla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmTabla.aspx.designer.cs">
+      <DependentUpon>frmTabla.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmUsuario.aspx.cs">
+      <DependentUpon>frmUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmUsuario.aspx.designer.cs">
+      <DependentUpon>frmUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmGeneral.aspx.cs">
+      <DependentUpon>frmGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Mantenimiento\frmGeneral.aspx.designer.cs">
+      <DependentUpon>frmGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmCargaDatos.aspx.cs">
+      <DependentUpon>frmCargaDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmCargaDatos.aspx.designer.cs">
+      <DependentUpon>frmCargaDatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmCierreProceso.aspx.cs">
+      <DependentUpon>frmCierreProceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmCierreProceso.aspx.designer.cs">
+      <DependentUpon>frmCierreProceso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmInterfaceContable.aspx.cs">
+      <DependentUpon>frmInterfaceContable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmInterfaceContable.aspx.designer.cs">
+      <DependentUpon>frmInterfaceContable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmOperacionManual.aspx.cs">
+      <DependentUpon>frmOperacionManual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmOperacionManual.aspx.designer.cs">
+      <DependentUpon>frmOperacionManual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmProcesaOperacion.aspx.cs">
+      <DependentUpon>frmProcesaOperacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmProcesaOperacion.aspx.designer.cs">
+      <DependentUpon>frmProcesaOperacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmRegistroDatos.aspx.cs">
+      <DependentUpon>frmRegistroDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\ModuloSBS\Operaciones\frmRegistroDatos.aspx.designer.cs">
+      <DependentUpon>frmRegistroDatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPage\Inicio\mpFEPCMAC.Master.cs">
+      <DependentUpon>mpFEPCMAC.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPage\Inicio\mpFEPCMAC.Master.designer.cs">
+      <DependentUpon>mpFEPCMAC.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\Temp\Archivos\" />
+    <Folder Include="Temp\Archivos\" />
+    <Folder Include="Temp\Descargas\" />
+    <Folder Include="Temp\Reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WebPage\Inicio\mpFEPCMAC.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VidaCamara.DIS\VidaCamara.DIS.csproj">
+      <Project>{407aa91c-5eb9-491d-83b9-2a4d95794483}</Project>
+      <Name>VidaCamara.DIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VidaCamara.SBS\VidaCamara.SBS.csproj">
+      <Project>{18b47979-3bca-4765-aed0-04c019ababb7}</Project>
+      <Name>VidaCamara.SBS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>30000</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:30000/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:30000/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

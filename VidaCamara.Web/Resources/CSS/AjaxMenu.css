@@ -1,0 +1,31 @@
+﻿div.MenuFondo
+{
+	width: 970px;
+	border: 1px solid #C0C0C0;
+	background-color: #D3D3D3;
+}
+
+.Menu
+{
+	cursor: pointer;
+	itemspacing: 0;
+	itempadding: 5;
+	font-family: Calibri;
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	color: #5E5E5E;
+	background-color: #D3D3D3;
+}
+
+.MenuSelect
+{
+	font-size: 13px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	color: #FFFFCC;
+	background-color: #5E5E5E;
+}
+

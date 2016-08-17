@@ -1,0 +1,5 @@
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\bin\Debug\VidaCamara.SBS.dll
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\bin\Debug\VidaCamara.SBS.pdb
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Debug\VidaCamara.SBS.dll
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Debug\VidaCamara.SBS.pdb
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Debug\VidaCamara.SBS.csprojResolveAssemblyReference.cache

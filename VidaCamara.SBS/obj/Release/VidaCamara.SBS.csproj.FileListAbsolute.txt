@@ -1,0 +1,10 @@
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\bin\Release\VidaCamara.SBS.dll
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\bin\Release\VidaCamara.SBS.pdb
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Release\VidaCamara.SBS.csprojResolveAssemblyReference.cache
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Release\VidaCamara.SBS.dll
+C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Release\VidaCamara.SBS.pdb
+D:\Proy_VCAMARA\VCAMARA2\VidaCamara.SBS\bin\Release\VidaCamara.SBS.dll
+D:\Proy_VCAMARA\VCAMARA2\VidaCamara.SBS\bin\Release\VidaCamara.SBS.pdb
+D:\Proy_VCAMARA\VCAMARA2\VidaCamara.SBS\obj\Release\VidaCamara.SBS.csprojResolveAssemblyReference.cache
+D:\Proy_VCAMARA\VCAMARA2\VidaCamara.SBS\obj\Release\VidaCamara.SBS.dll
+D:\Proy_VCAMARA\VCAMARA2\VidaCamara.SBS\obj\Release\VidaCamara.SBS.pdb

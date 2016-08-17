@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VidaCamara.Web", "VidaCamara.Web\VidaCamara.Web.csproj", "{95901F71-ABD0-406B-AC2B-FF34D86D21B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VidaCamara.SBS", "VidaCamara.SBS\VidaCamara.SBS.csproj", "{18B47979-3BCA-4765-AED0-04C019ABABB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VidaCamara.DIS", "VidaCamara.DIS\VidaCamara.DIS.csproj", "{407AA91C-5EB9-491D-83B9-2A4D95794483}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VidaCamara.Masiva", "VidaCamara.Masiva\VidaCamara.Masiva.csproj", "{2502495E-CFD6-4ECA-B570-50518A5F1DE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95901F71-ABD0-406B-AC2B-FF34D86D21B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95901F71-ABD0-406B-AC2B-FF34D86D21B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95901F71-ABD0-406B-AC2B-FF34D86D21B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95901F71-ABD0-406B-AC2B-FF34D86D21B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18B47979-3BCA-4765-AED0-04C019ABABB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18B47979-3BCA-4765-AED0-04C019ABABB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18B47979-3BCA-4765-AED0-04C019ABABB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18B47979-3BCA-4765-AED0-04C019ABABB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407AA91C-5EB9-491D-83B9-2A4D95794483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407AA91C-5EB9-491D-83B9-2A4D95794483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407AA91C-5EB9-491D-83B9-2A4D95794483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407AA91C-5EB9-491D-83B9-2A4D95794483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2502495E-CFD6-4ECA-B570-50518A5F1DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2502495E-CFD6-4ECA-B570-50518A5F1DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2502495E-CFD6-4ECA-B570-50518A5F1DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2502495E-CFD6-4ECA-B570-50518A5F1DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

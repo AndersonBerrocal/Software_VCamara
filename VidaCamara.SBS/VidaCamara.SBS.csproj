@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18B47979-3BCA-4765-AED0-04C019ABABB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VidaCamara.SBS</RootNamespace>
+    <AssemblyName>VidaCamara.SBS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dao\dbConexion.cs" />
+    <Compile Include="Dao\dSqlCierreProcesoVC.cs" />
+    <Compile Include="Dao\dSqlComprobanteVC.cs" />
+    <Compile Include="Dao\dSqlContratoDetalleVC.cs" />
+    <Compile Include="Dao\dSqlContratoSys.cs" />
+    <Compile Include="Dao\dSqlContratoVC.cs" />
+    <Compile Include="Dao\dSqlDatoAVC.cs" />
+    <Compile Include="Dao\dSqlExportarData.cs" />
+    <Compile Include="Dao\dSqlGeneralVC.cs" />
+    <Compile Include="Dao\dSqlInterfaceContable.cs" />
+    <Compile Include="Dao\dSqlInterfaceContableVC.cs" />
+    <Compile Include="Dao\dSqlOperacionSelectVC.cs" />
+    <Compile Include="Dao\dSqlOperacionVC.cs" />
+    <Compile Include="Dao\dSqlRegistroDatoVC.cs" />
+    <Compile Include="Dao\dSqlTablaVC.cs" />
+    <Compile Include="Dao\dSqlUsuarioVC.cs" />
+    <Compile Include="Dao\dSqlValidarCierreVC.cs" />
+    <Compile Include="Dao\Interface\IContratoDetalleVC.cs" />
+    <Compile Include="Dao\Interface\IContratoSys.cs" />
+    <Compile Include="Dao\Interface\IContratoVC.cs" />
+    <Compile Include="Dao\Interface\IDatoAVC.cs" />
+    <Compile Include="Dao\Interface\IGeneralVC.cs" />
+    <Compile Include="Dao\Interface\IRegistroDatosVC.cs" />
+    <Compile Include="Dao\Interface\ITablaVC.cs" />
+    <Compile Include="Dao\Interface\IUsuarioVC.cs" />
+    <Compile Include="Entity\eCierreProceso.cs" />
+    <Compile Include="Entity\eComprobanteVC.cs" />
+    <Compile Include="Entity\eContratoDetalleVC.cs" />
+    <Compile Include="Entity\eContratoSys.cs" />
+    <Compile Include="Entity\eContratoVC.cs" />
+    <Compile Include="Entity\eDatoA.cs" />
+    <Compile Include="Entity\eDatoM.cs" />
+    <Compile Include="Entity\eGeneral.cs" />
+    <Compile Include="Entity\eInterfaceContableVC.cs" />
+    <Compile Include="Entity\eOperacionVC.cs" />
+    <Compile Include="Entity\eTabla.cs" />
+    <Compile Include="Entity\eUsuarioVC.cs" />
+    <Compile Include="Negocio\bCierreProcesoVC.cs" />
+    <Compile Include="Negocio\bComprobanteVC.cs" />
+    <Compile Include="Negocio\bContratoDetalleVC.cs" />
+    <Compile Include="Negocio\bContratoSys.cs" />
+    <Compile Include="Negocio\bContratoVC.cs" />
+    <Compile Include="Negocio\bDatoAVC.cs" />
+    <Compile Include="Negocio\bExportarData.cs" />
+    <Compile Include="Negocio\bGeneralVC.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Negocio\bInterfaceContableVC.cs" />
+    <Compile Include="Negocio\bOperacionSelectVC.cs" />
+    <Compile Include="Negocio\bOperacionVC.cs" />
+    <Compile Include="Negocio\bRegistroDatoVC.cs" />
+    <Compile Include="Negocio\bTablaVC.cs" />
+    <Compile Include="Negocio\bUsuarioVC.cs" />
+    <Compile Include="Negocio\bValidarAcceso.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Negocio\bValidarCierreVC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Utility.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

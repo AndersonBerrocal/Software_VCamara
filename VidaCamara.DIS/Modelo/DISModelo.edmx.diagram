@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0565ad74d7e3449abb6dbeb897cf9a5e" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="DISModelo.CIERRE_PROCESO" Width="1.5" PointX="2.75" PointY="8" />
+        <EntityTypeShape EntityType="DISModelo.CONCEPTO" Width="1.5" PointX="4.75" PointY="11" />
+        <EntityTypeShape EntityType="DISModelo.CONTRATO" Width="1.5" PointX="10.75" PointY="2" />
+        <EntityTypeShape EntityType="DISModelo.CONTRATO_SIS_DET" Width="1.5" PointX="7.5" PointY="11.5" />
+        <EntityTypeShape EntityType="DISModelo.CONTRATO_SYS" Width="1.5" PointX="5.25" PointY="19.125" />
+        <EntityTypeShape EntityType="DISModelo.DATO_M" Width="1.5" PointX="10.75" PointY="11" />
+        <EntityTypeShape EntityType="DISModelo.Evento" Width="1.5" PointX="0.75" PointY="13" />
+        <EntityTypeShape EntityType="DISModelo.Exactu" Width="1.5" PointX="12.75" PointY="2" />
+        <EntityTypeShape EntityType="DISModelo.EXACTUS_CABECERA_SIS" Width="1.5" PointX="13.5" PointY="24" />
+        <EntityTypeShape EntityType="DISModelo.EXACTUS_DETALLE" Width="1.5" PointX="12.75" PointY="7" />
+        <EntityTypeShape EntityType="DISModelo.EXACTUS_DETALLE_SIS" Width="1.5" PointX="15.75" PointY="24.125" />
+        <EntityTypeShape EntityType="DISModelo.GENERAL" Width="1.5" PointX="12.75" PointY="13" />
+        <EntityTypeShape EntityType="DISModelo.LogOperacion" Width="1.5" PointX="7.5" PointY="15.25" />
+        <EntityTypeShape EntityType="DISModelo.NOMINA" Width="1.5" PointX="7.5" PointY="18.875" />
+        <EntityTypeShape EntityType="DISModelo.OPERACION" Width="1.5" PointX="14.75" PointY="2" />
+        <EntityTypeShape EntityType="DISModelo.sysdiagram" Width="1.5" PointX="2.75" PointY="15" />
+        <EntityTypeShape EntityType="DISModelo.HistorialCargaArchivo" Width="1.5" PointX="7.5" PointY="24.75" />
+        <EntityTypeShape EntityType="DISModelo.HistorialCargaArchivo_LinCab" Width="1.5" PointX="7.5" PointY="29.25" />
+        <EntityTypeShape EntityType="DISModelo.HistorialCargaArchivo_LinDet" Width="1.5" PointX="9.75" PointY="29.375" />
+        <EntityTypeShape EntityType="DISModelo.ReglaArchivo" Width="1.5" PointX="5.25" PointY="29" />
+        <EntityTypeShape EntityType="DISModelo.AFP" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="DISModelo.Archivo" Width="1.5" PointX="5.25" PointY="24.5" />
+        <EntityTypeShape EntityType="DISModelo.Bitacora" Width="1.5" PointX="4.75" PointY="15" />
+        <EntityTypeShape EntityType="DISModelo.Checkeado" Width="1.5" PointX="6" PointY="7.5" />
+        <EntityTypeShape EntityType="DISModelo.ContratoCSV" Width="1.5" PointX="14.75" PointY="10" />
+        <EntityTypeShape EntityType="DISModelo.Contrato1" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="DISModelo.Correlativo" Width="1.5" PointX="9.75" PointY="16" />
+        <EntityTypeShape EntityType="DISModelo.CSV" Width="1.5" PointX="14.75" PointY="13" />
+        <EntityTypeShape EntityType="DISModelo.Documento" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DISModelo.DocumentoSolicitado" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="DISModelo.EstadoArchivo" Width="1.5" PointX="3" PointY="21.5" />
+        <EntityTypeShape EntityType="DISModelo.EstadoPago" Width="1.5" PointX="14.75" PointY="16" />
+        <EntityTypeShape EntityType="DISModelo.Imputacion" Width="1.5" PointX="11.75" PointY="17" />
+        <EntityTypeShape EntityType="DISModelo.Moneda" Width="1.5" PointX="6" PointY="1.75" />
+        <EntityTypeShape EntityType="DISModelo.MontoAlto" Width="1.5" PointX="16.75" PointY="2" />
+        <EntityTypeShape EntityType="DISModelo.Pago" Width="1.5" PointX="8.25" PointY="3.75" />
+        <EntityTypeShape EntityType="DISModelo.Parametro" Width="1.5" PointX="0.75" PointY="18" />
+        <EntityTypeShape EntityType="DISModelo.Parentesco" Width="1.5" PointX="16.75" PointY="5" />
+        <EntityTypeShape EntityType="DISModelo.Persona" Width="1.5" PointX="16.75" PointY="8" />
+        <EntityTypeShape EntityType="DISModelo.RegistroMontoAlto" Width="1.5" PointX="16.75" PointY="11" />
+        <EntityTypeShape EntityType="DISModelo.Role" Width="1.5" PointX="16.75" PointY="14" />
+        <EntityTypeShape EntityType="DISModelo.Siniestro" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="DISModelo.TipoArchivo" Width="1.5" PointX="3" PointY="24.5" />
+        <EntityTypeShape EntityType="DISModelo.TipoCambio" Width="1.5" PointX="16.75" PointY="17" />
+        <EntityTypeShape EntityType="DISModelo.TipoDocumentoIdentificacion" Width="1.5" PointX="13.75" PointY="19" />
+        <EntityTypeShape EntityType="DISModelo.TipoInforme" Width="1.5" PointX="0.75" PointY="25.5" />
+        <EntityTypeShape EntityType="DISModelo.TipoMoneda" Width="1.5" PointX="8.25" PointY="8.875" />
+        <EntityTypeShape EntityType="DISModelo.TipoMovimiento" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="DISModelo.TipoPension" Width="1.5" PointX="18.75" PointY="2" />
+        <EntityTypeShape EntityType="DISModelo.TipoRegistro" Width="1.5" PointX="18.75" PointY="5" />
+        <EntityTypeShape EntityType="DISModelo.TipoSolicitude" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="DISModelo.COMPROBANTE" Width="1.5" PointX="18.75" PointY="8" />
+        <EntityTypeShape EntityType="DISModelo.Consulta" Width="1.5" PointX="18.75" PointY="15" />
+        <EntityTypeShape EntityType="DISModelo.CONTRATO_DETALLE" Width="1.5" PointX="18.75" PointY="19" />
+        <EntityTypeShape EntityType="DISModelo.DATO_A" Width="1.5" PointX="20.75" PointY="2" />
+        <EntityTypeShape EntityType="DISModelo.EXACTUS_CABECERA" Width="1.5" PointX="20.75" PointY="21" />
+        <EntityTypeShape EntityType="DISModelo.EXACTUS_DETALLE_EXPORT_SIS" Width="1.5" PointX="10.5" PointY="23.75" />
+        <EntityTypeShape EntityType="DISModelo.USUARIO" Width="1.5" PointX="15.75" PointY="20" />
+        <EntityTypeShape EntityType="DISModelo.CheckList" Width="1.5" PointX="22.75" PointY="2" />
+        <AssociationConnector Association="DISModelo.FK_CONTRATO_SIS_DET_CONTRATO_SYS" />
+        <AssociationConnector Association="DISModelo.FK_EXACTUS_CABECERA_SIS_CONTRATO_SYS" />
+        <AssociationConnector Association="DISModelo.FK_EXACTUS_DETALLE_EXPORT_SIS_CONTRATO_SYS" />
+        <AssociationConnector Association="DISModelo.FK_HistorialCargaArchivo_LinCab_CONTRATO_SYS" />
+        <AssociationConnector Association="DISModelo.FK_LogOperacion_CONTRATO_SYS" />
+        <AssociationConnector Association="DISModelo.FK_NOMINA_CONTRATO_SYS" />
+        <AssociationConnector Association="DISModelo.FK_EXACTUS_CABECERA_SIS_Archivo" />
+        <AssociationConnector Association="DISModelo.FK_EXACTUS_DETALLE_SIS_EXACTUS_CABECERA_SIS" />
+        <AssociationConnector Association="DISModelo.FK_NOMINA_Archivo" />
+        <AssociationConnector Association="DISModelo.FK_HistorialCargaArchivo_Archivo" />
+        <AssociationConnector Association="DISModelo.FK_HistorialCargaArchivo_ReglaArchivo" />
+        <AssociationConnector Association="DISModelo.FK_HistorialCargaArchivo_LinCab_Archivo" />
+        <AssociationConnector Association="DISModelo.FK_HistorialCargaArchivo_LinDet_HistorialCargaArchivo_LinCab" />
+        <AssociationConnector Association="DISModelo.FK_AFPSiniestro" />
+        <AssociationConnector Association="DISModelo.FK_EstadoArchivoArchivo" />
+        <AssociationConnector Association="DISModelo.FK_EXACTUS_DETALLE_EXPORT_SIS_Archivo" />
+        <AssociationConnector Association="DISModelo.FK_TipoArchivoArchivo" />
+        <AssociationConnector Association="DISModelo.FK_DocumentoCheckeado" />
+        <AssociationConnector Association="DISModelo.FK_SiniestroContrato" />
+        <AssociationConnector Association="DISModelo.FK_DocumentoDocumentoSolicitado" />
+        <AssociationConnector Association="DISModelo.FK_TipoMovimientoDocumentoSolicitado" />
+        <AssociationConnector Association="DISModelo.FK_MonedaTipoMoneda" />
+        <AssociationConnector Association="DISModelo.FK_Pagos_Moneda" />
+        <AssociationConnector Association="DISModelo.FK_SiniestroPago" />
+        <AssociationConnector Association="DISModelo.FK_TipoMovimientoSiniestro" />
+        <AssociationConnector Association="DISModelo.FK_TipoSolicitudSiniestro" />
+        <AssociationConnector Association="DISModelo.FK_TipoArchivo_TipoInforme" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,160 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mpFEPCMAC.master.cs" Inherits="VidaCamara.Web.WebPage.Inicio.mpFEPCMAC" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head id="Head1" runat="server">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="~/Resources/CSS/normalize.css" rel="stylesheet" />
+    <link href="~/Resources/CSS/Mater.css" rel="stylesheet" />
+    <link href="~/Resources/CSS/Label.css" rel="stylesheet" />
+    <link href="~/Scripts/jtable/themes/metro/green/jtable.min.css" rel="stylesheet" />
+
+    <link href="~/Resources/Menu/menu.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/redmond/jquery-ui.css" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="Resources/js/jquery.numeric.js"></script>
+
+
+    <script src="Resources/js/jqueryUI/jquery-ui.min.js"></script>
+    <script src="Resources/Menu/menu.js"></script>
+    <script src="Scripts/modernizr-2.6.2.js"></script>
+    <script src="Scripts/jtable/external/json2.js"></script>
+    <!--<script src="Scripts/jtable/jquery.jtable.js"></script>-->
+    <script src="Scripts/jtable/jquery.jtable.min.js"></script>
+    <script src="Scripts/jtable/extensions/jquery.jtable.aspnetpagemethods.js"></script>
+    <script src="Scripts/jtable/localization/jquery.jtable.es.js"></script>
+    <script src="Resources/js/ConfirmWindow.js"></script>
+
+    <title>Vida Cámara</title>
+    <style type="text/css">
+        div#menu {
+            margin: 5px auto;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <div id="titulo">
+                <asp:Label CssClass="asp_label" ID="lbl_title" Text="." runat="server"></asp:Label>
+                <asp:Label ID="lbl_titulo" CssClass="asp_label" runat="server" Text="."></asp:Label>
+                <label for="lbl_usuario" class="lbl_header" id="lbl_user">Usuario :</label>
+                <asp:Label ID="lbl_usuario" CssClass="asp_label" runat="server" Text="."></asp:Label>
+
+                <label for="lbl_conexion" class="lbl_header" id="lbl_connect">Ult Conexion :</label>
+                <asp:Label ID="lbl_conexion" runat="server" Text="."></asp:Label>
+
+                <asp:HiddenField ID="hdf_control" Value="210" runat="server" />
+            </div>
+            <figure id="img_titulo">
+                <asp:Image ID="vida_camara" runat="server" ImageUrl="~/Resources/Imagenes/im_titulo.jpg" />
+            </figure>
+        </header>
+        <a class="toggleMenu" href="#">Menu</a>
+        <nav>
+            <ul class="nav">
+                <li>
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Inicio" runat="server">Inicio</asp:HyperLink></li>
+
+                <li><a href="#">Mantenimiento</a>
+                    <ul>
+                        <li>
+                            <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Parametros?go=1" runat="server">Parámetros</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink3" NavigateUrl="~/Usuarios?go=2" runat="server">Usuarios</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink4" NavigateUrl="~/Tablas?go=3" runat="server">Tablas</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink22" NavigateUrl="~/ReglaArchivo?go=20" runat="server">Regla Archivo</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink23" NavigateUrl="~/TipoCambio?go=21" runat="server">Tipo Cambio</asp:HyperLink>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Modulo Reaseguro</a>
+                    <ul>
+                        <li><a href="#">Operaciones</a>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink5" NavigateUrl="~/RegistroDatos?go=4" runat="server">Registro Datos</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink6" NavigateUrl="~/CargaDatos?go=5" runat="server">Carga Archivos</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink7" NavigateUrl="~/OperacionManual?go=6" runat="server">Operación Manual</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink8" NavigateUrl="~/ProcesoOperacion?go=7" runat="server">Procesar Información</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink9" NavigateUrl="~/CierreOperacion?go=8" runat="server">Cierre de Operaciones</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink10" NavigateUrl="~/InterfaceContable?go=10" runat="server">Interface Contable</asp:HyperLink></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Consultas</a>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink11" NavigateUrl="~/Operaciones?go=9" runat="server">Operaciones</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink12" NavigateUrl="~/Comprobantes?go=11" runat="server">Comprobantes</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink13" NavigateUrl="~/Informes?go=12" runat="server">Informes SBS</asp:HyperLink></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Modulo SIS</a>
+                    <ul>
+                        <li><a href="#">Operaciones</a>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink14" NavigateUrl="~/CargaDatosDIS?go=13" runat="server">Carga</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink15" NavigateUrl="~/ApruebaCarga?go=14" runat="server">Aprobación</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink16" NavigateUrl="~/Telebankig?go=15" runat="server">Genera Telebanking</asp:HyperLink>
+                                </li>
+                                 <li>
+                                    <asp:HyperLink ID="HyperLink17" NavigateUrl="~/InterfaceContbleSIS?go=16" runat="server">Interface Contable</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Consultas</a>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink18" NavigateUrl="~/SegConsulta?go=17" runat="server" Text="Pagos Procesados" />
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink19" NavigateUrl="~/SegDescarga?go=18" runat="server" Text="Archivos Procesados" />
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink20" NavigateUrl="~/SegLogAdmin?go=19" runat="server" Text="Log Administrativo" />
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <asp:HyperLink ID="HyperLink21" NavigateUrl="~/Login?go=13" runat="server">Cerrar Sesión</asp:HyperLink></li>
+            </ul>
+        </nav>
+        <section>
+            <div class="siteMap">
+                <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
+    </form>
+</body>
+</html>

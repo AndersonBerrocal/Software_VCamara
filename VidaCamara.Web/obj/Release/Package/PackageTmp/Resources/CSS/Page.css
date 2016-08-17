@@ -1,0 +1,485 @@
+﻿body
+{
+}
+table.Principal
+{
+	width:100%;
+	text-align: left;
+	font-family: Arial;
+	font-size: 13px;
+}
+td.Principal1
+{
+	border-style: solid;
+	border-width: 1pt;
+	border-color: inherit;
+	height: 115px;
+	width: 740px;
+}
+td.Principal2
+{
+	border-style: solid;
+	border-width: 1pt;
+	border-color: inherit;
+	width: 350px;
+	vertical-align:top;
+}
+td.Principal3
+{
+	border-style: solid;
+	border-width: 1pt;
+	border-color: inherit;
+	width: 1090px;
+	height: 345px;
+	vertical-align:top;
+}
+.FontSistema
+{
+	text-align: left;
+	font-family: Arial;
+	font-size: 13px;
+	width: 377px;
+}
+.divTotal
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 160px;
+	overflow: scroll;
+}
+.divTotal1
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 128px;
+	overflow: scroll;
+}
+
+.divTotal2
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 930px;
+	height: 128px;
+	overflow: scroll;
+}
+
+.divTotal3
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 930px;
+	height: 90px;
+	overflow: scroll;
+}
+
+.divTotal10
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 99%;
+	height: 90px;
+	overflow: scroll;
+}
+
+
+.divAcceso
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 400px;
+	overflow: scroll;
+}
+.divBandeja
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 186px;
+	overflow: scroll;
+}
+.divBusqueda
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 210px;
+	overflow: scroll;
+}
+
+.divBusqueda2
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 99%;
+	height:386px;
+	overflow: scroll;
+}
+
+.divBusqueda3
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 99%;
+	height:285px;
+	overflow: scroll;
+}
+
+.divBusqueda4
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 99%;
+	height:100%;
+	overflow: scroll;
+}
+
+
+.divGrupos
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 320px;
+	overflow: scroll;
+}
+.divControl
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 130px;
+	overflow: scroll;
+}
+.panelBorder
+{
+	border: 1px solid #C0C0C0;
+	font-family: Calibri;
+	font-size: 12px;
+	color: #000000;
+}
+.panel
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #000000;
+	background-color: #FFFFFF;
+    margin-bottom: 0px;
+}
+.Tab
+{
+	width: 100%;
+}
+.TabHeader
+{
+	width: 120px;
+	border: 1px solid #C0C0C0;
+	font-weight: bold;
+	font-family: Calibri;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	text-align: center;
+	color: #999999;
+}
+.TabHeaderSelect
+{
+	width: 120px;
+	border: 1px solid #C0C0C0;
+	font-weight: bold;
+	font-family: Calibri;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #FF0000;
+}
+.label
+{
+	font-family:Calibri;
+	font-size:12px;
+	color:#797979;
+    text-align: right;
+}
+
+.label2
+{
+	font-family:Calibri;
+	font-size:12px;
+	color:black;
+    text-align: right;
+}
+
+
+.textbox
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: BLACK;
+	border: 1px solid #C0C0C0;
+    margin-left: 0px;
+}
+.textboxSegurity
+{
+	width: 99%;
+	font-family: Arial;
+	font-size: 12px;
+	color: #797979;
+	border: 1px solid #C0C0C0;
+}
+.textboxMayus
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	border: 1px solid #C0C0C0;
+	text-transform:uppercase;
+}
+.multiline
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	border: 1px solid #C0C0C0;
+}
+.dropdownlist
+{
+	font-family: Calibri;
+	font-size: 12px;
+	color: black;
+	border: 1px solid #C0C0C0;
+    margin-left: 0px;
+}
+.radioButton
+{
+	font-family:Calibri;
+	font-size:12px;
+	color:Black;
+	color: #797979;
+}
+.button
+{
+	font-family: Calibri;
+	font-weight: bold;
+	font-size: 13px;
+	color: #797979;
+	width: 120px;
+	text-align: center;
+}
+.listbox
+{
+	width: 100%;
+	height: 40px;
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	border: 1px solid #C0C0C0;
+}
+.iframe
+{
+	width: 100%;
+	height: 100%;
+	background-color: #C0C0C0;
+}
+.calendar
+{
+	width: 150px;
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	border: 1px solid #C0C0C0;
+}
+.imagen
+{
+	border-style: none;
+	border-color: inherit;
+	border-width: 0px;
+	width: 17px;
+    height: 17px;
+}
+.imagenFirma
+{
+	border-style: none;
+	border-color: inherit;
+	border-width: 0px;
+	height: 50px;
+}
+.htmlEditor
+{
+	width: 99%;
+	height: 300px;
+	font-family: Calibri;
+	font-size: 12px;
+	color: #797979;
+	border: 1px solid #C0C0C0;
+}
+.examinar
+{
+	font-family: Calibri;
+	font-weight: bold;
+	font-size: 13px;
+	color: #797979;
+	width: 100%;
+	text-align: center;
+}
+td.FondoEtiqueta
+{
+	background-color: #E8E8E8;
+	text-align:right;
+}
+td.FondoEtiqueta1
+{
+	background-color: #E8E8E8;
+	text-align:right;
+}
+td.FondoEtiqueta2
+{
+	background-color: #E8E8E8;
+	text-align:center;
+}
+td.FondoEtiqueta3
+{
+	width: 100%;
+	background-color: #E8E8E8;
+	text-align:right;
+}
+
+td.FondoEtiqueta4
+{
+	width: 200px;
+	background-color: #E8E8E8;
+	text-align:right;
+}
+
+td.FondoEtiqueta5
+{
+	width: 100px;
+	background-color: #E8E8E8;
+	text-align:right;
+}
+
+td.FondoEtiqueta6
+{
+	width: 300px;
+	background-color: #E8E8E8;
+	text-align:right;
+}
+
+td.FondoEtiqueta7
+{
+	width: 80px;
+	background-color: #E8E8E8;
+	text-align:right;
+}
+
+td.FondoEtiqueta10
+{
+	width: 15%;
+	text-align:right;
+}
+
+td.FondoCombobox
+{
+	width: 115px;
+	text-align:left;
+}
+td.Fondobutton
+{
+	width: 130px;
+	text-align:center;
+}
+.imgBE
+{
+	width:15px;
+	height:15px;	
+}
+.CabeceraPopup
+{
+	width: 700px;
+	border: 1px solid #CC3300;
+	background-color: #CC3300;
+	color: #FFFFFF;
+	font-family: Calibri;
+	font-size: 14px;
+}
+.CabeceraPopupX
+{
+	width:20px;
+	border: 1px solid #CC3300;
+	background-color: #CC3300;
+	color: #FFFFFF;
+}
+.modalPopup
+{
+	background-color: #E4E4E4;
+	font-weight: bold;
+	font-size: 20px;
+	/*text-transform: capitalize;*/
+	color: #000000;
+	font-family: Calibri;
+	/*filter: alpha(opacity=10);
+	opacity: 0.7;*/
+
+}
+
+ .modalBackground
+        {
+            background-color: Black;
+            filter: alpha(opacity=70);
+            opacity: 0.7;
+        }
+
+.BackColorTab
+{
+    font-family:Verdana, Arial, Courier New;
+    font-size: 10px;
+    color:Gray;
+    background-color:Silver; 
+}
+        
+.TabHeaderCSS
+{
+     font-family:Verdana, Arial, Courier New;
+     font-size: 10px;
+     text-align: center;
+     cursor: pointer
+}
+.PopupOcultar
+{
+	display:none;
+}
+.PopupMostrar
+{
+	display:run-in;
+}
+

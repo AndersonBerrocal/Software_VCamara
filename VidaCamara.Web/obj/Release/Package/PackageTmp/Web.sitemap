@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Inicio">
+    <siteMapNode url="~/Inicio" title="Inicio"  description="Inicio" />
+    <siteMapNode  title="Mantenimiento">
+      <siteMapNode url="~/Parametros" title="Parametros"  description="Parametros" />
+      <siteMapNode url="~/Usuarios" title="Usuario"  description="Usuario" />
+      <siteMapNode url="~/Tablas" title="Tabla"  description="tabla" />
+      <siteMapNode url="~/ReglaArchivo" title="Regla de archivo"  description="ReglaArchivo" />
+      <siteMapNode url="~/TipoCambio" title="Tipo de cambio"  description="Tipo de cambio" />
+    </siteMapNode>
+    <siteMapNode title="Modulo SBS">
+      <siteMapNode title="Operaciones">
+        <siteMapNode url="~/CargaLogicaDatos" title="Carga Archivos"  description="Carga Archivos" />
+        <siteMapNode url="~/OperacionManual" title="Operacion Manual"  description="Operacion Manual" />
+        <siteMapNode url="~/CierreOperacion" title="Cierre de Operaciones"  description="Cierre de Operaciones" />
+        <siteMapNode url="~/InterfaceContable" title="Interface Contable"  description="Interface Contable" />
+        <siteMapNode url="~/ProcesoOperacion" title="Proceso de Información"  description="Proceso de Información" />
+        <siteMapNode url="~/RegistroDatos" title="Registro de Datos"  description="Registro de Datos" />
+      </siteMapNode>
+      <siteMapNode title="Consultas">
+        <siteMapNode url="~/Comprobantes" title="Consulta de Comprobantes"  description="Consulta de Comprobantes" />
+        <siteMapNode url="~/Operaciones" title="Consulta de Operaciones"  description="Consulta de Operaciones" />
+        <siteMapNode url="~/Informes" title="Informes"  description="Informes" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Modulo SIS">
+      <siteMapNode title="Operaciones">
+        <siteMapNode url="~/CargaDatosDIS" title="Carga Archivos Pagos"  description="Carga Archivos Pagos" />
+        <siteMapNode url="~/ApruebaCarga" title="Aprobacion de Carga"  description="Aprobacion de Carga" />
+        <siteMapNode url="~/Telebankig" title="Genera Telebanking"  description="Genera Telebanking" />
+        <siteMapNode url="~/InterfaceContbleSIS" title="Interface Contable"  description="Interface Contable" />
+      </siteMapNode>
+      <siteMapNode title="Consultas">
+        <siteMapNode url="~/SegConsulta" title="Pagos Procesados"  description="Pagos Procesados" />
+        <siteMapNode url="~/SegDescarga" title="Archivos Procesados"  description="Archivos Procesados" />
+        <siteMapNode url="~/SegLogAdmin" title="Log Administrativo"  description="Log Administrativo" />
+      </siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
