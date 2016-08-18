@@ -3,3 +3,7 @@ C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\bin\Debug\VidaCamara.SBS.pdb
 C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Debug\VidaCamara.SBS.dll
 C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Debug\VidaCamara.SBS.pdb
 C:\Users\david\Source\Repos\VCAMARA2\VidaCamara.SBS\obj\Debug\VidaCamara.SBS.csprojResolveAssemblyReference.cache
+C:\Users\ANDEAN\Desktop\vidacamaraok\VCAMARA-OK\VidaCamara.SBS\bin\Debug\VidaCamara.SBS.dll
+C:\Users\ANDEAN\Desktop\vidacamaraok\VCAMARA-OK\VidaCamara.SBS\bin\Debug\VidaCamara.SBS.pdb
+C:\Users\ANDEAN\Desktop\vidacamaraok\VCAMARA-OK\VidaCamara.SBS\obj\Debug\VidaCamara.SBS.dll
+C:\Users\ANDEAN\Desktop\vidacamaraok\VCAMARA-OK\VidaCamara.SBS\obj\Debug\VidaCamara.SBS.pdb

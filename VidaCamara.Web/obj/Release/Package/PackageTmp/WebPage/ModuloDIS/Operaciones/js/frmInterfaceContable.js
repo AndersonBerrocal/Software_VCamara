@@ -47,6 +47,11 @@
             title: 'EstadoTransferencia', display: function (data) {
                 return data.record.EXACTUS_CABECERA_SIS.ESTADO_TRANSFERENCIA == "C" ? "CREADO" : "TRANSFERIDO";
             }
+        },
+        EstadoTransferenciaDetalle: {
+            title: 'EstadoTransferenciaDetalle', display: function (data) {
+                return data.record.EstadoTransferenciaDetalle == "C" ? "CREADO" : "TRANSFERIDO";
+            }
         }
     }
     const fieldsParcial = {

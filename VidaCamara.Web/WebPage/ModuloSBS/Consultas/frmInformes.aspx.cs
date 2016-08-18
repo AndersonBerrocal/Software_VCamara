@@ -129,7 +129,7 @@ namespace VidaCamara.Web.WebPage.ModuloSBS.Consultas
             IRow filaDescF = hojaTrabajo.CreateRow(8);
             ICell celdaDescF;
             celdaDescF = filaDescF.CreateCell(1);
-            celdaDescF.SetCellValue("AL " + Convert.ToDateTime(txt_fecha_creacion.Text).ToShortDateString());
+            celdaDescF.SetCellValue("AL " + Convert.ToDateTime(txt_hasta.Text).ToShortDateString());
             hojaTrabajo.AddMergedRegion(new CellRangeAddress(8, 8, 1, 12));
 
             IRow FilaDesc3 = hojaTrabajo.CreateRow(9);

@@ -6,5 +6,7 @@
         public string CreditoDolar { get; set; }
         public string DebitoSoles { get; set; }
         public string DebitoDolar { get; set; }
+
+        public string EstadoTransferenciaDetalle { get; set; }
     }
 }

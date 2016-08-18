@@ -116,6 +116,7 @@ namespace VidaCamara.DIS.data
                             CreditoDolar = string.Format(formatoMoneda,item.xd.MONTO_DOLAR < 0? Math.Abs(item.xd.MONTO_DOLAR):0.00M),
                             MONTO_UNIDADES = item.xd.MONTO_UNIDADES,
                             NIT = item.xd.NIT,
+                            EstadoTransferenciaDetalle = item.xd.ESTADO_TRANSFERENCIA,
                             EXACTUS_CABECERA_SIS = new EXACTUS_CABECERA_SIS(){
                                 PAQUETE = item.x.PAQUETE,
                                 ASIENTO = item.x.ASIENTO,
@@ -165,7 +166,8 @@ namespace VidaCamara.DIS.data
             var connectionString = ConfigurationManager.AppSettings.Get("CnnBDEX").ToString(); 
             try
             {
-                var queryInsert = @"INSERT INTO VCAMARA.EXACTUS_ASIENTO_DE_DIARIO(ASIENTO,PAQUETE,TIPO_ASIENTO,FECHA,CONTABILIDAD,NOTAS,ESTADO,PERMITIR_DESCUADRADO,CONSERVAR_NUMERACION,ACTUALIZAR_CONSECUTIVO,FECHA_AUDITORIA)
+                //VCAMARA.EXACTUS_ASIENTO_DE_DIARIO
+                var queryInsert = @"INSERT VCAMARA.EXACTUS_ASIENTO_DE_DIARIO(ASIENTO,PAQUETE,TIPO_ASIENTO,FECHA,CONTABILIDAD,NOTAS,ESTADO,PERMITIR_DESCUADRADO,CONSERVAR_NUMERACION,ACTUALIZAR_CONSECUTIVO,FECHA_AUDITORIA)
                                     VALUES(@ASIENTO,@PAQUETE,@TIPO_ASIENTO,@FECHA,@CONTABILIDAD,@NOTAS,@ESTADO,@PERMITIR_DESCUADRADO,@CONSERVAR_NUMERACION,@ACTUALIZAR_CONSECUTIVO,@FECHA_AUDITORIA)";
                 using (var connection = new SqlConnection(connectionString))
                 {
@@ -267,6 +269,7 @@ namespace VidaCamara.DIS.data
 
         internal void createDetalleInRemote(EXACTUS_CABECERA_SIS item)
         {
+            //VCAMARA.EXACTUS_DIARIO
             var connectionString = ConfigurationManager.AppSettings.Get("CnnBDEX").ToString();
             var queryInsertDet = @"INSERT INTO VCAMARA.EXACTUS_DIARIO(ASIENTO,CONSECUTIVO,CENTRO_COSTO,CUENTA_CONTABLE,FUENTE,REFERENCIA,MONTO_LOCAL,MONTO_DOLAR,MONTO_UNIDADES,NIT,DIMENSION1,DIMENSION2,DIMENSION3,DIMENSION4)
                                                 VALUES(@ASIENTO,@CONSECUTIVO,@CENTRO_COSTO,@CUENTA_CONTABLE,@FUENTE,@REFERENCIA,@MONTO_LOCAL,@MONTO_DOLAR,@MONTO_UNIDADES,@NIT,@DIMENSION1,@DIMENSION2,@DIMENSION3,@DIMENSION4)";
@@ -285,7 +288,7 @@ namespace VidaCamara.DIS.data
                         foreach (var det in detalle)
                         {
                             sqlcmd.Parameters.Clear();
-                            if (det.MONTO_LOCAL > 0.00m && det.MONTO_DOLAR > 0.00m)
+                            if (det.MONTO_LOCAL != 0.00m && det.MONTO_DOLAR != 0.00m)
                             {
                                 sqlcmd.Parameters.Add("@ASIENTO", SqlDbType.VarChar).Value = det.ASIENTO;
                                 sqlcmd.Parameters.Add("@CONSECUTIVO", SqlDbType.Int).Value = consecutivo;
@@ -303,8 +306,10 @@ namespace VidaCamara.DIS.data
                                 sqlcmd.Parameters.Add("@DIMENSION4", SqlDbType.VarChar).Value = det.DIMENSION4 == null ? string.Empty : det.DIMENSION4;
                                 sqlcmd.ExecuteNonQuery();
                                 consecutivo++;
+                                det.ESTADO_TRANSFERENCIA = "T";//Transferido
                             }
                         }
+                        db.SaveChanges();
                     }
                 }
             }
